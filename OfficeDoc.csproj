@@ -1,0 +1,228 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0716F257-72DD-41EF-8E79-54BA388E3AB1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QiHe</RootNamespace>
+    <AssemblyName>OfficeDoc</AssemblyName>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CodeLib\Algorithm.cs" />
+    <Compile Include="CodeLib\BinaryTree\BinarySearchTreeBase\BinarySearchTreeBase.cs" />
+    <Compile Include="CodeLib\BinaryTree\BinarySearchTreeBase\BinaryTreeNodeBase.cs" />
+    <Compile Include="CodeLib\BinaryTree\RedBlackTree\RedBlackTree.cs" />
+    <Compile Include="CodeLib\BinaryTree\RedBlackTree\RedBlackTreeNode.cs" />
+    <Compile Include="CodeLib\Encoder\Bin2Hex.cs" />
+    <Compile Include="CodeLib\FileIO.cs" />
+    <Compile Include="CodeLib\FileSelector.cs" />
+    <Compile Include="CodeLib\Pair.cs" />
+    <Compile Include="CodeLib\StreamHelper.cs" />
+    <Compile Include="CodeLib\TextEncoding.cs" />
+    <Compile Include="Office\CompoundDocumentFormat\CompoundDocument.cs" />
+    <Compile Include="Office\CompoundDocumentFormat\CompoundDocument_Read.cs" />
+    <Compile Include="Office\CompoundDocumentFormat\CompoundFileHeader.cs" />
+    <Compile Include="Office\CompoundDocumentFormat\DirectoryEntry.cs" />
+    <Compile Include="Office\CompoundDocumentFormat\ByteOrderMarks.cs" />
+    <Compile Include="Office\CompoundDocumentFormat\DirectoryTree.cs" />
+    <Compile Include="Office\CompoundDocumentFormat\EntryType.cs" />
+    <Compile Include="Office\CompoundDocumentFormat\FileHeader.cs" />
+    <Compile Include="Office\CompoundDocumentFormat\MasterSectorAllocation.cs" />
+    <Compile Include="Office\CompoundDocumentFormat\NodeColor.cs" />
+    <Compile Include="Office\CompoundDocumentFormat\SectorAllocation.cs" />
+    <Compile Include="Office\CompoundDocumentFormat\ShortSectorAllocation.cs" />
+    <Compile Include="Office\CompoundDocumentFormat\SID.cs" />
+    <Compile Include="Office\CompoundDocumentFormat\CompoundDocument_Write.cs" />
+    <Compile Include="Office\Excel\CellCollection.cs" />
+    <Compile Include="Office\Excel\ColorPalette.cs" />
+    <Compile Include="Office\Excel\ColumnWidth.cs" />
+    <Compile Include="Office\Excel\Records\COLINFO.cs" />
+    <Compile Include="Office\Excel\Records\FONT.cs" />
+    <Compile Include="Office\Excel\Records\FORMAT.cs" />
+    <Compile Include="Office\Excel\SharedResource.cs" />
+    <Compile Include="Office\Excel\Decode\WorkbookDecoder.cs" />
+    <Compile Include="Office\Excel\Decode\WorksheetDecoder.cs" />
+    <Compile Include="Office\Excel\Encode\WorkbookEncoder.cs" />
+    <Compile Include="Office\Excel\Encode\WorkSheetEncoder.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtBlip.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtBlipBitmapPS.cs" />
+    <Compile Include="Office\Excel\Extended\BOOLERR.cs" />
+    <Compile Include="Office\Excel\Cell.cs" />
+    <Compile Include="Office\Excel\Extended\EXTSST.cs" />
+    <Compile Include="Office\Excel\Extended\FORMULA.cs" />
+    <Compile Include="Office\Excel\Extended\MSOCONTAINER.cs" />
+    <Compile Include="Office\Excel\Extended\MsofbtContainer.cs" />
+    <Compile Include="Office\Excel\Enums\ErrorCode.cs" />
+    <Compile Include="Office\Excel\EscherRecord.cs" />
+    <Compile Include="Office\Excel\EscherRecords\EscherRecord.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Office\Excel\EscherRecords\MsofbtAlignRule.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtAnchor.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtArcRule.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtBlipBitmapDIB.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtBlipBitmapJPEG.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtBlipBitmapPNG.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtBlipEnd.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtBlipStart.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtBSE.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtBstoreContainer.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtCalloutRule.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtChildAnchor.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtClientAnchor.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtClientData.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtClientRule.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtClientTextbox.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtCLSID.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtColorMRU.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtColorScheme.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtConnectorRule.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtContainer.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtDeletedPspl.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtDg.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtDgContainer.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtDgg.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtDggContainer.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtOleObject.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtOPT.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtRegroupItems.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtSelection.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtSolverContainer.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtSp.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtSpContainer.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtSpgr.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtSpgrContainer.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtSplitMenuColors.cs" />
+    <Compile Include="Office\Excel\EscherRecords\MsofbtTextbox.cs" />
+    <Compile Include="Office\Excel\Extended\MsofbtBSE.cs" />
+    <Compile Include="Office\Excel\Extended\MsofbtDgg.cs" />
+    <Compile Include="Office\Excel\Extended\MsofbtDggContainer.cs" />
+    <Compile Include="Office\Excel\Enums\EscherRecordType.cs" />
+    <Compile Include="Office\Excel\Extended\MsofbtOPT.cs" />
+    <Compile Include="Office\Excel\Enums\PropertyIDs.cs" />
+    <Compile Include="Office\Excel\Extended\StringOffset.cs" />
+    <Compile Include="Office\Excel\Picture.cs" />
+    <Compile Include="Office\Excel\Records\ARRAY.cs" />
+    <Compile Include="Office\Excel\Records\BACKUP.cs" />
+    <Compile Include="Office\Excel\Records\BITMAP.cs" />
+    <Compile Include="Office\Excel\Records\BLANK.cs" />
+    <Compile Include="Office\Excel\Records\BOF.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Office\Excel\Records\BOOKBOOL.cs" />
+    <Compile Include="Office\Excel\Records\BOOLERR.cs" />
+    <Compile Include="Office\Excel\Records\BOTTOMMARGIN.cs" />
+    <Compile Include="Office\Excel\Records\BOUNDSHEET.cs" />
+    <Compile Include="Office\Excel\Records\CALCCOUNT.cs" />
+    <Compile Include="Office\Excel\Records\CALCMODE.cs" />
+    <Compile Include="Office\Excel\Records\CellValue.cs" />
+    <Compile Include="Office\Excel\Records\CODEPAGE.cs" />
+    <Compile Include="Office\Excel\Records\CONTINUE.cs" />
+    <Compile Include="Office\Excel\Records\DATEMODE.cs" />
+    <Compile Include="Office\Excel\Records\DBCELL.cs" />
+    <Compile Include="Office\Excel\Records\DIMENSIONS.cs" />
+    <Compile Include="Office\Excel\Records\EOF.cs" />
+    <Compile Include="Office\Excel\Records\EXTSST.cs" />
+    <Compile Include="Office\Excel\Records\FORMULA.cs" />
+    <Compile Include="Office\Excel\Records\LABELSST.cs" />
+    <Compile Include="Office\Excel\Records\MSOCONTAINER.cs" />
+    <Compile Include="Office\Excel\Records\MSODRAWING.cs" />
+    <Compile Include="Office\Excel\Records\MSODRAWINGGROUP.cs" />
+    <Compile Include="Office\Excel\Records\MSODRAWINGSELECTION.cs" />
+    <Compile Include="Office\Excel\Records\MULBLANK.cs" />
+    <Compile Include="Office\Excel\Records\MULRK.cs" />
+    <Compile Include="Office\Excel\Records\NUMBER.cs" />
+    <Compile Include="Office\Excel\Records\OBJ.cs" />
+    <Compile Include="Office\Excel\Records\PALETTE.cs" />
+    <Compile Include="Office\Excel\Records\Record.cs" />
+    <Compile Include="Office\Excel\Records\RK.cs" />
+    <Compile Include="Office\Excel\Records\ROW.cs" />
+    <Compile Include="Office\Excel\Records\RSTRING.cs" />
+    <Compile Include="Office\Excel\Records\SST.cs" />
+    <Compile Include="Office\Excel\Records\STRING.cs" />
+    <Compile Include="Office\Excel\Records\WINDOW1.cs" />
+    <Compile Include="Office\Excel\Records\XF.cs" />
+    <Compile Include="Office\Excel\Extended\MULRK.cs" />
+    <Compile Include="Office\Excel\Extended\OBJ.cs" />
+    <Compile Include="Office\Excel\Extended\PALETTE.cs" />
+    <Compile Include="Office\Excel\Record.cs" />
+    <Compile Include="Office\Excel\Enums\RecordType.cs" />
+    <Compile Include="Office\Excel\Extended\SST.cs" />
+    <Compile Include="Office\Excel\Enums\SheetType.cs" />
+    <Compile Include="Office\Excel\Enums\StreamType.cs" />
+    <Compile Include="Office\Excel\Row.cs" />
+    <Compile Include="Office\Excel\ShapeProperty.cs" />
+    <Compile Include="Office\Excel\SubRecord.cs" />
+    <Compile Include="Office\Excel\SubRecords\CommonObjectData.cs" />
+    <Compile Include="Office\Excel\SubRecords\End.cs" />
+    <Compile Include="Office\Excel\SubRecords\GroupMarker.cs" />
+    <Compile Include="Office\Excel\SubRecords\SubRecord.cs" />
+    <Compile Include="Office\Excel\Enums\SubRecordType.cs" />
+    <Compile Include="Office\Excel\Workbook.cs" />
+    <Compile Include="Office\Excel\Worksheet.cs" />
+    <Compile Include="Office\Excel\Extended\XF.cs" />
+    <Compile Include="Office\Tool\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Office\Tool\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Office\Tool\Program.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Office\Tool\Form1.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Office\Excel\MetaData\EscherRecordTypes.txt" />
+    <Content Include="Office\Excel\MetaData\Excel.xml" />
+    <Content Include="Office\Excel\MetaData\Record Identifier.txt" />
+    <Content Include="Office\Excel\readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

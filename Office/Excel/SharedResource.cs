@@ -1,0 +1,129 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace QiHe.Office.Excel
+{
+    public class SharedResource
+    {
+        public SST SharedStringTable;
+
+        public DateTime BaseDate;
+
+        public ColorPalette ColorPalette = new ColorPalette();
+
+        public List<FORMAT> NumberFormats = new List<FORMAT>();
+
+        public List<XF> ExtendedFormats = new List<XF>();
+
+        public SharedResource()
+        {
+        }
+
+        public SharedResource(bool newbook)
+        {
+            FONT font = new FONT();
+            font.Height = 200;
+            font.OptionFlags = 0;
+            font.ColorIndex = 32767;
+            font.Weight = 400;
+            font.Escapement = 0;
+            font.Underline = 0;
+            font.CharacterSet = 1;
+            font.Name = "Arial";
+            //Fonts.Add(font);
+
+            for (ushort i = 0; i < 21; i++) // required by MS Excel 2003
+            {
+                XF xf = new XF();
+                xf.Attributes = 252;
+                xf.CellProtection = 65524;
+                xf.PatternColorIndex = 64;
+                xf.PatternBackgroundColorIndex = 130;
+                xf.FontIndex = 0;
+                xf.FormatIndex = i;
+                ExtendedFormats.Add(xf);
+            }
+
+            MaxNumberFormatIndex = 163;
+            GetXFIndex("GENERAL");
+
+            SharedStringTable = new SST();
+            SharedStringTable.StringList = new List<string>();
+        }
+
+        public string GetStringFromSST(int index)
+        {
+            if (SharedStringTable != null)
+            {
+                return SharedStringTable.StringList[index];
+            }
+            return null;
+        }
+
+        public int GetSSTIndex(string text)
+        {
+            SharedStringTable.TotalOccurance++;
+            int index = SharedStringTable.StringList.IndexOf(text);
+            if (index == -1)
+            {
+                SharedStringTable.StringList.Add(text);
+                return SharedStringTable.StringList.Count - 1;
+            }
+            else
+            {
+                return index;
+            }
+        }
+
+        public double EncodeDateTime(DateTime value)
+        {
+            double days = (value - BaseDate).Days;
+            if (days > 365) days++;
+            return days;
+        }
+
+        public XF GetCellXF(Cell cell)
+        {
+            int XFindex = 15;
+            if (cell != null)
+            {
+                XFindex = cell.XFIndex;
+            }
+            return ExtendedFormats[XFindex];
+        }
+
+        Dictionary<string, int> NumberFormatXFIndice = new Dictionary<string, int>();
+        ushort MaxNumberFormatIndex;
+        internal int GetXFIndex(string numberFormat)
+        {
+            if (NumberFormatXFIndice.ContainsKey(numberFormat))
+            {
+                return NumberFormatXFIndice[numberFormat];
+            }
+            else
+            {
+                MaxNumberFormatIndex++;
+
+                FORMAT format = new FORMAT();
+                format.FormatIndex = MaxNumberFormatIndex;
+                format.FormatString = numberFormat;
+                NumberFormats.Add(format);
+
+                XF xf = new XF();
+                xf.Attributes = 252;
+                xf.CellProtection = 0;
+                xf.PatternColorIndex = 64;
+                xf.PatternBackgroundColorIndex = 130;
+                xf.FontIndex = 0;
+                xf.FormatIndex = MaxNumberFormatIndex;
+                ExtendedFormats.Add(xf);
+
+                int numberFormatXFIndex = ExtendedFormats.Count - 1;
+                NumberFormatXFIndice.Add(numberFormat, numberFormatXFIndex);
+
+                return numberFormatXFIndex;
+            }
+        }
+    }
+}
