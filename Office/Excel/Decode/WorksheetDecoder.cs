@@ -26,6 +26,7 @@ namespace QiHe.Office.Excel
             drawingRecord = null;
             Record record = Record.Read(stream);
             Record last_record = record;
+            Record last_formula_record = null;
             last_record.Decode();
             if (record is BOF && ((BOF)record).StreamType == StreamType.Worksheet)
             {
@@ -40,10 +41,11 @@ namespace QiHe.Office.Excel
                         switch (record.Type)
                         {
                             case RecordType.STRING:
-                                if (last_record is FORMULA)
+                                // jetcat_au: use last_formula_record instead of last_record
+                                if (last_formula_record is FORMULA)
                                 {
                                     record.Decode();
-                                    (last_record as FORMULA).StringRecord = record as STRING;
+                                    (last_formula_record as FORMULA).StringRecord = record as STRING;
                                 }
                                 break;
                             case RecordType.MSODRAWING:
@@ -60,6 +62,15 @@ namespace QiHe.Office.Excel
                             default:
                                 records.Add(record);
                                 break;
+                        }
+                        // jetcat_au: see 4.8 Array Formulas and Shared Formulas
+                        if (record.Type == RecordType.FORMULA)
+                        {
+                            last_formula_record = record;
+                        }
+                        else if (record.Type != RecordType.SHRFMLA && record.Type != RecordType.ARRAY)
+                        {
+                            last_formula_record = null;
                         }
                         last_record = record;
                     }
