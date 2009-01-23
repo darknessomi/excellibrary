@@ -59,7 +59,7 @@ namespace QiHe.Office.Excel
                 all_sheet_records.Add(sheet_records);
             }
 
-            book_records.AddRange(sharedResource.NumberFormats.ToArray());
+            book_records.AddRange(sharedResource.FormatRecords.ToArray());
             book_records.AddRange(sharedResource.ExtendedFormats.ToArray());
 
             List<BOUNDSHEET> boundSheets = new List<BOUNDSHEET>();

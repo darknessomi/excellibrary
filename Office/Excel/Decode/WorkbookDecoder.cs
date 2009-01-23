@@ -90,6 +90,9 @@ namespace QiHe.Office.Excel
                     case RecordType.XF:
                         sharedResource.ExtendedFormats.Add(record as XF);
                         break;
+                    case RecordType.FORMAT:
+                        sharedResource.CellFormats.Add(record as FORMAT);
+                        break;
                     case RecordType.SST:
                         sharedResource.SharedStringTable = record as SST;
                         break;

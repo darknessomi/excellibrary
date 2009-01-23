@@ -12,9 +12,11 @@ namespace QiHe.Office.Excel
 
         public ColorPalette ColorPalette = new ColorPalette();
 
-        public List<FORMAT> NumberFormats = new List<FORMAT>();
+        public List<FORMAT> FormatRecords = new List<FORMAT>();
 
         public List<XF> ExtendedFormats = new List<XF>();
+
+        public CellFormatCollection CellFormats = new CellFormatCollection();
 
         public SharedResource()
         {
@@ -46,7 +48,7 @@ namespace QiHe.Office.Excel
             }
 
             MaxNumberFormatIndex = 163;
-            GetXFIndex("GENERAL");
+            GetXFIndex("General");
 
             SharedStringTable = new SST();
             SharedStringTable.StringList = new List<string>();
@@ -95,20 +97,24 @@ namespace QiHe.Office.Excel
 
         Dictionary<string, int> NumberFormatXFIndice = new Dictionary<string, int>();
         ushort MaxNumberFormatIndex;
-        internal int GetXFIndex(string numberFormat)
+        internal int GetXFIndex(string formatString)
         {
-            if (NumberFormatXFIndice.ContainsKey(numberFormat))
+            if (NumberFormatXFIndice.ContainsKey(formatString))
             {
-                return NumberFormatXFIndice[numberFormat];
+                return NumberFormatXFIndice[formatString];
             }
             else
             {
-                MaxNumberFormatIndex++;
+                UInt16 formatIndex = CellFormats.GetFormatIndex(formatString);
+                if (formatIndex == UInt16.MaxValue)
+                {
+                    formatIndex = MaxNumberFormatIndex++;
+                }
 
                 FORMAT format = new FORMAT();
-                format.FormatIndex = MaxNumberFormatIndex;
-                format.FormatString = numberFormat;
-                NumberFormats.Add(format);
+                format.FormatIndex = formatIndex;
+                format.FormatString = formatString;
+                FormatRecords.Add(format);
 
                 XF xf = new XF();
                 xf.Attributes = 252;
@@ -116,11 +122,11 @@ namespace QiHe.Office.Excel
                 xf.PatternColorIndex = 64;
                 xf.PatternBackgroundColorIndex = 130;
                 xf.FontIndex = 0;
-                xf.FormatIndex = MaxNumberFormatIndex;
+                xf.FormatIndex = formatIndex;
                 ExtendedFormats.Add(xf);
 
                 int numberFormatXFIndex = ExtendedFormats.Count - 1;
-                NumberFormatXFIndice.Add(numberFormat, numberFormatXFIndex);
+                NumberFormatXFIndice.Add(formatString, numberFormatXFIndex);
 
                 return numberFormatXFIndex;
             }

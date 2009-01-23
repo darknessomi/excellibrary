@@ -49,3 +49,10 @@ Fixed XF format so that the created xls file can be opened by MS Excel 2003.
 2008-11-16
 Assign number format for number and date time values.
 Set column widths.
+
+2009-01-20
+Fix for getting 'NaN' when reading string value of a formula cell.
+
+2009-01-23
+Support decode cell format and encode predefined cell format.
+

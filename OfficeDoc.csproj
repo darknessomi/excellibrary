@@ -1,8 +1,8 @@
-﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.50727</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0716F257-72DD-41EF-8E79-54BA388E3AB1}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -11,6 +11,11 @@
     <AssemblyName>OfficeDoc</AssemblyName>
     <StartupObject>
     </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -67,6 +72,9 @@
     <Compile Include="Office\CompoundDocumentFormat\SID.cs" />
     <Compile Include="Office\CompoundDocumentFormat\CompoundDocument_Write.cs" />
     <Compile Include="Office\Excel\CellCollection.cs" />
+    <Compile Include="Office\Excel\CellFormat\CellFormat.cs" />
+    <Compile Include="Office\Excel\CellFormat\CellFormatCollection.cs" />
+    <Compile Include="Office\Excel\CellFormat\CellFormatType.cs" />
     <Compile Include="Office\Excel\ColorPalette.cs" />
     <Compile Include="Office\Excel\ColumnWidth.cs" />
     <Compile Include="Office\Excel\Records\COLINFO.cs" />

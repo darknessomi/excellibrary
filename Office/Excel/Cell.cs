@@ -11,7 +11,7 @@ namespace QiHe.Office.Excel
 
         internal int XFIndex;
 
-        public string NumberFormat; 
+        public string NumberFormat;
 
         internal SharedResource SharedResource;
 
@@ -42,7 +42,10 @@ namespace QiHe.Office.Excel
 
         public object Value
         {
-            get { return _value; }
+            get
+            {
+                return _value;
+            }
             set
             {
                 if (IsEmpty) throw new Exception("Can not set value to an empty cell.");
@@ -108,6 +111,22 @@ namespace QiHe.Office.Excel
             get
             {
                 return SharedResource.ColorPalette[BackColorIndex];
+            }
+        }
+
+        public ushort FormatIndex
+        {
+            get
+            {
+                return SharedResource.ExtendedFormats[XFIndex].FormatIndex;
+            }
+        }
+
+        public CellFormat Format
+        {
+            get
+            {
+                return SharedResource.CellFormats[FormatIndex];
             }
         }
     }
