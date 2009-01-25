@@ -13,6 +13,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelLibrary.WinForm", "Exc
 		Release.AspNetCompiler.Debug = "False"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelLibrary.Test", "ExcelLibrary.Test\ExcelLibrary.Test.csproj", "{4CA6D225-46CA-4B23-8C80-AA8E410960C5}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +33,10 @@ Global
 		{116F6530-AE90-4E1A-8D03-2BD609DA6C7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{116F6530-AE90-4E1A-8D03-2BD609DA6C7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{116F6530-AE90-4E1A-8D03-2BD609DA6C7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CA6D225-46CA-4B23-8C80-AA8E410960C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CA6D225-46CA-4B23-8C80-AA8E410960C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CA6D225-46CA-4B23-8C80-AA8E410960C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CA6D225-46CA-4B23-8C80-AA8E410960C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
