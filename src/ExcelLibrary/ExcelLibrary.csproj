@@ -2,13 +2,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0716F257-72DD-41EF-8E79-54BA388E3AB1}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>QiHe</RootNamespace>
-    <AssemblyName>OfficeDoc</AssemblyName>
+    <AssemblyName>ExcelLibrary</AssemblyName>
     <StartupObject>
     </StartupObject>
     <FileUpgradeFlags>
@@ -202,19 +202,6 @@
     <Compile Include="Office\Excel\Workbook.cs" />
     <Compile Include="Office\Excel\Worksheet.cs" />
     <Compile Include="Office\Excel\Extended\XF.cs" />
-    <Compile Include="Office\Tool\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Office\Tool\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Office\Tool\Program.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Office\Tool\Form1.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Office\Excel\MetaData\EscherRecordTypes.txt" />

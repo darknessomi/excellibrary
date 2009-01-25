@@ -1,4 +1,4 @@
-namespace QiHe.Office.Tool
+namespace ExcelLibrary.WinForm
 {
     partial class Form1
     {

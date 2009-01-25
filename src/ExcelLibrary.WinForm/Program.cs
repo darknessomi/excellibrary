@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace QiHe.Office.Tool
+namespace ExcelLibrary.WinForm
 {
     static class Program
     {

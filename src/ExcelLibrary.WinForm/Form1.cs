@@ -10,7 +10,7 @@ using QiHe.CodeLib;
 using QiHe.Office.CompoundDocumentFormat;
 using QiHe.Office.Excel;
 
-namespace QiHe.Office.Tool
+namespace ExcelLibrary.WinForm
 {
     public partial class Form1 : Form
     {
