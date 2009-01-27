@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using QiHe.CodeLib;
 
 namespace QiHe.Office.Excel
 {
@@ -12,7 +13,7 @@ namespace QiHe.Office.Excel
 		public SST()
 		{
 			this.Type = RecordType.SST;
-			this.StringList = new List<String>();
+			this.StringList = new UniqueList<String>();
 		}
 
 		/// <summary>
@@ -28,7 +29,7 @@ namespace QiHe.Office.Excel
 		/// <summary>
 		/// List of nm Unicode strings, 16-bit string length
 		/// </summary>
-		public List<String> StringList;
+		public IList<String> StringList;
 
 		public void decode()
 		{

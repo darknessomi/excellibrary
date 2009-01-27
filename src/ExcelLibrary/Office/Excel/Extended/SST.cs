@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using QiHe.CodeLib;
 
 namespace QiHe.Office.Excel
 {
@@ -13,7 +14,7 @@ namespace QiHe.Office.Excel
             BinaryReader reader = new BinaryReader(stream);
             TotalOccurance = reader.ReadInt32();
             NumStrings = reader.ReadInt32();
-            StringList = new List<string>(NumStrings);
+            StringList = new UniqueList<string>(NumStrings);
             BinaryReader continuedReader = reader;
             for (int i = 0; i < NumStrings; i++)
             {

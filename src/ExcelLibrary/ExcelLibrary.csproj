@@ -57,6 +57,7 @@
     <Compile Include="CodeLib\Pair.cs" />
     <Compile Include="CodeLib\StreamHelper.cs" />
     <Compile Include="CodeLib\TextEncoding.cs" />
+    <Compile Include="CodeLib\UniqueList.cs" />
     <Compile Include="Office\CompoundDocumentFormat\CompoundDocument.cs" />
     <Compile Include="Office\CompoundDocumentFormat\CompoundDocument_Read.cs" />
     <Compile Include="Office\CompoundDocumentFormat\CompoundFileHeader.cs" />
@@ -202,15 +203,13 @@
     <Compile Include="Office\Excel\Workbook.cs" />
     <Compile Include="Office\Excel\Worksheet.cs" />
     <Compile Include="Office\Excel\Extended\XF.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Office\Excel\MetaData\EscherRecordTypes.txt" />
     <Content Include="Office\Excel\MetaData\Excel.xml" />
     <Content Include="Office\Excel\MetaData\Record Identifier.txt" />
     <Content Include="Office\Excel\readme.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

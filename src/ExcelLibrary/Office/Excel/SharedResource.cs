@@ -51,7 +51,6 @@ namespace QiHe.Office.Excel
             GetXFIndex("General");
 
             SharedStringTable = new SST();
-            SharedStringTable.StringList = new List<string>();
         }
 
         public string GetStringFromSST(int index)

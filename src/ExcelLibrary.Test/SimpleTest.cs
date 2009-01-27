@@ -132,5 +132,29 @@ namespace ExcelLibrary.Test
                 Console.WriteLine(String.Format("Read tick count: {0}", end - start));
             }
         }
+
+        [Test]
+        public void WriteFormulaTest()
+        {
+            string tempFilePath = "C:\\Test.xls";
+            {
+                Workbook workbook = new Workbook();
+                Worksheet worksheet = new Worksheet("Test");
+                worksheet.Cells[0, 0] = new Cell(10);
+                worksheet.Cells[0, 1] = new Cell(20);
+                worksheet.Cells[0, 2] = new Cell("=A1+B1");
+
+                workbook.Worksheets.Add(worksheet);
+                workbook.Save(tempFilePath);
+            }
+
+            {
+                Workbook workbook = Workbook.Open(tempFilePath);
+                Assert.AreEqual(10, workbook.Worksheets[0].Cells[0, 0].Value);
+                Assert.AreEqual(20, workbook.Worksheets[0].Cells[0, 1].Value);
+                Assert.AreEqual("=A1+B1", workbook.Worksheets[0].Cells[0, 2].Value);
+            }
+        }
+
     }
 }
