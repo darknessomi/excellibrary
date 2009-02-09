@@ -136,7 +136,7 @@ namespace ExcelLibrary.Test
         [Test]
         public void WriteFormulaTest()
         {
-            string tempFilePath = "C:\\Test.xls";
+            string tempFilePath = Path.GetTempFileName();
             {
                 Workbook workbook = new Workbook();
                 Worksheet worksheet = new Worksheet("Test");
@@ -153,6 +153,30 @@ namespace ExcelLibrary.Test
                 Assert.AreEqual(10, workbook.Worksheets[0].Cells[0, 0].Value);
                 Assert.AreEqual(20, workbook.Worksheets[0].Cells[0, 1].Value);
                 Assert.AreEqual("=A1+B1", workbook.Worksheets[0].Cells[0, 2].Value);
+            }
+        }
+
+        [Test]
+        public void WriteCellTest1()
+        {
+            string tempFilePath = Path.GetTempFileName();
+            {
+                Workbook workbook = new Workbook();
+                Worksheet worksheet1 = new Worksheet("Test 1");
+                Worksheet worksheet2 = new Worksheet("Test 2");
+                Worksheet worksheet3 = new Worksheet("Test 3");
+                worksheet1.Cells[0, 1] = new Cell("Test");
+                worksheet1.Cells[1, 0] = new Cell("Test");
+                
+                workbook.Worksheets.Add(worksheet1);
+                workbook.Worksheets.Add(worksheet2);
+                workbook.Worksheets.Add(worksheet3);
+                workbook.Save(tempFilePath);
+            }
+
+            {
+                Workbook workbook = Workbook.Open(tempFilePath);
+                Assert.AreEqual(3, workbook.Worksheets.Count);
             }
         }
 

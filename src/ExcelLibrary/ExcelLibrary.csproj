@@ -58,6 +58,7 @@
     <Compile Include="CodeLib\StreamHelper.cs" />
     <Compile Include="CodeLib\TextEncoding.cs" />
     <Compile Include="CodeLib\UniqueList.cs" />
+    <Compile Include="DataSetHelper.cs" />
     <Compile Include="Office\CompoundDocumentFormat\CompoundDocument.cs" />
     <Compile Include="Office\CompoundDocumentFormat\CompoundDocument_Read.cs" />
     <Compile Include="Office\CompoundDocumentFormat\CompoundFileHeader.cs" />
