@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using QiHe.CodeLib;
+using ExcelLibrary.CodeLib;
 
-namespace QiHe.Office.CompoundDocumentFormat
+namespace ExcelLibrary.Office.CompoundDocumentFormat
 {
     public class DirectoryTree
     {
@@ -58,13 +58,13 @@ namespace QiHe.Office.CompoundDocumentFormat
             }
         }
 
-        private static byte GetNodeColor(QiHe.CodeLib.NodeColor nodeColor)
+        private static byte GetNodeColor(ExcelLibrary.CodeLib.NodeColor nodeColor)
         {
             switch (nodeColor)
             {
-                case QiHe.CodeLib.NodeColor.Black:
+                case ExcelLibrary.CodeLib.NodeColor.Black:
                     return NodeColor.Black;
-                case QiHe.CodeLib.NodeColor.Red:
+                case ExcelLibrary.CodeLib.NodeColor.Red:
                     return NodeColor.Red;
                 default:
                     throw new ArgumentException();

@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using QiHe.CodeLib;
+using ExcelLibrary.CodeLib;
 
-namespace QiHe.Office.Excel
+namespace ExcelLibrary.Office.Excel
 {
     public class CellCollection
     {

@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using System.Text;
 using NUnit.Framework;
-using QiHe.Office.Excel;
+using ExcelLibrary.Office.Excel;
 
 namespace ExcelLibrary.Test
 {

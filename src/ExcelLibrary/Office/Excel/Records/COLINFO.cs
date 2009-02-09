@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
 
-namespace QiHe.Office.Excel
+namespace ExcelLibrary.Office.Excel
 {
 	/// <summary>
 	/// This record specifies the width and default cell formatting for a given range of columns.

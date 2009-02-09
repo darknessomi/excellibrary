@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
 
-namespace QiHe.Office.Excel
+namespace ExcelLibrary.Office.Excel
 {
     public class ColorPalette
     {

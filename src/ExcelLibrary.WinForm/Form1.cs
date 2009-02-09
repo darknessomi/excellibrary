@@ -6,9 +6,9 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
-using QiHe.CodeLib;
-using QiHe.Office.CompoundDocumentFormat;
-using QiHe.Office.Excel;
+using ExcelLibrary.CodeLib;
+using ExcelLibrary.Office.CompoundDocumentFormat;
+using ExcelLibrary.Office.Excel;
 
 namespace ExcelLibrary.WinForm
 {

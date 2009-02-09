@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-using QiHe.CodeLib;
+using ExcelLibrary.CodeLib;
 
-namespace QiHe.Office.CompoundDocumentFormat
+namespace ExcelLibrary.Office.CompoundDocumentFormat
 {
     public partial class CompoundDocument
     {

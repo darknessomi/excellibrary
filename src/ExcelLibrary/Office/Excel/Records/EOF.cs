@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
 
-namespace QiHe.Office.Excel
+namespace ExcelLibrary.Office.Excel
 {
 	/// <summary>
 	/// Indicates the end of workbook globals, a worksheet, a chart, etc.

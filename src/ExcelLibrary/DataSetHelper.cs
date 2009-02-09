@@ -1,7 +1,7 @@
 using System;
 using System.Data;
 using System.IO;
-using QiHe.Office.Excel;
+using ExcelLibrary.Office.Excel;
 
 namespace ExcelLibrary
 {

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace QiHe.Office.CompoundDocumentFormat
+namespace ExcelLibrary.Office.CompoundDocumentFormat
 {
     /// <summary>
     /// The master sector allocation table (MSAT) is an array of SecIDs of all sectors

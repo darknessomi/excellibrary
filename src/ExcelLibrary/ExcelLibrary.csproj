@@ -7,7 +7,7 @@
     <ProjectGuid>{0716F257-72DD-41EF-8E79-54BA388E3AB1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>QiHe</RootNamespace>
+    <RootNamespace>ExcelLibrary</RootNamespace>
     <AssemblyName>ExcelLibrary</AssemblyName>
     <StartupObject>
     </StartupObject>

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using NUnit.Framework;
-using QiHe.CodeLib;
+using ExcelLibrary.CodeLib;
 
 namespace ExcelLibrary.Test.CodeLib
 {

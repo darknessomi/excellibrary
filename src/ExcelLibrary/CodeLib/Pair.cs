@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace QiHe.CodeLib
+namespace ExcelLibrary.CodeLib
 {
     /// <summary>
     /// Pair

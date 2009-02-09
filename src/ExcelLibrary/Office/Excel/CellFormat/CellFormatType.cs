@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace QiHe.Office.Excel
+namespace ExcelLibrary.Office.Excel
 {
     public enum CellFormatType
     {

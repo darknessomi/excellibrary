@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace QiHe.Office.CompoundDocumentFormat
+namespace ExcelLibrary.Office.CompoundDocumentFormat
 {
     public class FileHeader
     {

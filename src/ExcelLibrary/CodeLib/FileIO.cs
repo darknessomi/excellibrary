@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 
-namespace QiHe.CodeLib
+namespace ExcelLibrary.CodeLib
 {
     /// <summary>
     /// XmlFile load and save object from and to xml file;

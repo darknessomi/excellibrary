@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using System.Drawing;
-using QiHe.Office.CompoundDocumentFormat;
+using ExcelLibrary.Office.CompoundDocumentFormat;
 
-namespace QiHe.Office.Excel
+namespace ExcelLibrary.Office.Excel
 {
     public class WorksheetDecoder
     {

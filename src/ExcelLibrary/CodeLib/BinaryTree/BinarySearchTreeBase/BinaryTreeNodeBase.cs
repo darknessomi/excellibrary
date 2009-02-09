@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace QiHe.CodeLib
+namespace ExcelLibrary.CodeLib
 {
     public class BinaryTreeNodeBase<TItem, TTreeNode>
         where TTreeNode : BinaryTreeNodeBase<TItem, TTreeNode>

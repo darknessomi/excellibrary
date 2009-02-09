@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace QiHe.CodeLib
+namespace ExcelLibrary.CodeLib
 {
     ///<summary>
     ///A red-black tree must satisfy these properties:

@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace QiHe.CodeLib
+namespace ExcelLibrary.CodeLib
 {
     public class UniqueList<T> : IList<T>
     {
