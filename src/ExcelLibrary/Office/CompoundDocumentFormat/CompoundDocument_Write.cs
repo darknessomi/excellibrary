@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-using ExcelLibrary.CodeLib;
+using QiHe.CodeLib;
 
 namespace ExcelLibrary.Office.CompoundDocumentFormat
 {
@@ -255,17 +255,24 @@ namespace ExcelLibrary.Office.CompoundDocumentFormat
                     DirectoryEntry newEntry = new DirectoryEntry(this, entryName);
                     newEntry.ID = this.DirectoryEntries.Count;
                     this.DirectoryEntries.Add(newEntry.ID, newEntry);
-                    entry.Members.Add(entryName, newEntry);
+                    entry.AddChild(newEntry);
                 }
                 entry = entry.Members[entryName];
             }
             return entry;
         }
 
+        public void DeleteDirectoryEntry(string[] streamPath)
+        {
+            DirectoryEntry entry = GetOrCreateDirectoryEntry(streamPath);
+            DeleteDirectoryEntry(entry);
+        }
+
         public void DeleteDirectoryEntry(DirectoryEntry entry)
         {
             entry.EntryType = EntryType.Empty;
             entry.StreamLength = 0;
+            entry.Parent.Members.Remove(entry.Name);
         }
     }
 }

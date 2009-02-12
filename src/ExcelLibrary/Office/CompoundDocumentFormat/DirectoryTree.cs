@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using ExcelLibrary.CodeLib;
+using QiHe.CodeLib;
 
 namespace ExcelLibrary.Office.CompoundDocumentFormat
 {
@@ -58,13 +58,13 @@ namespace ExcelLibrary.Office.CompoundDocumentFormat
             }
         }
 
-        private static byte GetNodeColor(ExcelLibrary.CodeLib.NodeColor nodeColor)
+        private static byte GetNodeColor(QiHe.CodeLib.NodeColor nodeColor)
         {
             switch (nodeColor)
             {
-                case ExcelLibrary.CodeLib.NodeColor.Black:
+                case QiHe.CodeLib.NodeColor.Black:
                     return NodeColor.Black;
-                case ExcelLibrary.CodeLib.NodeColor.Red:
+                case QiHe.CodeLib.NodeColor.Red:
                     return NodeColor.Red;
                 default:
                     throw new ArgumentException();

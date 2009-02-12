@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-using ExcelLibrary.CodeLib;
+using QiHe.CodeLib;
 
 namespace ExcelLibrary.Office.CompoundDocumentFormat
 {
@@ -94,7 +94,7 @@ namespace ExcelLibrary.Office.CompoundDocumentFormat
                 entry.Document = this;
                 entry.ID = DID;
                 DirectoryEntries[DID] = entry;
-                parent.Members.Add(entry.Name, entry);
+                parent.AddChild(entry);
                 ReadDirectoryEntry(reader, entry.LeftChildDID, parent);
                 ReadDirectoryEntry(reader, entry.RightChildDID, parent);
                 ReadDirectoryEntry(reader, entry.MembersTreeNodeDID, entry);

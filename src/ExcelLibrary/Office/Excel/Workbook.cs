@@ -52,7 +52,7 @@ namespace ExcelLibrary.Office.Excel
             return Images;
         }
 
-        public byte[] ExtractImage(int index, out ushort type)
+        public Image ExtractImage(int index)
         {
             if (DrawingGroup != null)
             {
@@ -60,11 +60,9 @@ namespace ExcelLibrary.Office.Excel
                 MsofbtBSE blipStoreEntry = dggContainer.BstoreContainer.EscherRecords[index] as MsofbtBSE;
                 if (blipStoreEntry.BlipRecord != null)
                 {
-                    type = blipStoreEntry.BlipRecord.Type;
-                    return blipStoreEntry.ImageData;
+                    return new Image(blipStoreEntry.ImageData, blipStoreEntry.BlipRecord.Type);
                 }
             }
-            type = 0;
             return null;
         }
 

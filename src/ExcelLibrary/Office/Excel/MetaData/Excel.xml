@@ -217,17 +217,19 @@
     </Members>
   </Element>
   <Element Name="SST" Parent="Record" Category="Records">
+    <Summary>List of nm Unicode strings, 16-bit string length</Summary>
+    <ClientData />
     <IsAbstract>false</IsAbstract>
     <IsValueNode>true</IsValueNode>
     <HasChild>false</HasChild>
     <Members>
-      <Member Name="TotalOccurance" Type="Int32" Group="Field">
+      <Member Name="TotalOccurance" FriendlyName="" Type="Int32" Group="Field">
         <Summary>Total number of strings in the workbook</Summary>
       </Member>
-      <Member Name="NumStrings" Type="Int32" Group="Field">
+      <Member Name="NumStrings" FriendlyName="" Type="Int32" Group="Field">
         <Summary>Number of following strings (nm)</Summary>
       </Member>
-      <Member Name="StringList" FriendlyName="16" Type="List&lt;String&gt;" Group="Field">
+      <Member Name="StringList" FriendlyName="16" Type="UniqueList&lt;String&gt;" Group="Field">
         <Summary>List of nm Unicode strings, 16-bit string length</Summary>
       </Member>
     </Members>
@@ -283,19 +285,6 @@
       <Member Name="LineStyle" Type="UInt32" Group="Field" />
       <Member Name="LineColor" Type="UInt32" Group="Field" />
       <Member Name="Background" Type="UInt16" Group="Field" />
-    </Members>
-  </Element>
-  <Element Name="PALETTE" Parent="Record" Category="Records">
-    <IsAbstract>false</IsAbstract>
-    <IsValueNode>true</IsValueNode>
-    <HasChild>false</HasChild>
-    <Members>
-      <Member Name="NumColors" Type="UInt16" Group="Field">
-        <Summary>Number of following colours (nm).</Summary>
-      </Member>
-      <Member Name="RGBColours" Type="List&lt;Int32&gt;" Group="Field">
-        <Summary>List of nm RGB colours</Summary>
-      </Member>
     </Members>
   </Element>
   <Element Name="BITMAP" Parent="Record" Category="Records">
@@ -602,6 +591,46 @@ FONT record in the file)</Summary>
       </Member>
     </Members>
   </Element>
+  <Element Name="PALETTE" Parent="Record" Category="Records">
+    <Summary>This record contains the definition of all user-defined  colours  available for cell and object formatting. </Summary>
+    <ClientData />
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>true</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members>
+      <Member Name="NumColors" FriendlyName="" Type="Int16" Group="Field">
+        <Summary>Number of following colours.</Summary>
+      </Member>
+      <Member Name="Colors" FriendlyName="" Type="List&lt;Int32&gt;" Group="Field">
+        <Summary>List of RGB colours.</Summary>
+      </Member>
+    </Members>
+  </Element>
+  <Element Name="STANDARDWIDTH" Parent="Record" Category="Records">
+    <Summary />
+    <ClientData />
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members>
+      <Member Name="DefaultColumnWidth" FriendlyName="" Type="UInt16" Group="Field">
+        <Summary>Default width of the columns in 1/256 of the width of the zero character, using default font (first FONT record in the file)</Summary>
+      </Member>
+    </Members>
+  </Element>
+  <Element Name="DEFCOLWIDTH" Parent="Record" Category="Records">
+    <Summary>This record specifies  the default  column width for columns  that  do not  have a specific width set  using  the records 
+COLWIDTH, COLINFO or STANDARDWIDTH.</Summary>
+    <ClientData />
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members>
+      <Member Name="Value" FriendlyName="" Type="UInt16" Group="Field">
+        <Summary>Column width in characters, using the width of the zero character from default font (first FONT record in the file).</Summary>
+      </Member>
+    </Members>
+  </Element>
   <Element Name="SubRecord" Category="SubRecords">
     <Summary />
     <ClientData />
@@ -623,17 +652,41 @@ FONT record in the file)</Summary>
       <Member Name="Reserved3" Type="UInt32" Group="Field" />
     </Members>
   </Element>
+  <Element Name="End" Parent="SubRecord" Category="SubRecords">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
   <Element Name="GroupMarker" Parent="SubRecord" Category="SubRecords">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="End" Parent="SubRecord" Category="SubRecords">
+  <Element Name="ClipboardFormat" Parent="SubRecord" Category="SubRecords">
+    <Summary />
+    <ClientData />
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
-    <Members />
+    <Members>
+      <Member Name="Reserved" FriendlyName="" Type="UInt16" Group="Field">
+        <Summary />
+      </Member>
+    </Members>
+  </Element>
+  <Element Name="PictureOption" Parent="SubRecord" Category="SubRecords">
+    <Summary>Picture option flags</Summary>
+    <ClientData />
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members>
+      <Member Name="Reserved" FriendlyName="" Type="UInt16" Group="Field">
+        <Summary>Picture option flags</Summary>
+      </Member>
+    </Members>
   </Element>
   <Element Name="EscherRecord" Category="EscherRecords">
     <IsAbstract>true</IsAbstract>
@@ -654,6 +707,8 @@ FONT record in the file)</Summary>
     </Members>
   </Element>
   <Element Name="MsofbtBSE" Parent="EscherRecord" Category="EscherRecords">
+    <Summary />
+    <ClientData />
     <IsAbstract>false</IsAbstract>
     <IsValueNode>true</IsValueNode>
     <HasChild>false</HasChild>
@@ -670,7 +725,7 @@ FONT record in the file)</Summary>
       <Member Name="Tag" FriendlyName="" Type="UInt16" Group="Field">
         <Summary />
       </Member>
-      <Member Name="Size" FriendlyName="" Type="Int32" Group="Field">
+      <Member Name="BlipSize" FriendlyName="" Type="UInt32" Group="Field">
         <Summary />
       </Member>
       <Member Name="Ref" FriendlyName="" Type="Int32" Group="Field">
@@ -689,9 +744,6 @@ FONT record in the file)</Summary>
         <Summary />
       </Member>
       <Member Name="Unused3" FriendlyName="" Type="Byte" Group="Field">
-        <Summary />
-      </Member>
-      <Member Name="ExtraData" FriendlyName="" Type="Byte[]" Group="Field">
         <Summary />
       </Member>
     </Members>
@@ -713,7 +765,20 @@ FONT record in the file)</Summary>
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
-    <Members />
+    <Members>
+      <Member Name="Left" FriendlyName="" Type="Int32" Group="Field">
+        <Summary />
+      </Member>
+      <Member Name="Top" FriendlyName="" Type="Int32" Group="Field">
+        <Summary />
+      </Member>
+      <Member Name="Right" FriendlyName="" Type="Int32" Group="Field">
+        <Summary />
+      </Member>
+      <Member Name="Bottom" FriendlyName="" Type="Int32" Group="Field">
+        <Summary />
+      </Member>
+    </Members>
   </Element>
   <Element Name="MsofbtSp" Parent="EscherRecord" Category="EscherRecords">
     <IsAbstract>false</IsAbstract>
@@ -864,10 +929,25 @@ FONT record in the file)</Summary>
     <Members />
   </Element>
   <Element Name="MsofbtSplitMenuColors" Parent="EscherRecord" Category="EscherRecords">
+    <Summary />
+    <ClientData />
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
-    <Members />
+    <Members>
+      <Member Name="Color1" FriendlyName="" Type="Int32" Group="Field">
+        <Summary />
+      </Member>
+      <Member Name="Color2" FriendlyName="" Type="Int32" Group="Field">
+        <Summary />
+      </Member>
+      <Member Name="Color3" FriendlyName="" Type="Int32" Group="Field">
+        <Summary />
+      </Member>
+      <Member Name="Color4" FriendlyName="" Type="Int32" Group="Field">
+        <Summary />
+      </Member>
+    </Members>
   </Element>
   <Element Name="MsofbtOleObject" Parent="EscherRecord" Category="EscherRecords">
     <IsAbstract>false</IsAbstract>
@@ -943,7 +1023,17 @@ FONT record in the file)</Summary>
     <IsAbstract>true</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>true</HasChild>
-    <Members />
+    <Members>
+      <Member Name="UID" FriendlyName="" Type="Guid" Group="Field">
+        <Summary />
+      </Member>
+      <Member Name="Marker" FriendlyName="" Type="Byte" Group="Field">
+        <Summary />
+      </Member>
+      <Member Name="ImageData" FriendlyName="" Type="Byte[]" Group="Field">
+        <Summary />
+      </Member>
+    </Members>
   </Element>
   <Element Name="MsofbtBlipStart" Parent="MsofbtBlip" Category="EscherRecords">
     <Summary />
@@ -953,7 +1043,23 @@ FONT record in the file)</Summary>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="MsofbtBlipBitmapPS" Parent="MsofbtBlip" Category="EscherRecords">
+  <Element Name="MsofbtBlipMetafileEMF" Parent="MsofbtBlip" Category="EscherRecords">
+    <Summary />
+    <ClientData />
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MsofbtBlipMetafileWMF" Parent="MsofbtBlip" Category="EscherRecords">
+    <Summary />
+    <ClientData />
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MsofbtBlipMetafilePICT" Parent="MsofbtBlip" Category="EscherRecords">
     <Summary />
     <ClientData />
     <IsAbstract>false</IsAbstract>

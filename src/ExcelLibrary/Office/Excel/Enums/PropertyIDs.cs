@@ -4,8 +4,19 @@ using System.Text;
 
 namespace ExcelLibrary.Office.Excel
 {
-    public class PropertyIDs
+    public enum PropertyIDs : ushort
     {
-        public const UInt16 BlipId = 260;
+		LockAgainstGrouping = 127,
+        FitTextToShape = 191,
+        BlipId = 260,
+		BlipName = 261,
+		IsActive = 319,
+        FillColor = 385,
+		NoFillHitTest = 447,
+        LineColor = 448,
+		NoLineDrawDash = 511,
+		Background = 831,
+		ShapeName = 896,
+		Description = 897
     }
 }

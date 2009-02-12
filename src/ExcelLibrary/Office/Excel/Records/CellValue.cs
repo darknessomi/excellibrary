@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
@@ -12,12 +12,12 @@ namespace ExcelLibrary.Office.Excel
 		public CellValue(Record record) : base(record) { }
 
 		/// <summary>
-		/// Index to row
+		/// Index to row, 0-based row number
 		/// </summary>
 		public UInt16 RowIndex;
 
 		/// <summary>
-		/// Index to column
+		/// Index to column, 0-based column number
 		/// </summary>
 		public UInt16 ColIndex;
 

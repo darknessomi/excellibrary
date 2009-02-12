@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace ExcelLibrary.CodeLib
+namespace QiHe.CodeLib
 {
     /// <summary>
     /// The Algorithm object is used to perform the calculating tasks.

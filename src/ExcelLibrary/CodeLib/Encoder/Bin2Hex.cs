@@ -2,7 +2,7 @@ using System;
 using System.Text;
 using System.Collections.Generic;
 
-namespace ExcelLibrary.CodeLib
+namespace QiHe.CodeLib
 {
     /// <summary>
     /// Binary data to Hexadecimal string

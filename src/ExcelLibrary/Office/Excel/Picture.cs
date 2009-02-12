@@ -1,16 +1,22 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using QiHe.CodeLib;
 
 namespace ExcelLibrary.Office.Excel
 {
     public class Picture
     {
-        public int LeftCol;
-        public int RightCol;
-        public int UpperRow;
-        public int BottomRow;
-        public ushort ImageFormat;
-        public byte[] ImageData;
+        public CellAnchor TopLeftCorner;
+        public CellAnchor BottomRightCorner;
+        public Image Image;
+
+        public Pair<int, int> CellPos
+        {
+            get
+            {
+                return new Pair<int, int>(TopLeftCorner.RowIndex, TopLeftCorner.ColIndex);
+            }
+        }
     }
 }

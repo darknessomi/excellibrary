@@ -56,3 +56,6 @@ Fix for getting 'NaN' when reading string value of a formula cell.
 2009-01-23
 Support decode cell format and encode predefined cell format.
 
+2009-02-12
+Initial implementation of encode images.
+

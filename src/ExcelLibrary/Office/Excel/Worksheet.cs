@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-using ExcelLibrary.CodeLib;
+using QiHe.CodeLib;
 
 namespace ExcelLibrary.Office.Excel
 {
@@ -27,17 +27,17 @@ namespace ExcelLibrary.Office.Excel
         }
 
         bool extracted = false;
-        Dictionary<Pair<int, int>, Picture> images;
+        Dictionary<Pair<int, int>, Picture> pictures = new Dictionary<Pair<int, int>, Picture>();
         public Dictionary<Pair<int, int>, Picture> Pictures
         {
             get
             {
                 if (!extracted)
                 {
-                    images = ExtractPictures();
+                    ExtractPictures();
                     extracted = true;
                 }
-                return images;
+                return pictures;
             }
         }
 
@@ -54,10 +54,13 @@ namespace ExcelLibrary.Office.Excel
             }
         }
 
-        public Dictionary<Pair<int, int>, Picture> ExtractPictures()
+        public void AddPicture(Picture pic)
         {
-            Dictionary<Pair<int, int>, Picture> images = new Dictionary<Pair<int, int>, Picture>();
-           
+            pictures[pic.CellPos] = pic;
+        }
+
+        public void ExtractPictures()
+        {           
             if (Drawing != null)
             {
                 MsofbtDgContainer dgContainer = Drawing.FindChild<MsofbtDgContainer>();
@@ -79,16 +82,17 @@ namespace ExcelLibrary.Office.Excel
                                 if (prop.PropertyID == PropertyIDs.BlipId)
                                 {
                                     int imageIndex = (int)prop.PropertyValue - 1;
-
-                                    Pair<int, int> cell = new Pair<int, int>(anchor.Row1, anchor.Col1);
-
                                     Picture pic = new Picture();
-                                    pic.UpperRow = anchor.Row1;
-                                    pic.BottomRow = anchor.Row2;
-                                    pic.LeftCol = anchor.Col1;
-                                    pic.RightCol = anchor.Col2;
-                                    pic.ImageData = Book.ExtractImage(imageIndex, out pic.ImageFormat);
-                                    images[cell] = pic;
+                                    pic.TopLeftCorner.RowIndex = anchor.Row1;
+                                    pic.TopLeftCorner.ColIndex = anchor.Col1;
+                                    pic.TopLeftCorner.DX = anchor.DX1;
+                                    pic.TopLeftCorner.DY = anchor.DY1;
+                                    pic.BottomRightCorner.RowIndex = anchor.Row2;
+                                    pic.BottomRightCorner.ColIndex = anchor.Col2;
+                                    pic.BottomRightCorner.DX = anchor.DX2;
+                                    pic.BottomRightCorner.DY = anchor.DY2;
+                                    pic.Image = Book.ExtractImage(imageIndex);
+                                    pictures[pic.CellPos] = pic;
                                     break;
                                 }
                             }
@@ -96,7 +100,6 @@ namespace ExcelLibrary.Office.Excel
                     }
                 }
             }
-            return images;
         }
     }
 }

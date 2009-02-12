@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
@@ -7,18 +7,31 @@ namespace ExcelLibrary.Office.Excel
 {
     public partial class MsofbtContainer : EscherRecord
     {
-        public List<EscherRecord> EscherRecords;
+        public List<EscherRecord> EscherRecords = new List<EscherRecord>();
 
         public override void Decode()
         {
             MemoryStream stream = new MemoryStream(Data);
-            EscherRecords = new List<EscherRecord>();
+            EscherRecords.Clear();
             while (stream.Position < stream.Length)
             {
                 EscherRecord record = EscherRecord.Read(stream);
                 record.Decode();
                 EscherRecords.Add(record);
             }
+        }
+
+        public override void Encode()
+        {
+            MemoryStream stream = new MemoryStream();
+            BinaryWriter writer = new BinaryWriter(stream);
+            foreach (EscherRecord record in EscherRecords)
+            {
+                record.Encode();
+                record.Write(writer);
+            }
+            this.Data = stream.ToArray();
+            this.Size = (UInt32)Data.Length;
         }
 
         public TRecord FindChild<TRecord>() where TRecord : EscherRecord

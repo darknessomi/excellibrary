@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using ExcelLibrary.CodeLib;
+using QiHe.CodeLib;
 
 namespace ExcelLibrary.Office.Excel
 {
@@ -50,7 +50,7 @@ namespace ExcelLibrary.Office.Excel
                     biffRow.RowIndex = (UInt16)rowIndex;
                     biffRow.FirstColIndex = (UInt16)sheetRow.FirstColIndex;
                     biffRow.LastColIndex = (UInt16)(sheetRow.LastColIndex + 1);
-                    biffRow.RowHeight = 0x0101; // default height 0x0080
+                    biffRow.RowHeight = sheetRow.Height;
                     biffRow.Flags = 0x0F0100; // defaul value 0x0100
                     rowblock.Add(biffRow);
 
@@ -62,7 +62,7 @@ namespace ExcelLibrary.Office.Excel
                             CellValue cellRecord = EncodeCell(cell, sharedResource);
                             cellRecord.RowIndex = (UInt16)rowIndex;
                             cellRecord.ColIndex = (UInt16)colIndex;
-                            cellRecord.XFIndex = (UInt16)sharedResource.GetXFIndex(cell.NumberFormat);
+                            cellRecord.XFIndex = (UInt16)sharedResource.GetXFIndex(cell.FormatString);
                             cellblock.Add(cellRecord);
                         }
                     }
@@ -82,6 +82,22 @@ namespace ExcelLibrary.Office.Excel
             {
                 records.AddRange(rowblock);
                 records.AddRange(cellblock);
+            }
+
+            if (worksheet.Pictures.Count > 0)
+            {
+                records.Add(EncodePictures(worksheet.Pictures, sharedResource, worksheet));
+                for (ushort id = 1; id <= worksheet.Pictures.Count; id++)
+                {
+                    OBJ obj = new OBJ();
+                    CommonObjectData objData = new CommonObjectData();
+                    objData.ObjectID = id;
+                    objData.ObjectType = 8;
+                    objData.OptionFlags = 24593;
+                    obj.SubRecords.Add(objData);
+                    obj.SubRecords.Add(new End());
+                    records.Add(obj);
+                }
             }
 
             EOF eof = new EOF();
@@ -144,6 +160,69 @@ namespace ExcelLibrary.Office.Excel
             {
                 throw new Exception("Invalid cell value.");
             }
+        }
+
+        private static Record EncodePictures(Dictionary<Pair<int, int>, Picture> pictures, SharedResource sharedResource, Worksheet worksheet)
+        {
+            MSODRAWING msoDrawing = new MSODRAWING();
+            MsofbtDgContainer dgContainer = new MsofbtDgContainer();
+            msoDrawing.EscherRecords.Add(dgContainer);
+
+            MsofbtDg dg = new MsofbtDg();
+            dg.Instance = 1;
+            dg.NumShapes = pictures.Count + 1;
+            dg.LastShapeID = 1024 + pictures.Count;
+            dgContainer.EscherRecords.Add(dg);
+
+            MsofbtSpgrContainer spgrContainer = new MsofbtSpgrContainer();
+            dgContainer.EscherRecords.Add(spgrContainer);
+
+            MsofbtSpContainer spContainer0 = new MsofbtSpContainer();
+            spContainer0.EscherRecords.Add(new MsofbtSpgr());
+            MsofbtSp shape0 = new MsofbtSp();
+            shape0.ShapeId = 1024;
+            shape0.Flags = ShapeFlag.Group | ShapeFlag.Patriarch;
+            shape0.Version = 2;
+            spContainer0.EscherRecords.Add(shape0);
+            spgrContainer.EscherRecords.Add(spContainer0);
+
+            foreach (Picture pic in pictures.Values)
+            {
+                if (!sharedResource.Images.Contains(pic.Image))
+                {
+                    sharedResource.Images.Add(pic.Image);
+                }
+                MsofbtSpContainer spContainer = new MsofbtSpContainer();
+                MsofbtSp shape = new MsofbtSp();
+                shape.Version = 2;
+                shape.ShapeType = ShapeType.PictureFrame;
+                shape.ShapeId = 1024 + spgrContainer.EscherRecords.Count;
+                shape.Flags = ShapeFlag.Haveanchor | ShapeFlag.Hasshapetype;
+                spContainer.EscherRecords.Add(shape);
+
+                MsofbtOPT opt = new MsofbtOPT();
+                opt.Add(PropertyIDs.LockAgainstGrouping, 33226880);
+                opt.Add(PropertyIDs.FitTextToShape, 262148);
+                opt.Add(PropertyIDs.BlipId, (uint)sharedResource.Images.IndexOf(pic.Image) + 1);
+                spContainer.EscherRecords.Add(opt);
+
+                MsofbtClientAnchor anchor = new MsofbtClientAnchor();
+                anchor.Row1 = pic.TopLeftCorner.RowIndex;
+                anchor.Col1 = pic.TopLeftCorner.ColIndex;
+                anchor.DX1 = pic.TopLeftCorner.DX;
+                anchor.DY1 = pic.TopLeftCorner.DY;
+                anchor.Row2 = pic.BottomRightCorner.RowIndex;
+                anchor.Col2 = pic.BottomRightCorner.ColIndex;
+                anchor.DX2 = pic.BottomRightCorner.DX;
+                anchor.DY2 = pic.BottomRightCorner.DY;
+                anchor.ExtraData = new byte[0];
+                spContainer.EscherRecords.Add(anchor);
+
+                spContainer.EscherRecords.Add(new MsofbtClientData());
+
+                spgrContainer.EscherRecords.Add(spContainer);
+            }
+            return msoDrawing;
         }
     }
 }

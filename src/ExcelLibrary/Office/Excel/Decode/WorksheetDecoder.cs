@@ -13,7 +13,6 @@ namespace ExcelLibrary.Office.Excel
         {
             Worksheet sheet = new Worksheet();
             sheet.Book = book;
-            //MSODRAWING drawing;
             List<Record> records = ReadRecords(stream, out sheet.Drawing);
             sheet.Cells = PopulateCells(records, sharedResource);
             sheet.Book.Records.AddRange(records);

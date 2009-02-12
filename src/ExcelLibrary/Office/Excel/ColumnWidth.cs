@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using ExcelLibrary.CodeLib;
+using QiHe.CodeLib;
 
 namespace ExcelLibrary.Office.Excel
 {
@@ -9,10 +9,27 @@ namespace ExcelLibrary.Office.Excel
     {
         internal Dictionary<Pair<UInt16, UInt16>, UInt16> columnWidth = new Dictionary<Pair<ushort, ushort>, ushort>();
 
+        public UInt16 Default = 8 * 256;
+
         public UInt16 this[UInt16 colIndex]
         {
-            get { return columnWidth[new Pair<ushort, ushort>(colIndex, colIndex)]; }
-            set { columnWidth[new Pair<ushort, ushort>(colIndex, colIndex)] = value; }
+            get
+            {
+                Pair<UInt16, UInt16> range = FindColumnRange(colIndex);
+                if (columnWidth.ContainsKey(range))
+                {
+                    return columnWidth[range];
+                }
+                else
+                {
+                    return Default;
+                }
+            }
+            set
+            {
+                Pair<UInt16, UInt16> range = FindColumnRange(colIndex);
+                columnWidth[range] = value;
+            }
         }
 
         /// <summary>
@@ -25,6 +42,18 @@ namespace ExcelLibrary.Office.Excel
         {
             get { return columnWidth[new Pair<ushort, ushort>(firstColIndex, lastColIndex)]; }
             set { columnWidth[new Pair<ushort, ushort>(firstColIndex, lastColIndex)] = value; }
+        }
+
+        private Pair<UInt16, UInt16> FindColumnRange(UInt16 colIndex)
+        {
+            foreach (Pair<UInt16, UInt16> range in columnWidth.Keys)
+            {
+                if (range.Left <= colIndex && colIndex <= range.Right)
+                {
+                    return range;
+                }
+            }
+            return new Pair<UInt16, UInt16>(colIndex, colIndex);
         }
 
         public IEnumerator<KeyValuePair<Pair<UInt16, UInt16>, UInt16>> GetEnumerator()

@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
-using ExcelLibrary.CodeLib;
+using QiHe.CodeLib;
 using ExcelLibrary.Office.CompoundDocumentFormat;
 using ExcelLibrary.Office.Excel;
 
@@ -36,6 +36,11 @@ namespace ExcelLibrary.WinForm
             worksheet.Cells[4, 0] = new Cell(32764.5, "#,##0.00");
             worksheet.Cells[5, 1] = new Cell(DateTime.Now, @"YYYY\-MM\-DD");
             worksheet.Cells.ColumnWidth[0, 1] = 3000;
+            //Picture pic = new Picture();
+            //pic.Image = Excel.Image.FromFile("C:\\DelBreakpoint.png");
+            //pic.TopLeftCorner = new CellAnchor(5, 1, 0, 0);
+            //pic.BottomRightCorner = new CellAnchor(12, 5, 592, 243);
+            //worksheet.AddPicture(pic);
             workbook.Worksheets.Add(worksheet);
             workbook.Save(file);
             //open created file
@@ -77,6 +82,7 @@ namespace ExcelLibrary.WinForm
             subnode.ContextMenu.MenuItems.Add(new MenuItem("Remove", delegate(object sender, EventArgs e)
             {
                 doc.DeleteDirectoryEntry(entry);
+                subnode.Remove();
             }));
             foreach (KeyValuePair<string, DirectoryEntry> subentry in entry.Members)
             {
@@ -133,6 +139,7 @@ namespace ExcelLibrary.WinForm
                 dgvCells.RowCount = sheet.Cells.LastRowIndex + 1;
                 dgvCells.ColumnCount = sheet.Cells.LastColIndex + 1;
 
+                // tranverse cells
                 foreach (Pair<Pair<int, int>, Cell> cell in sheet.Cells)
                 {
                     dgvCells[cell.Left.Right, cell.Left.Left].Value = cell.Right.Value;
@@ -141,6 +148,24 @@ namespace ExcelLibrary.WinForm
                         dgvCells[cell.Left.Right, cell.Left.Left].Style.BackColor = cell.Right.BackColor;
                     }
                 }
+
+                // tranvers rows by Index
+                for (int rowIndex = sheet.Cells.FirstRowIndex; rowIndex <= sheet.Cells.LastRowIndex; rowIndex++)
+                {
+                    Row row = sheet.Cells.GetRow(rowIndex);
+                    for (int colIndex = row.FirstColIndex; colIndex <= row.LastColIndex; colIndex++)
+                    {
+                        Cell cell = row.GetCell(colIndex);
+                    }
+                }
+                // tranvers rows directly
+                foreach (KeyValuePair<int, Row> row in sheet.Cells.Rows)
+                {
+                    foreach (KeyValuePair<int, Cell> cell in row.Value)
+                    {
+                    }
+                }
+
 
                 foreach (KeyValuePair<Pair<int, int>, Picture> cell in sheet.Pictures)
                 {
@@ -154,7 +179,7 @@ namespace ExcelLibrary.WinForm
                     {
                         dgvCells.ColumnCount = colIndex + 1;
                     }
-                    dgvCells[colIndex, rowIndex].Value = String.Format("<Image,{0}>", GetImageFileExtension(cell.Value.ImageFormat));
+                    dgvCells[colIndex, rowIndex].Value = String.Format("<Image,{0}>", cell.Value.Image.FileExtension);
                 }
 
                 sheetPage.Controls.Add(dgvCells);
@@ -174,26 +199,9 @@ namespace ExcelLibrary.WinForm
             foreach (KeyValuePair<Pair<int, int>, Picture> pic in sheet1.Pictures)
             {
                 string filename = String.Format("image{0}-{1}", pic.Key.Left, pic.Key.Right)
-                    + GetImageFileExtension(pic.Value.ImageFormat);
+                    + pic.Value.Image.FileExtension;
                 string file = Path.Combine(path, filename);
-                File.WriteAllBytes(file, pic.Value.ImageData);
-            }
-        }
-
-        static string GetImageFileExtension(ushort imagetype)
-        {
-            switch (imagetype)
-            {
-                case EscherRecordType.MsofbtBlipBitmapJPEG:
-                    return ".jpeg";
-                case EscherRecordType.MsofbtBlipBitmapPNG:
-                    return ".png";
-                case EscherRecordType.MsofbtBlipBitmapDIB:
-                    return ".bmp";
-                case EscherRecordType.MsofbtBlipBitmapPS:
-                    return ".psd";
-                default:
-                    return "unknown";
+                File.WriteAllBytes(file, pic.Value.Image.Data);
             }
         }
 
@@ -248,6 +256,18 @@ namespace ExcelLibrary.WinForm
             }
             newDoc.Save();
             newDoc.Close();
+        }
+
+        void TranverseEscherRecords(EscherRecord record, Action<EscherRecord> action)
+        {
+            if (record is MsofbtContainer)
+            {
+                foreach (EscherRecord childrecord in (record as MsofbtContainer).EscherRecords)
+                {
+                    TranverseEscherRecords(childrecord, action);
+                }
+            }
+            action(record);
         }
 
         private void Form1_Load(object sender, EventArgs e)

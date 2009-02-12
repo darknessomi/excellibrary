@@ -111,7 +111,7 @@ namespace ExcelLibrary.Office.Excel
                     case RecordType.PALETTE:
                         PALETTE palette = record as PALETTE;
                         int colorIndex = 8;
-                        foreach (int color in palette.RGBColours)
+                        foreach (int color in palette.Colors)
                         {
                             sharedResource.ColorPalette[colorIndex] = Color.FromArgb(color);
                             colorIndex++;

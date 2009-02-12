@@ -96,6 +96,10 @@ namespace ExcelLibrary.Office.CompoundDocumentFormat
         public int UnUsed;
 
         public int ID = -1;
+        
+        public CompoundDocument Document;
+        public DirectoryEntry Parent;
+        public Dictionary<string, DirectoryEntry> Members = new Dictionary<string, DirectoryEntry>();
 
         internal DirectoryEntry() { }
 
@@ -117,7 +121,16 @@ namespace ExcelLibrary.Office.CompoundDocumentFormat
             Document = document;
         }
 
-        public CompoundDocument Document;
+        public void AddChild(DirectoryEntry entry)
+        {
+            if (entry.Parent != null)
+            {
+                throw new ArgumentException("DirectoryEntry already has a parent.");
+            }
+            entry.Parent = this;
+            this.Members.Add(entry.Name, entry);
+        }
+
         byte[] data;
         public byte[] Data
         {
@@ -135,8 +148,6 @@ namespace ExcelLibrary.Office.CompoundDocumentFormat
             }
         }
 
-
-        public Dictionary<string, DirectoryEntry> Members = new Dictionary<string, DirectoryEntry>();
 
         public override string ToString()
         {

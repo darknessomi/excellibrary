@@ -1,11 +1,14 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-using ExcelLibrary.CodeLib;
+using QiHe.CodeLib;
 
 namespace ExcelLibrary.Office.Excel
 {
+	/// <summary>
+	/// List of nm Unicode strings, 16-bit string length
+	/// </summary>
 	public partial class SST : Record
 	{
 		public SST(Record record) : base(record) { }
@@ -29,7 +32,7 @@ namespace ExcelLibrary.Office.Excel
 		/// <summary>
 		/// List of nm Unicode strings, 16-bit string length
 		/// </summary>
-		public IList<String> StringList;
+		public UniqueList<String> StringList;
 
 		public void decode()
 		{

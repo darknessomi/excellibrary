@@ -11,7 +11,7 @@ namespace ExcelLibrary.Office.Excel
 
         internal int XFIndex;
 
-        public string NumberFormat;
+        public string FormatString;
 
         internal SharedResource SharedResource;
 
@@ -20,13 +20,13 @@ namespace ExcelLibrary.Office.Excel
         public Cell(object value)
         {
             _value = value;
-            NumberFormat = "GENERAL";
+            FormatString = "GENERAL";
         }
 
-        public Cell(object value, string numberFormat)
+        public Cell(object value, string formatString)
         {
             _value = value;
-            NumberFormat = numberFormat;
+            FormatString = formatString;
         }
 
         public Cell(object value, int xfindex)

@@ -4,7 +4,7 @@ using System.Text;
 using System.IO;
 using System.Drawing;
 using ExcelLibrary.Office.CompoundDocumentFormat;
-using ExcelLibrary.CodeLib;
+using QiHe.CodeLib;
 
 namespace ExcelLibrary.Office.Excel
 {
@@ -74,6 +74,11 @@ namespace ExcelLibrary.Office.Excel
                 book_records.Add(boundSheet);
             }
 
+            if (sharedResource.Images.Count > 0)
+            {
+                book_records.Add(EncodeImages(sharedResource.Images));
+            }
+
             Record.EncodeRecords(book_records);
             int sstOffset = Record.CountDataLength(book_records);
 
@@ -94,7 +99,7 @@ namespace ExcelLibrary.Office.Excel
                 int sheet_length = Record.CountDataLength(all_sheet_records[0]);
                 dataLength += sheet_length;
             }
-            
+
             List<Record> all_records = new List<Record>();
             all_records.AddRange(book_records);
             foreach (List<Record> sheet_records in all_sheet_records)
@@ -137,6 +142,75 @@ namespace ExcelLibrary.Office.Excel
             }
 
             return extSST;
+        }
+
+        private static Record EncodeImages(IList<Image> images)
+        {
+            MSODRAWINGGROUP drawingGroup = new MSODRAWINGGROUP();
+            MsofbtDggContainer dggContainer = new MsofbtDggContainer();
+            drawingGroup.EscherRecords.Add(dggContainer);
+
+            MsofbtDgg dgg = new MsofbtDgg();
+            dgg.NumSavedDrawings = images.Count;
+            dgg.NumSavedShapes = images.Count + 1;
+            dgg.MaxShapeID = 1024 + dgg.NumSavedShapes;
+            dgg.GroupIdClusters.Add(1, dgg.NumSavedShapes);
+            dggContainer.EscherRecords.Add(dgg);
+
+            MsofbtBstoreContainer bstoreContainer = new MsofbtBstoreContainer();
+            bstoreContainer.Instance = (ushort)images.Count;
+            foreach (Image image in images)
+            {
+                MsofbtBSE blipStoreEntry = new MsofbtBSE();
+                blipStoreEntry.UID = Guid.NewGuid();
+                blipStoreEntry.Ref = 1;
+                blipStoreEntry.Version = 2;
+                blipStoreEntry.BlipRecord = CreateBlipRecord(image);
+                blipStoreEntry.BlipRecord.Type = image.Format;
+                blipStoreEntry.BlipRecord.ImageData = image.Data;
+                blipStoreEntry.BlipRecord.UID = blipStoreEntry.UID;
+                blipStoreEntry.BlipRecord.Marker = 255;
+                blipStoreEntry.SetBlipType(image.BlipType);
+                bstoreContainer.EscherRecords.Add(blipStoreEntry);
+            }
+            dggContainer.EscherRecords.Add(bstoreContainer);
+
+            MsofbtOPT defautProperties = new MsofbtOPT();
+            defautProperties.Add(PropertyIDs.FitTextToShape, 524296);
+            defautProperties.Add(PropertyIDs.FillColor, 134217793);
+            defautProperties.Add(PropertyIDs.LineColor, 134217792);
+            dggContainer.EscherRecords.Add(defautProperties);
+
+            MsofbtSplitMenuColors splitMenuColors = new MsofbtSplitMenuColors();
+            splitMenuColors.Instance = 4;
+            splitMenuColors.Color1 = 134217741;
+            splitMenuColors.Color2 = 134217740;
+            splitMenuColors.Color3 = 134217751;
+            splitMenuColors.Color4 = 268435703;
+            dggContainer.EscherRecords.Add(splitMenuColors);
+
+            return drawingGroup;
+        }
+
+        private static MsofbtBlip CreateBlipRecord(Image image)
+        {
+            switch (image.Format)
+            {
+                case EscherRecordType.MsofbtBlipMetafileEMF:
+                    return new MsofbtBlipMetafileEMF();
+                case EscherRecordType.MsofbtBlipMetafileWMF:
+                    return new MsofbtBlipMetafileWMF();
+                case EscherRecordType.MsofbtBlipMetafilePICT:
+                    return new MsofbtBlipMetafilePICT();
+                case EscherRecordType.MsofbtBlipBitmapJPEG:
+                    return new MsofbtBlipBitmapJPEG();
+                case EscherRecordType.MsofbtBlipBitmapPNG:
+                    return new MsofbtBlipBitmapPNG();
+                case EscherRecordType.MsofbtBlipBitmapDIB:
+                    return new MsofbtBlipBitmapDIB();
+                default:
+                    throw new Exception("Image format not supported.");
+            }
         }
     }
 }

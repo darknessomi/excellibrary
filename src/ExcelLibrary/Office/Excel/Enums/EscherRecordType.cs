@@ -31,7 +31,9 @@ namespace ExcelLibrary.Office.Excel
         public const UInt16 MsofbtCLSID = 0xF016;
         public const UInt16 MsofbtCalloutRule = 0xF017;
         public const UInt16 MsofbtBlipStart = 0xF018;
-        public const UInt16 MsofbtBlipBitmapPS = 0xF01A;
+        public const UInt16 MsofbtBlipMetafileEMF = 0xF01A;
+        public const UInt16 MsofbtBlipMetafileWMF = 0xF01B;
+        public const UInt16 MsofbtBlipMetafilePICT = 0xF01C;
         public const UInt16 MsofbtBlipBitmapJPEG = 0xF01D;
         public const UInt16 MsofbtBlipBitmapPNG = 0xF01E;
         public const UInt16 MsofbtBlipBitmapDIB = 0xF01F;

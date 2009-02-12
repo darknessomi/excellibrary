@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using QiHe.CodeLib;
 
 namespace ExcelLibrary.Office.Excel
 {
@@ -17,6 +18,8 @@ namespace ExcelLibrary.Office.Excel
         public List<XF> ExtendedFormats = new List<XF>();
 
         public CellFormatCollection CellFormats = new CellFormatCollection();
+
+        public UniqueList<Image> Images = new UniqueList<Image>();
 
         public SharedResource()
         {

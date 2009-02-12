@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.IO;
 
 namespace ExcelLibrary.Office.Excel
 {
@@ -11,7 +11,7 @@ namespace ExcelLibrary.Office.Excel
     /// </summary>
     public class ShapeProperty
     {
-        public UInt16 PropertyID;
+        public PropertyIDs PropertyID;
 
         /// <summary>
         /// BLIP properties just store a BLIP ID (basically an index into an array in the BLIP Store).
@@ -27,17 +27,34 @@ namespace ExcelLibrary.Office.Excel
 
         public UInt32 PropertyValue;
 
+        public byte[] ComplexData;
+
         public const int Size = 6;
 
-        public static ShapeProperty Decode(byte[] data, int index)
+        public static ShapeProperty Decode(BinaryReader reader)
         {
             ShapeProperty property = new ShapeProperty();
-            UInt16 num = BitConverter.ToUInt16(data, index);
-            property.PropertyID = (UInt16)(num & 0x3FFF);
-            property.IsBlipID = (num - 0x4000) == num;
-            property.IsComplex = (num - 0x8000) == num;
-            property.PropertyValue = BitConverter.ToUInt32(data, index + 2);
+            UInt16 num = reader.ReadUInt16();
+            property.PropertyID = (PropertyIDs)(num & 0x3FFF);
+            property.IsBlipID = (num & 0x4000) == 0x4000;
+            property.IsComplex = (num & 0x8000) == 0x8000;
+            property.PropertyValue = reader.ReadUInt32();
             return property;
+        }
+
+        public void Encode(BinaryWriter writer)
+        {
+            UInt16 num = (UInt16)((UInt16)PropertyID & 0x3FFF);
+            if (IsBlipID)
+            {
+                num = (UInt16)(num | 0x4000);
+            }
+            if (IsComplex)
+            {
+                num = (UInt16)(num | 0x8000);
+            }
+            writer.Write(num);
+            writer.Write(PropertyValue);
         }
     }
 

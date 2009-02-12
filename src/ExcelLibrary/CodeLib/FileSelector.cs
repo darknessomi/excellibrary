@@ -1,7 +1,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace ExcelLibrary.CodeLib
+namespace QiHe.CodeLib
 {
     /// <summary>
     /// Represents the file type.

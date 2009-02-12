@@ -1,10 +1,13 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
 
 namespace ExcelLibrary.Office.Excel
 {
+	/// <summary>
+	/// This record contains the definition of all user-defined  colours  available for cell and object formatting.
+	/// </summary>
 	public partial class PALETTE : Record
 	{
 		public PALETTE(Record record) : base(record) { }
@@ -12,24 +15,24 @@ namespace ExcelLibrary.Office.Excel
 		public PALETTE()
 		{
 			this.Type = RecordType.PALETTE;
-			this.RGBColours = new List<Int32>();
+			this.Colors = new List<Int32>();
 		}
 
 		/// <summary>
-		/// Number of following colours (nm).
+		/// Number of following colours.
 		/// </summary>
-		public UInt16 NumColors;
+		public Int16 NumColors;
 
 		/// <summary>
-		/// List of nm RGB colours
+		/// List of RGB colours.
 		/// </summary>
-		public List<Int32> RGBColours;
+		public List<Int32> Colors;
 
 		public void decode()
 		{
 			MemoryStream stream = new MemoryStream(Data);
 			BinaryReader reader = new BinaryReader(stream);
-			this.NumColors = reader.ReadUInt16();
+			this.NumColors = reader.ReadInt16();
 			reader.ReadInt32();
 		}
 
@@ -38,7 +41,7 @@ namespace ExcelLibrary.Office.Excel
 			MemoryStream stream = new MemoryStream();
 			BinaryWriter writer = new BinaryWriter(stream);
 			writer.Write(NumColors);
-			foreach(Int32 int32Var in RGBColours)
+			foreach(Int32 int32Var in Colors)
 			{
 				writer.Write(int32Var);
 			}

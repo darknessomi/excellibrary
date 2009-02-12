@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
@@ -50,8 +50,6 @@ namespace ExcelLibrary.Office.Excel
 					return new FORMULA(record);
 				case RecordType.XF:
 					return new XF(record);
-				case RecordType.PALETTE:
-					return new PALETTE(record);
 				case RecordType.BITMAP:
 					return new BITMAP(record);
 				case RecordType.OBJ:
@@ -88,6 +86,12 @@ namespace ExcelLibrary.Office.Excel
 					return new FONT(record);
 				case RecordType.COLINFO:
 					return new COLINFO(record);
+				case RecordType.PALETTE:
+					return new PALETTE(record);
+				case RecordType.STANDARDWIDTH:
+					return new STANDARDWIDTH(record);
+				case RecordType.DEFCOLWIDTH:
+					return new DEFCOLWIDTH(record);
 				default:
 					return record;
 			}

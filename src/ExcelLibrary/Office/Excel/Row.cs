@@ -11,6 +11,8 @@ namespace ExcelLibrary.Office.Excel
         public int FirstColIndex = int.MaxValue;
         public int LastColIndex = int.MinValue;
 
+        public UInt16 Height = 257;
+
         public Cell GetCell(int colIndex)
         {
             if (Cells.ContainsKey(colIndex))

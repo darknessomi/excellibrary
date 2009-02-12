@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
@@ -76,8 +76,12 @@ namespace ExcelLibrary.Office.Excel
 					return new MsofbtSolverContainer(record);
 				case EscherRecordType.MsofbtBlipStart:
 					return new MsofbtBlipStart(record);
-				case EscherRecordType.MsofbtBlipBitmapPS:
-					return new MsofbtBlipBitmapPS(record);
+				case EscherRecordType.MsofbtBlipMetafileEMF:
+					return new MsofbtBlipMetafileEMF(record);
+				case EscherRecordType.MsofbtBlipMetafileWMF:
+					return new MsofbtBlipMetafileWMF(record);
+				case EscherRecordType.MsofbtBlipMetafilePICT:
+					return new MsofbtBlipMetafilePICT(record);
 				case EscherRecordType.MsofbtBlipBitmapJPEG:
 					return new MsofbtBlipBitmapJPEG(record);
 				case EscherRecordType.MsofbtBlipBitmapPNG:

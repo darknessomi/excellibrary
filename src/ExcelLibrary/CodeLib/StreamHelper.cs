@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 
-namespace ExcelLibrary.CodeLib
+namespace QiHe.CodeLib
 {
     /// <summary>
     /// This class represents a Stream Helper.

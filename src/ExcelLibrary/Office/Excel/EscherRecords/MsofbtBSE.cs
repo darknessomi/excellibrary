@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
@@ -22,7 +22,7 @@ namespace ExcelLibrary.Office.Excel
 
 		public UInt16 Tag;
 
-		public Int32 Size;
+		public UInt32 BlipSize;
 
 		public Int32 Ref;
 
@@ -36,8 +36,6 @@ namespace ExcelLibrary.Office.Excel
 
 		public Byte Unused3;
 
-		public Byte[] ExtraData;
-
 		public void decode()
 		{
 			MemoryStream stream = new MemoryStream(Data);
@@ -46,14 +44,13 @@ namespace ExcelLibrary.Office.Excel
 			this.BlipTypeMacOS = reader.ReadByte();
 			this.UID = new Guid(reader.ReadBytes(16));
 			this.Tag = reader.ReadUInt16();
-			this.Size = reader.ReadInt32();
+			this.BlipSize = reader.ReadUInt32();
 			this.Ref = reader.ReadInt32();
 			this.Offset  = reader.ReadInt32();
 			this.Usage = reader.ReadByte();
 			this.NameLength = reader.ReadByte();
 			this.Unused2 = reader.ReadByte();
 			this.Unused3 = reader.ReadByte();
-			this.ExtraData = reader.ReadBytes((int)(stream.Length - stream.Position));
 		}
 
 		public void encode()
@@ -64,16 +61,15 @@ namespace ExcelLibrary.Office.Excel
 			writer.Write(BlipTypeMacOS);
 			writer.Write(UID.ToByteArray());
 			writer.Write(Tag);
-			writer.Write(Size);
+			writer.Write(BlipSize);
 			writer.Write(Ref);
 			writer.Write(Offset );
 			writer.Write(Usage);
 			writer.Write(NameLength);
 			writer.Write(Unused2);
 			writer.Write(Unused3);
-			writer.Write(ExtraData);
 			this.Data = stream.ToArray();
-			this.Size = (UInt16)Data.Length;
+			this.Size = (UInt32)Data.Length;
 			base.Encode();
 		}
 

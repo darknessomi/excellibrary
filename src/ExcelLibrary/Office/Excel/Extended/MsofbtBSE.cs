@@ -1,8 +1,8 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-using ExcelLibrary.CodeLib;
+using QiHe.CodeLib;
 
 namespace ExcelLibrary.Office.Excel
 {
@@ -11,9 +11,18 @@ namespace ExcelLibrary.Office.Excel
     /// </summary>
     public partial class MsofbtBSE : EscherRecord
     {
+        public string BlipName;
         public MsofbtBlip BlipRecord;
         public byte[] ImageData;
-        public byte[] RemainedData;
+        public byte[] ExtraData;
+
+        internal void SetBlipType(byte bliptype)
+        {
+            Instance = bliptype;
+            BlipTypeWin32 = bliptype;
+            BlipTypeMacOS = bliptype;
+            BlipRecord.Instance = BlipSignature.FromBlipType(bliptype);
+        }
 
         public override void Decode()
         {
@@ -23,7 +32,7 @@ namespace ExcelLibrary.Office.Excel
             BlipTypeMacOS = reader.ReadByte();
             UID = new Guid(reader.ReadBytes(16));
             Tag = reader.ReadUInt16();
-            Size = reader.ReadInt32();
+            BlipSize = reader.ReadUInt32();
             Ref = reader.ReadInt32();
             Offset = reader.ReadInt32();
             Usage = reader.ReadByte();
@@ -31,14 +40,18 @@ namespace ExcelLibrary.Office.Excel
             Unused2 = reader.ReadByte();
             Unused3 = reader.ReadByte();
 
+            if (NameLength > 0)
+            {
+                BlipName = Encoding.Unicode.GetString(reader.ReadBytes(NameLength));
+            }
+
             if (stream.Position < stream.Length)
             {
                 BlipRecord = EscherRecord.Read(stream) as MsofbtBlip;
                 if (BlipRecord != null)
                 {
-                    int HeaderSize = 17;
-                    ImageData = new byte[BlipRecord.Data.Length - HeaderSize];
-                    Array.Copy(BlipRecord.Data, HeaderSize, ImageData, 0, ImageData.Length);
+                    BlipRecord.Decode();
+                    this.ImageData = BlipRecord.ImageData;
                 }
                 else
                 {
@@ -48,8 +61,40 @@ namespace ExcelLibrary.Office.Excel
 
             if (stream.Position < stream.Length)
             {
-                RemainedData = StreamHelper.ReadToEnd(stream);
+                ExtraData = StreamHelper.ReadToEnd(stream);
             }
+        }
+
+        public override void Encode()
+        {
+            this.BlipRecord.Encode();
+            this.BlipSize = BlipRecord.Size + 8;
+            if (BlipName != null) NameLength = (byte)BlipName.Length;
+
+            MemoryStream stream = new MemoryStream();
+            BinaryWriter writer = new BinaryWriter(stream);
+            writer.Write(BlipTypeWin32);
+            writer.Write(BlipTypeMacOS);
+            writer.Write(UID.ToByteArray());
+            writer.Write(Tag);
+            writer.Write(BlipSize);
+            writer.Write(Ref);
+            writer.Write(Offset);
+            writer.Write(Usage);
+            writer.Write(NameLength);
+            writer.Write(Unused2);
+            writer.Write(Unused3);
+
+            if (NameLength > 0)
+            {
+                writer.Write(Encoding.Unicode.GetBytes(BlipName));
+            }
+
+            this.BlipRecord.Write(writer);
+
+            this.Data = stream.ToArray();
+            this.Size = (UInt16)Data.Length;
+            base.Encode();
         }
     }
 }

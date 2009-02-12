@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
@@ -33,7 +33,7 @@ namespace ExcelLibrary.Office.Excel
 			writer.Write(ShapeId);
 			writer.Write(Flags);
 			this.Data = stream.ToArray();
-			this.Size = (UInt16)Data.Length;
+			this.Size = (UInt32)Data.Length;
 			base.Encode();
 		}
 
