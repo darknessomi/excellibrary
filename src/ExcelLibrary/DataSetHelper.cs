@@ -53,7 +53,7 @@ namespace ExcelLibrary
 
             // Creates DataTable from a Worksheet
             // All values will be treated as Strings
-            DataTable dt = new DataTable();
+            DataTable dt = new DataTable(ws.Name);
 
             // Extract columns
             for (int i = 0; i <= Cells.LastColIndex; i++)

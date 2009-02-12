@@ -24,8 +24,8 @@ namespace ExcelLibrary.Test
                 DataTable dt1 = new DataTable("Table 1");
                 dt1.Columns.Add("Column A", typeof (String));
                 dt1.Columns.Add("Column B", typeof (String));
-                dt1.Rows.Add("Test 1", "Test2");
-                dt1.Rows.Add("Test 3", "Test4");
+                dt1.Rows.Add("Test 1", "Test 2");
+                dt1.Rows.Add("Test 3", "Test 4");
                 ds.Tables.Add(dt1);
 
                 DataTable dt2 = new DataTable("Table 2");
