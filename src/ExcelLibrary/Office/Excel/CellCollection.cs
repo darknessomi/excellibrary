@@ -16,7 +16,7 @@ namespace ExcelLibrary.Office.Excel
 
         internal SharedResource SharedResource;
 
-        internal ColumnWidth ColumnWidth = new ColumnWidth();
+        public ColumnWidth ColumnWidth = new ColumnWidth();
 
         public Cell CreateCell(int row, int col, object value, int XFindex)
         {

@@ -96,7 +96,7 @@ namespace ExcelLibrary.Office.Excel
                 boundSheets[i].StreamPosition = (uint)dataLength;
                 boundSheets[i].Encode();
 
-                int sheet_length = Record.CountDataLength(all_sheet_records[0]);
+                int sheet_length = Record.CountDataLength(all_sheet_records[i]);
                 dataLength += sheet_length;
             }
 
