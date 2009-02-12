@@ -56,11 +56,11 @@ namespace ExcelLibrary
             DataTable dt = new DataTable();
 
             // Extract columns
-            for (int i = 0; i <= Cells.LastRowIndex; i++)
+            for (int i = 0; i <= Cells.LastColIndex; i++)
                 dt.Columns.Add(Cells[0, i].StringValue, typeof(String));
 
             // Extract data
-            for (int currentRowIndex = 1; currentRowIndex <= Cells.LastColIndex; currentRowIndex++)
+            for (int currentRowIndex = 1; currentRowIndex <= Cells.LastRowIndex; currentRowIndex++)
             {
                 DataRow dr = dt.NewRow();
                 for (int currentColumnIndex = 0; currentColumnIndex <= Cells.LastColIndex; currentColumnIndex++)
