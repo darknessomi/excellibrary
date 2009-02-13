@@ -39,6 +39,7 @@
   <ItemGroup>
     <Compile Include="CodeLib\UniqueListTest.cs" />
     <Compile Include="DataSetHelperTest.cs" />
+    <Compile Include="Issue\Issue10_Test.cs" />
     <Compile Include="SimpleTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
