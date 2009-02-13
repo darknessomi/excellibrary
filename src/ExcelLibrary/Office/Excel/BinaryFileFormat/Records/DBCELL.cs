@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 
-namespace ExcelLibrary.Office.Excel
+namespace ExcelLibrary.BinaryFileFormat
 {
 	/// <summary>
 	/// contains relative offsets to calculate the stream position of the first cell

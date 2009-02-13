@@ -4,7 +4,7 @@ using System.Text;
 using System.IO;
 using QiHe.CodeLib;
 
-namespace ExcelLibrary.Office.Excel
+namespace ExcelLibrary.BinaryDrawingFormat
 {
     /// <summary>
     /// File BLIP Store Entry 
@@ -16,8 +16,9 @@ namespace ExcelLibrary.Office.Excel
         public byte[] ImageData;
         public byte[] ExtraData;
 
-        internal void SetBlipType(byte bliptype)
+        internal void SetBlipType(ushort imageFormat)
         {
+            byte bliptype = BlipType.FromImageFormat(imageFormat);
             Instance = bliptype;
             BlipTypeWin32 = bliptype;
             BlipTypeMacOS = bliptype;

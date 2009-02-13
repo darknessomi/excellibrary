@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using System.Drawing;
-using ExcelLibrary.Office.CompoundDocumentFormat;
+using ExcelLibrary.CompoundDocumentFormat;
+using ExcelLibrary.SpreadSheet;
 
-namespace ExcelLibrary.Office.Excel
+namespace ExcelLibrary.BinaryFileFormat
 {
     public class WorkbookDecoder
     {

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace ExcelLibrary.Office.Excel
+namespace ExcelLibrary.BinaryDrawingFormat
 {
     /// <summary>
     /// Shape Properties msofbtOPT

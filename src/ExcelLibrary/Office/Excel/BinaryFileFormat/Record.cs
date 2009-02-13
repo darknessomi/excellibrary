@@ -4,7 +4,7 @@ using System.Text;
 using System.IO;
 using QiHe.CodeLib;
 
-namespace ExcelLibrary.Office.Excel
+namespace ExcelLibrary.BinaryFileFormat
 {
     public partial class Record
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 
-namespace ExcelLibrary.Office.Excel
+namespace ExcelLibrary.BinaryFileFormat
 {
 	/// <summary>
 	/// This record specifies  the default  column width for columns  that  do not  have a specific width set  using  the records

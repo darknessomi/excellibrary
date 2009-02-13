@@ -4,7 +4,7 @@ using System.Text;
 using System.IO;
 using QiHe.CodeLib;
 
-namespace ExcelLibrary.Office.CompoundDocumentFormat
+namespace ExcelLibrary.CompoundDocumentFormat
 {
     public partial class CompoundDocument
     {

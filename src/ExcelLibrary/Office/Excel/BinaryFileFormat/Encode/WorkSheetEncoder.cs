@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using QiHe.CodeLib;
+using ExcelLibrary.BinaryDrawingFormat;
+using ExcelLibrary.SpreadSheet;
 
-namespace ExcelLibrary.Office.Excel
+namespace ExcelLibrary.BinaryFileFormat
 {
     public class WorkSheetEncoder
     {

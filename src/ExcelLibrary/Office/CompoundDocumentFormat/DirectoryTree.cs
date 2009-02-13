@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using QiHe.CodeLib;
 
-namespace ExcelLibrary.Office.CompoundDocumentFormat
+namespace ExcelLibrary.CompoundDocumentFormat
 {
     public class DirectoryTree
     {

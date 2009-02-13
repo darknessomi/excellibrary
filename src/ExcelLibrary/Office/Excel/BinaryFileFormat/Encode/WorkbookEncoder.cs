@@ -2,11 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-using System.Drawing;
-using ExcelLibrary.Office.CompoundDocumentFormat;
+using ExcelLibrary.CompoundDocumentFormat;
 using QiHe.CodeLib;
+using ExcelLibrary.BinaryDrawingFormat;
+using ExcelLibrary.SpreadSheet;
 
-namespace ExcelLibrary.Office.Excel
+namespace ExcelLibrary.BinaryFileFormat
 {
     public class WorkbookEncoder
     {
@@ -170,7 +171,7 @@ namespace ExcelLibrary.Office.Excel
                 blipStoreEntry.BlipRecord.ImageData = image.Data;
                 blipStoreEntry.BlipRecord.UID = blipStoreEntry.UID;
                 blipStoreEntry.BlipRecord.Marker = 255;
-                blipStoreEntry.SetBlipType(image.BlipType);
+                blipStoreEntry.SetBlipType(image.Format);
                 bstoreContainer.EscherRecords.Add(blipStoreEntry);
             }
             dggContainer.EscherRecords.Add(bstoreContainer);

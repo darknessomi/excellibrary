@@ -2,28 +2,24 @@
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using ExcelLibrary.BinaryDrawingFormat;
 
-namespace ExcelLibrary.Office.Excel
+namespace ExcelLibrary.SpreadSheet
 {
     public class Image
     {
         public ushort Format;
         public byte[] Data;
 
-        public Image(byte[] data, ushort format)
+        public Image(byte[] data, ushort imageFormat)
         {
             Data = data;
-            Format = format;
+            Format = imageFormat;
         }
 
         public string FileExtension
         {
             get { return GetImageFileExtension(this.Format); }
-        }
-
-        public byte BlipType
-        {
-            get { return ExcelLibrary.Office.Excel.BlipType.FromImageType(this.Format); }
         }
 
         public static Image FromFile(string filepath)
@@ -33,9 +29,9 @@ namespace ExcelLibrary.Office.Excel
             return new Image(data, format);
         }
 
-        public static string GetImageFileExtension(ushort imagetype)
+        public static string GetImageFileExtension(ushort imageForamt)
         {
-            switch (imagetype)
+            switch (imageForamt)
             {
                 case EscherRecordType.MsofbtBlipMetafileEMF:
                     return ".emf";

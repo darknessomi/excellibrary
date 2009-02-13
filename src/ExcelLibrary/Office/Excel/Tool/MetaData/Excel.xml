@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ArrayOfElement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Element Name="Record" Category="Records">
+  <Element Name="Record" Category="BinaryFileFormat\Records">
     <IsAbstract>true</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>true</HasChild>
     <Members />
   </Element>
-  <Element Name="BOF" Parent="Record" Category="Records">
+  <Element Name="BOF" Parent="Record" Category="BinaryFileFormat\Records">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
@@ -21,13 +21,13 @@
       </Member>
     </Members>
   </Element>
-  <Element Name="ARRAY" Parent="Record" Category="Records">
+  <Element Name="ARRAY" Parent="Record" Category="BinaryFileFormat\Records">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="BACKUP" Parent="Record" Category="Records">
+  <Element Name="BACKUP" Parent="Record" Category="BinaryFileFormat\Records">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
@@ -37,7 +37,7 @@
       </Member>
     </Members>
   </Element>
-  <Element Name="BLANK" Parent="Record" Category="Records">
+  <Element Name="BLANK" Parent="Record" Category="BinaryFileFormat\Records">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
@@ -47,7 +47,7 @@
       <Member Name="XFIndex" Type="UInt16" Group="Field" />
     </Members>
   </Element>
-  <Element Name="BOOKBOOL" Parent="Record" Category="Records">
+  <Element Name="BOOKBOOL" Parent="Record" Category="BinaryFileFormat\Records">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
@@ -57,7 +57,7 @@
       </Member>
     </Members>
   </Element>
-  <Element Name="BOTTOMMARGIN" Parent="Record" Category="Records">
+  <Element Name="BOTTOMMARGIN" Parent="Record" Category="BinaryFileFormat\Records">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
@@ -67,7 +67,7 @@
       </Member>
     </Members>
   </Element>
-  <Element Name="BOUNDSHEET" Parent="Record" Category="Records">
+  <Element Name="BOUNDSHEET" Parent="Record" Category="BinaryFileFormat\Records">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
@@ -86,7 +86,7 @@
       </Member>
     </Members>
   </Element>
-  <Element Name="CALCCOUNT" Parent="Record" Category="Records">
+  <Element Name="CALCCOUNT" Parent="Record" Category="BinaryFileFormat\Records">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
@@ -96,7 +96,7 @@
       </Member>
     </Members>
   </Element>
-  <Element Name="CALCMODE" Parent="Record" Category="Records">
+  <Element Name="CALCMODE" Parent="Record" Category="BinaryFileFormat\Records">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
@@ -106,7 +106,7 @@
       </Member>
     </Members>
   </Element>
-  <Element Name="CODEPAGE" Parent="Record" Category="Records">
+  <Element Name="CODEPAGE" Parent="Record" Category="BinaryFileFormat\Records">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
@@ -116,7 +116,7 @@
       </Member>
     </Members>
   </Element>
-  <Element Name="DIMENSIONS" Parent="Record" Category="Records">
+  <Element Name="DIMENSIONS" Parent="Record" Category="BinaryFileFormat\Records">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
@@ -138,7 +138,7 @@
       </Member>
     </Members>
   </Element>
-  <Element Name="MULBLANK" Parent="Record" Category="Records">
+  <Element Name="MULBLANK" Parent="Record" Category="BinaryFileFormat\Records">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
@@ -157,7 +157,7 @@
       </Member>
     </Members>
   </Element>
-  <Element Name="MULRK" Parent="Record" Category="Records">
+  <Element Name="MULRK" Parent="Record" Category="BinaryFileFormat\Records">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>true</IsValueNode>
     <HasChild>false</HasChild>
@@ -176,7 +176,7 @@
       </Member>
     </Members>
   </Element>
-  <Element Name="ROW" Parent="Record" Category="Records">
+  <Element Name="ROW" Parent="Record" Category="BinaryFileFormat\Records">
     <Summary>Index to column of the last cell which is described by a cell record, increased by 1</Summary>
     <ClientData />
     <IsAbstract>false</IsAbstract>
@@ -206,7 +206,7 @@
       </Member>
     </Members>
   </Element>
-  <Element Name="RSTRING" Parent="Record" Category="Records">
+  <Element Name="RSTRING" Parent="Record" Category="BinaryFileFormat\Records">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
@@ -216,7 +216,7 @@
       </Member>
     </Members>
   </Element>
-  <Element Name="SST" Parent="Record" Category="Records">
+  <Element Name="SST" Parent="Record" Category="BinaryFileFormat\Records">
     <Summary>List of nm Unicode strings, 16-bit string length</Summary>
     <ClientData />
     <IsAbstract>false</IsAbstract>
@@ -234,13 +234,13 @@
       </Member>
     </Members>
   </Element>
-  <Element Name="CONTINUE" Parent="Record" Category="Records">
+  <Element Name="CONTINUE" Parent="Record" Category="BinaryFileFormat\Records">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="FORMULA" Parent="Record" Category="Records">
+  <Element Name="FORMULA" Parent="Record" Category="BinaryFileFormat\Records">
     <Summary />
     <ClientData />
     <IsAbstract>false</IsAbstract>
@@ -270,7 +270,7 @@
       </Member>
     </Members>
   </Element>
-  <Element Name="XF" Parent="Record" Category="Records">
+  <Element Name="XF" Parent="Record" Category="BinaryFileFormat\Records">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
@@ -287,19 +287,19 @@
       <Member Name="Background" Type="UInt16" Group="Field" />
     </Members>
   </Element>
-  <Element Name="BITMAP" Parent="Record" Category="Records">
+  <Element Name="BITMAP" Parent="Record" Category="BinaryFileFormat\Records">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="OBJ" Parent="Record" Category="Records">
+  <Element Name="OBJ" Parent="Record" Category="BinaryFileFormat\Records">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="DATEMODE" Parent="Record" Category="Records">
+  <Element Name="DATEMODE" Parent="Record" Category="BinaryFileFormat\Records">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
@@ -309,7 +309,7 @@
       </Member>
     </Members>
   </Element>
-  <Element Name="MSOCONTAINER" Parent="Record" Category="Records">
+  <Element Name="MSOCONTAINER" Parent="Record" Category="BinaryFileFormat\Records">
     <Summary />
     <ClientData />
     <IsAbstract>true</IsAbstract>
@@ -317,7 +317,7 @@
     <HasChild>true</HasChild>
     <Members />
   </Element>
-  <Element Name="MSODRAWINGGROUP" Parent="MSOCONTAINER" Category="Records">
+  <Element Name="MSODRAWINGGROUP" Parent="MSOCONTAINER" Category="BinaryFileFormat\Records">
     <Summary />
     <ClientData />
     <IsAbstract>false</IsAbstract>
@@ -325,7 +325,7 @@
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="MSODRAWING" Parent="MSOCONTAINER" Category="Records">
+  <Element Name="MSODRAWING" Parent="MSOCONTAINER" Category="BinaryFileFormat\Records">
     <Summary />
     <ClientData />
     <IsAbstract>false</IsAbstract>
@@ -333,7 +333,7 @@
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="MSODRAWINGSELECTION" Parent="MSOCONTAINER" Category="Records">
+  <Element Name="MSODRAWINGSELECTION" Parent="MSOCONTAINER" Category="BinaryFileFormat\Records">
     <Summary />
     <ClientData />
     <IsAbstract>false</IsAbstract>
@@ -341,7 +341,7 @@
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="STRING" Parent="Record" Category="Records">
+  <Element Name="STRING" Parent="Record" Category="BinaryFileFormat\Records">
     <Summary>This record stores the result of a string formula. It occurs directly after a string formula.</Summary>
     <ClientData />
     <IsAbstract>false</IsAbstract>
@@ -353,7 +353,7 @@
       </Member>
     </Members>
   </Element>
-  <Element Name="EOF" Parent="Record" Category="Records">
+  <Element Name="EOF" Parent="Record" Category="BinaryFileFormat\Records">
     <Summary>Indicates the end of workbook globals, a worksheet, a chart, etc.</Summary>
     <ClientData />
     <IsAbstract>false</IsAbstract>
@@ -361,7 +361,7 @@
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="CellValue" Parent="Record" Category="Records">
+  <Element Name="CellValue" Parent="Record" Category="BinaryFileFormat\Records">
     <Summary />
     <ClientData />
     <IsAbstract>true</IsAbstract>
@@ -379,7 +379,7 @@
       </Member>
     </Members>
   </Element>
-  <Element Name="BOOLERR" Parent="CellValue" Category="Records">
+  <Element Name="BOOLERR" Parent="CellValue" Category="BinaryFileFormat\Records">
     <Summary />
     <ClientData />
     <IsAbstract>false</IsAbstract>
@@ -394,7 +394,7 @@
       </Member>
     </Members>
   </Element>
-  <Element Name="LABELSST" Parent="CellValue" Category="Records">
+  <Element Name="LABELSST" Parent="CellValue" Category="BinaryFileFormat\Records">
     <Summary />
     <ClientData />
     <IsAbstract>false</IsAbstract>
@@ -406,7 +406,7 @@
       </Member>
     </Members>
   </Element>
-  <Element Name="NUMBER" Parent="CellValue" Category="Records">
+  <Element Name="NUMBER" Parent="CellValue" Category="BinaryFileFormat\Records">
     <Summary />
     <ClientData />
     <IsAbstract>false</IsAbstract>
@@ -418,7 +418,7 @@
       </Member>
     </Members>
   </Element>
-  <Element Name="RK" Parent="CellValue" Category="Records">
+  <Element Name="RK" Parent="CellValue" Category="BinaryFileFormat\Records">
     <Summary />
     <ClientData />
     <IsAbstract>false</IsAbstract>
@@ -430,7 +430,7 @@
       </Member>
     </Members>
   </Element>
-  <Element Name="DBCELL" Parent="Record" Category="Records">
+  <Element Name="DBCELL" Parent="Record" Category="BinaryFileFormat\Records">
     <Summary>contains relative offsets to calculate the stream position of the first cell
 record for each row in each row block.</Summary>
     <ClientData />
@@ -446,7 +446,7 @@ record for each row in each row block.</Summary>
       </Member>
     </Members>
   </Element>
-  <Element Name="EXTSST" Parent="Record" Category="Records">
+  <Element Name="EXTSST" Parent="Record" Category="BinaryFileFormat\Records">
     <Summary>This record occurs in conjunction with the SST record. 
 Used to optimise string search operations.</Summary>
     <ClientData />
@@ -462,7 +462,7 @@ Used to optimise string search operations.</Summary>
       </Member>
     </Members>
   </Element>
-  <Element Name="WINDOW1" Parent="Record" Category="Records">
+  <Element Name="WINDOW1" Parent="Record" Category="BinaryFileFormat\Records">
     <Summary>General   settings   for   the  document  window  and  global  workbook   settings</Summary>
     <ClientData />
     <IsAbstract>false</IsAbstract>
@@ -499,7 +499,7 @@ The remaining space is used by the horizontal scrollbar.</Summary>
       </Member>
     </Members>
   </Element>
-  <Element Name="FORMAT" Parent="Record" Category="Records">
+  <Element Name="FORMAT" Parent="Record" Category="BinaryFileFormat\Records">
     <Summary>This record contains information about a number format. </Summary>
     <ClientData />
     <IsAbstract>false</IsAbstract>
@@ -514,7 +514,7 @@ The remaining space is used by the horizontal scrollbar.</Summary>
       </Member>
     </Members>
   </Element>
-  <Element Name="FONT" Parent="Record" Category="Records">
+  <Element Name="FONT" Parent="Record" Category="BinaryFileFormat\Records">
     <Summary />
     <ClientData />
     <IsAbstract>false</IsAbstract>
@@ -563,7 +563,7 @@ The remaining space is used by the horizontal scrollbar.</Summary>
       </Member>
     </Members>
   </Element>
-  <Element Name="COLINFO" Parent="Record" Category="Records">
+  <Element Name="COLINFO" Parent="Record" Category="BinaryFileFormat\Records">
     <Summary>This record specifies the width and default cell formatting for a given range of columns.</Summary>
     <ClientData />
     <IsAbstract>false</IsAbstract>
@@ -591,7 +591,7 @@ FONT record in the file)</Summary>
       </Member>
     </Members>
   </Element>
-  <Element Name="PALETTE" Parent="Record" Category="Records">
+  <Element Name="PALETTE" Parent="Record" Category="BinaryFileFormat\Records">
     <Summary>This record contains the definition of all user-defined  colours  available for cell and object formatting. </Summary>
     <ClientData />
     <IsAbstract>false</IsAbstract>
@@ -606,7 +606,7 @@ FONT record in the file)</Summary>
       </Member>
     </Members>
   </Element>
-  <Element Name="STANDARDWIDTH" Parent="Record" Category="Records">
+  <Element Name="STANDARDWIDTH" Parent="Record" Category="BinaryFileFormat\Records">
     <Summary />
     <ClientData />
     <IsAbstract>false</IsAbstract>
@@ -618,7 +618,7 @@ FONT record in the file)</Summary>
       </Member>
     </Members>
   </Element>
-  <Element Name="DEFCOLWIDTH" Parent="Record" Category="Records">
+  <Element Name="DEFCOLWIDTH" Parent="Record" Category="BinaryFileFormat\Records">
     <Summary>This record specifies  the default  column width for columns  that  do not  have a specific width set  using  the records 
 COLWIDTH, COLINFO or STANDARDWIDTH.</Summary>
     <ClientData />
@@ -631,7 +631,7 @@ COLWIDTH, COLINFO or STANDARDWIDTH.</Summary>
       </Member>
     </Members>
   </Element>
-  <Element Name="SubRecord" Category="SubRecords">
+  <Element Name="SubRecord" Category="BinaryFileFormat\SubRecords">
     <Summary />
     <ClientData />
     <IsAbstract>true</IsAbstract>
@@ -639,7 +639,7 @@ COLWIDTH, COLINFO or STANDARDWIDTH.</Summary>
     <HasChild>true</HasChild>
     <Members />
   </Element>
-  <Element Name="CommonObjectData" Parent="SubRecord" Category="SubRecords">
+  <Element Name="CommonObjectData" Parent="SubRecord" Category="BinaryFileFormat\SubRecords">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
@@ -652,19 +652,19 @@ COLWIDTH, COLINFO or STANDARDWIDTH.</Summary>
       <Member Name="Reserved3" Type="UInt32" Group="Field" />
     </Members>
   </Element>
-  <Element Name="End" Parent="SubRecord" Category="SubRecords">
+  <Element Name="End" Parent="SubRecord" Category="BinaryFileFormat\SubRecords">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="GroupMarker" Parent="SubRecord" Category="SubRecords">
+  <Element Name="GroupMarker" Parent="SubRecord" Category="BinaryFileFormat\SubRecords">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="ClipboardFormat" Parent="SubRecord" Category="SubRecords">
+  <Element Name="ClipboardFormat" Parent="SubRecord" Category="BinaryFileFormat\SubRecords">
     <Summary />
     <ClientData />
     <IsAbstract>false</IsAbstract>
@@ -676,7 +676,7 @@ COLWIDTH, COLINFO or STANDARDWIDTH.</Summary>
       </Member>
     </Members>
   </Element>
-  <Element Name="PictureOption" Parent="SubRecord" Category="SubRecords">
+  <Element Name="PictureOption" Parent="SubRecord" Category="BinaryFileFormat\SubRecords">
     <Summary>Picture option flags</Summary>
     <ClientData />
     <IsAbstract>false</IsAbstract>
@@ -688,13 +688,13 @@ COLWIDTH, COLINFO or STANDARDWIDTH.</Summary>
       </Member>
     </Members>
   </Element>
-  <Element Name="EscherRecord" Category="EscherRecords">
+  <Element Name="EscherRecord" Category="BinaryDrawingFormat\EscherRecords">
     <IsAbstract>true</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>true</HasChild>
     <Members />
   </Element>
-  <Element Name="MsofbtDgg" Parent="EscherRecord" Category="EscherRecords">
+  <Element Name="MsofbtDgg" Parent="EscherRecord" Category="BinaryDrawingFormat\EscherRecords">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>true</IsValueNode>
     <HasChild>false</HasChild>
@@ -706,7 +706,7 @@ COLWIDTH, COLINFO or STANDARDWIDTH.</Summary>
       <Member Name="IDClusters" Type="List&lt;Int64&gt;" Group="Field" />
     </Members>
   </Element>
-  <Element Name="MsofbtBSE" Parent="EscherRecord" Category="EscherRecords">
+  <Element Name="MsofbtBSE" Parent="EscherRecord" Category="BinaryDrawingFormat\EscherRecords">
     <Summary />
     <ClientData />
     <IsAbstract>false</IsAbstract>
@@ -748,7 +748,7 @@ COLWIDTH, COLINFO or STANDARDWIDTH.</Summary>
       </Member>
     </Members>
   </Element>
-  <Element Name="MsofbtDg" Parent="EscherRecord" Category="EscherRecords">
+  <Element Name="MsofbtDg" Parent="EscherRecord" Category="BinaryDrawingFormat\EscherRecords">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
@@ -761,7 +761,7 @@ COLWIDTH, COLINFO or STANDARDWIDTH.</Summary>
       </Member>
     </Members>
   </Element>
-  <Element Name="MsofbtSpgr" Parent="EscherRecord" Category="EscherRecords">
+  <Element Name="MsofbtSpgr" Parent="EscherRecord" Category="BinaryDrawingFormat\EscherRecords">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
@@ -780,7 +780,7 @@ COLWIDTH, COLINFO or STANDARDWIDTH.</Summary>
       </Member>
     </Members>
   </Element>
-  <Element Name="MsofbtSp" Parent="EscherRecord" Category="EscherRecords">
+  <Element Name="MsofbtSp" Parent="EscherRecord" Category="BinaryDrawingFormat\EscherRecords">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
@@ -793,37 +793,37 @@ COLWIDTH, COLINFO or STANDARDWIDTH.</Summary>
       </Member>
     </Members>
   </Element>
-  <Element Name="MsofbtOPT" Parent="EscherRecord" Category="EscherRecords">
+  <Element Name="MsofbtOPT" Parent="EscherRecord" Category="BinaryDrawingFormat\EscherRecords">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="MsofbtTextbox" Parent="EscherRecord" Category="EscherRecords">
+  <Element Name="MsofbtTextbox" Parent="EscherRecord" Category="BinaryDrawingFormat\EscherRecords">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="MsofbtClientTextbox" Parent="EscherRecord" Category="EscherRecords">
+  <Element Name="MsofbtClientTextbox" Parent="EscherRecord" Category="BinaryDrawingFormat\EscherRecords">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="MsofbtAnchor" Parent="EscherRecord" Category="EscherRecords">
+  <Element Name="MsofbtAnchor" Parent="EscherRecord" Category="BinaryDrawingFormat\EscherRecords">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="MsofbtChildAnchor" Parent="EscherRecord" Category="EscherRecords">
+  <Element Name="MsofbtChildAnchor" Parent="EscherRecord" Category="BinaryDrawingFormat\EscherRecords">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="MsofbtClientAnchor" Parent="EscherRecord" Category="EscherRecords">
+  <Element Name="MsofbtClientAnchor" Parent="EscherRecord" Category="BinaryDrawingFormat\EscherRecords">
     <Summary />
     <ClientData />
     <IsAbstract>false</IsAbstract>
@@ -862,73 +862,73 @@ COLWIDTH, COLINFO or STANDARDWIDTH.</Summary>
       </Member>
     </Members>
   </Element>
-  <Element Name="MsofbtClientData" Parent="EscherRecord" Category="EscherRecords">
+  <Element Name="MsofbtClientData" Parent="EscherRecord" Category="BinaryDrawingFormat\EscherRecords">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="MsofbtConnectorRule" Parent="EscherRecord" Category="EscherRecords">
+  <Element Name="MsofbtConnectorRule" Parent="EscherRecord" Category="BinaryDrawingFormat\EscherRecords">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="MsofbtAlignRule" Parent="EscherRecord" Category="EscherRecords">
+  <Element Name="MsofbtAlignRule" Parent="EscherRecord" Category="BinaryDrawingFormat\EscherRecords">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="MsofbtArcRule" Parent="EscherRecord" Category="EscherRecords">
+  <Element Name="MsofbtArcRule" Parent="EscherRecord" Category="BinaryDrawingFormat\EscherRecords">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="MsofbtClientRule" Parent="EscherRecord" Category="EscherRecords">
+  <Element Name="MsofbtClientRule" Parent="EscherRecord" Category="BinaryDrawingFormat\EscherRecords">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="MsofbtCLSID" Parent="EscherRecord" Category="EscherRecords">
+  <Element Name="MsofbtCLSID" Parent="EscherRecord" Category="BinaryDrawingFormat\EscherRecords">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="MsofbtCalloutRule" Parent="EscherRecord" Category="EscherRecords">
+  <Element Name="MsofbtCalloutRule" Parent="EscherRecord" Category="BinaryDrawingFormat\EscherRecords">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="MsofbtRegroupItems" Parent="EscherRecord" Category="EscherRecords">
+  <Element Name="MsofbtRegroupItems" Parent="EscherRecord" Category="BinaryDrawingFormat\EscherRecords">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="MsofbtSelection" Parent="EscherRecord" Category="EscherRecords">
+  <Element Name="MsofbtSelection" Parent="EscherRecord" Category="BinaryDrawingFormat\EscherRecords">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="MsofbtColorMRU" Parent="EscherRecord" Category="EscherRecords">
+  <Element Name="MsofbtColorMRU" Parent="EscherRecord" Category="BinaryDrawingFormat\EscherRecords">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="MsofbtDeletedPspl" Parent="EscherRecord" Category="EscherRecords">
+  <Element Name="MsofbtDeletedPspl" Parent="EscherRecord" Category="BinaryDrawingFormat\EscherRecords">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="MsofbtSplitMenuColors" Parent="EscherRecord" Category="EscherRecords">
+  <Element Name="MsofbtSplitMenuColors" Parent="EscherRecord" Category="BinaryDrawingFormat\EscherRecords">
     <Summary />
     <ClientData />
     <IsAbstract>false</IsAbstract>
@@ -949,19 +949,19 @@ COLWIDTH, COLINFO or STANDARDWIDTH.</Summary>
       </Member>
     </Members>
   </Element>
-  <Element Name="MsofbtOleObject" Parent="EscherRecord" Category="EscherRecords">
+  <Element Name="MsofbtOleObject" Parent="EscherRecord" Category="BinaryDrawingFormat\EscherRecords">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="MsofbtColorScheme" Parent="EscherRecord" Category="EscherRecords">
+  <Element Name="MsofbtColorScheme" Parent="EscherRecord" Category="BinaryDrawingFormat\EscherRecords">
     <IsAbstract>false</IsAbstract>
     <IsValueNode>false</IsValueNode>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="MsofbtContainer" Parent="EscherRecord" Category="EscherRecords">
+  <Element Name="MsofbtContainer" Parent="EscherRecord" Category="BinaryDrawingFormat\EscherRecords">
     <Summary />
     <ClientData />
     <IsAbstract>true</IsAbstract>
@@ -969,7 +969,7 @@ COLWIDTH, COLINFO or STANDARDWIDTH.</Summary>
     <HasChild>true</HasChild>
     <Members />
   </Element>
-  <Element Name="MsofbtDggContainer" Parent="MsofbtContainer" Category="EscherRecords">
+  <Element Name="MsofbtDggContainer" Parent="MsofbtContainer" Category="BinaryDrawingFormat\EscherRecords">
     <Summary />
     <ClientData />
     <IsAbstract>false</IsAbstract>
@@ -977,7 +977,7 @@ COLWIDTH, COLINFO or STANDARDWIDTH.</Summary>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="MsofbtDgContainer" Parent="MsofbtContainer" Category="EscherRecords">
+  <Element Name="MsofbtDgContainer" Parent="MsofbtContainer" Category="BinaryDrawingFormat\EscherRecords">
     <Summary />
     <ClientData />
     <IsAbstract>false</IsAbstract>
@@ -985,7 +985,7 @@ COLWIDTH, COLINFO or STANDARDWIDTH.</Summary>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="MsofbtBstoreContainer" Parent="MsofbtContainer" Category="EscherRecords">
+  <Element Name="MsofbtBstoreContainer" Parent="MsofbtContainer" Category="BinaryDrawingFormat\EscherRecords">
     <Summary />
     <ClientData />
     <IsAbstract>false</IsAbstract>
@@ -993,7 +993,7 @@ COLWIDTH, COLINFO or STANDARDWIDTH.</Summary>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="MsofbtSpgrContainer" Parent="MsofbtContainer" Category="EscherRecords">
+  <Element Name="MsofbtSpgrContainer" Parent="MsofbtContainer" Category="BinaryDrawingFormat\EscherRecords">
     <Summary />
     <ClientData />
     <IsAbstract>false</IsAbstract>
@@ -1001,7 +1001,7 @@ COLWIDTH, COLINFO or STANDARDWIDTH.</Summary>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="MsofbtSpContainer" Parent="MsofbtContainer" Category="EscherRecords">
+  <Element Name="MsofbtSpContainer" Parent="MsofbtContainer" Category="BinaryDrawingFormat\EscherRecords">
     <Summary />
     <ClientData />
     <IsAbstract>false</IsAbstract>
@@ -1009,7 +1009,7 @@ COLWIDTH, COLINFO or STANDARDWIDTH.</Summary>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="MsofbtSolverContainer" Parent="MsofbtContainer" Category="EscherRecords">
+  <Element Name="MsofbtSolverContainer" Parent="MsofbtContainer" Category="BinaryDrawingFormat\EscherRecords">
     <Summary />
     <ClientData />
     <IsAbstract>false</IsAbstract>
@@ -1017,7 +1017,7 @@ COLWIDTH, COLINFO or STANDARDWIDTH.</Summary>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="MsofbtBlip" Parent="EscherRecord" Category="EscherRecords">
+  <Element Name="MsofbtBlip" Parent="EscherRecord" Category="BinaryDrawingFormat\EscherRecords">
     <Summary />
     <ClientData />
     <IsAbstract>true</IsAbstract>
@@ -1035,7 +1035,7 @@ COLWIDTH, COLINFO or STANDARDWIDTH.</Summary>
       </Member>
     </Members>
   </Element>
-  <Element Name="MsofbtBlipStart" Parent="MsofbtBlip" Category="EscherRecords">
+  <Element Name="MsofbtBlipStart" Parent="MsofbtBlip" Category="BinaryDrawingFormat\EscherRecords">
     <Summary />
     <ClientData />
     <IsAbstract>false</IsAbstract>
@@ -1043,7 +1043,7 @@ COLWIDTH, COLINFO or STANDARDWIDTH.</Summary>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="MsofbtBlipMetafileEMF" Parent="MsofbtBlip" Category="EscherRecords">
+  <Element Name="MsofbtBlipMetafileEMF" Parent="MsofbtBlip" Category="BinaryDrawingFormat\EscherRecords">
     <Summary />
     <ClientData />
     <IsAbstract>false</IsAbstract>
@@ -1051,7 +1051,7 @@ COLWIDTH, COLINFO or STANDARDWIDTH.</Summary>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="MsofbtBlipMetafileWMF" Parent="MsofbtBlip" Category="EscherRecords">
+  <Element Name="MsofbtBlipMetafileWMF" Parent="MsofbtBlip" Category="BinaryDrawingFormat\EscherRecords">
     <Summary />
     <ClientData />
     <IsAbstract>false</IsAbstract>
@@ -1059,7 +1059,7 @@ COLWIDTH, COLINFO or STANDARDWIDTH.</Summary>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="MsofbtBlipMetafilePICT" Parent="MsofbtBlip" Category="EscherRecords">
+  <Element Name="MsofbtBlipMetafilePICT" Parent="MsofbtBlip" Category="BinaryDrawingFormat\EscherRecords">
     <Summary />
     <ClientData />
     <IsAbstract>false</IsAbstract>
@@ -1067,7 +1067,7 @@ COLWIDTH, COLINFO or STANDARDWIDTH.</Summary>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="MsofbtBlipBitmapJPEG" Parent="MsofbtBlip" Category="EscherRecords">
+  <Element Name="MsofbtBlipBitmapJPEG" Parent="MsofbtBlip" Category="BinaryDrawingFormat\EscherRecords">
     <Summary />
     <ClientData />
     <IsAbstract>false</IsAbstract>
@@ -1075,7 +1075,7 @@ COLWIDTH, COLINFO or STANDARDWIDTH.</Summary>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="MsofbtBlipBitmapPNG" Parent="MsofbtBlip" Category="EscherRecords">
+  <Element Name="MsofbtBlipBitmapPNG" Parent="MsofbtBlip" Category="BinaryDrawingFormat\EscherRecords">
     <Summary />
     <ClientData />
     <IsAbstract>false</IsAbstract>
@@ -1083,7 +1083,7 @@ COLWIDTH, COLINFO or STANDARDWIDTH.</Summary>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="MsofbtBlipBitmapDIB" Parent="MsofbtBlip" Category="EscherRecords">
+  <Element Name="MsofbtBlipBitmapDIB" Parent="MsofbtBlip" Category="BinaryDrawingFormat\EscherRecords">
     <Summary />
     <ClientData />
     <IsAbstract>false</IsAbstract>
@@ -1091,7 +1091,7 @@ COLWIDTH, COLINFO or STANDARDWIDTH.</Summary>
     <HasChild>false</HasChild>
     <Members />
   </Element>
-  <Element Name="MsofbtBlipEnd" Parent="MsofbtBlip" Category="EscherRecords">
+  <Element Name="MsofbtBlipEnd" Parent="MsofbtBlip" Category="BinaryDrawingFormat\EscherRecords">
     <Summary />
     <ClientData />
     <IsAbstract>false</IsAbstract>

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ExcelLibrary.Office.Excel
+namespace ExcelLibrary.SpreadSheet
 {
     public class CellFormat
     {

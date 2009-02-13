@@ -2,8 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using QiHe.CodeLib;
+using ExcelLibrary.BinaryFileFormat;
 
-namespace ExcelLibrary.Office.Excel
+namespace ExcelLibrary.SpreadSheet
 {
     public class CellCollection
     {

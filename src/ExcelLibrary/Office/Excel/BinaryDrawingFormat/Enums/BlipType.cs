@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ExcelLibrary.Office.Excel
+namespace ExcelLibrary.BinaryDrawingFormat
 {
     public static class BlipType
     {
@@ -15,9 +15,9 @@ namespace ExcelLibrary.Office.Excel
         public const byte PNG = 6;
         public const byte DIB = 7;
 
-        public static byte FromImageType(ushort imagetype)
+        public static byte FromImageFormat(ushort imageForamt)
         {
-            switch (imagetype)
+            switch (imageForamt)
             {
                 case EscherRecordType.MsofbtBlipMetafileEMF:
                     return BlipType.EMF;

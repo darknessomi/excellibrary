@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using QiHe.CodeLib;
+using ExcelLibrary.BinaryFileFormat;
+using ExcelLibrary.BinaryDrawingFormat;
 
-namespace ExcelLibrary.Office.Excel
+namespace ExcelLibrary.SpreadSheet
 {
     public class Worksheet
     {

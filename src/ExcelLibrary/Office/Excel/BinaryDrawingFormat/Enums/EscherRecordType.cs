@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ExcelLibrary.Office.Excel
+namespace ExcelLibrary.BinaryDrawingFormat
 {
     public class EscherRecordType
     {

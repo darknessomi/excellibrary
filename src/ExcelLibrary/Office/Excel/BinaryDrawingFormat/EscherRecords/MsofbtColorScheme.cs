@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 
-namespace ExcelLibrary.Office.Excel
+namespace ExcelLibrary.BinaryDrawingFormat
 {
 	public partial class MsofbtColorScheme : EscherRecord
 	{
