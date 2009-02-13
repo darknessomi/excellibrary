@@ -8,31 +8,29 @@ namespace ExcelLibrary.Office.Excel
     public class Cell
     {
         private object _value;
-
-        internal int XFIndex;
-
-        public string FormatString;
+        private CellFormat _format;
+        private CellStyle _style;
 
         internal SharedResource SharedResource;
 
-        public static readonly Cell EmptyCell = new Cell(null, 0);
+        public static readonly Cell EmptyCell = new Cell(null);
 
         public Cell(object value)
         {
             _value = value;
-            FormatString = "GENERAL";
+            _format = CellFormat.General;
         }
 
         public Cell(object value, string formatString)
         {
             _value = value;
-            FormatString = formatString;
+            _format = new CellFormat(CellFormatType.General, formatString);
         }
 
-        public Cell(object value, int xfindex)
+        public Cell(object value, CellFormat format)
         {
             _value = value;
-            XFIndex = xfindex;
+            _format = format;
         }
 
         public bool IsEmpty
@@ -93,41 +91,26 @@ namespace ExcelLibrary.Office.Excel
             }
             set
             {
-                double days = SharedResource.EncodeDateTime(value);
-                this._value = days;
+                this._value = value;
             }
         }
 
-        public int BackColorIndex
+        public string FormatString
         {
-            get
-            {
-                return SharedResource.ExtendedFormats[XFIndex].PatternColorIndex;
-            }
-        }
-
-        public Color BackColor
-        {
-            get
-            {
-                return SharedResource.ColorPalette[BackColorIndex];
-            }
-        }
-
-        public ushort FormatIndex
-        {
-            get
-            {
-                return SharedResource.ExtendedFormats[XFIndex].FormatIndex;
-            }
+            get { return _format.FormatString; }
+            set { _format.FormatString = value; }
         }
 
         public CellFormat Format
         {
-            get
-            {
-                return SharedResource.CellFormats[FormatIndex];
-            }
+            get { return _format; }
+            set { _format = value; }
+        }
+
+        public CellStyle Style
+        {
+            get { return _style; }
+            set { _style = value; }
         }
     }
 }

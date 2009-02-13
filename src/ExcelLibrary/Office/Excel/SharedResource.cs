@@ -51,7 +51,7 @@ namespace ExcelLibrary.Office.Excel
             }
 
             MaxNumberFormatIndex = 163;
-            GetXFIndex("General");
+            GetXFIndex(CellFormat.General);
 
             SharedStringTable = new SST();
         }
@@ -87,20 +87,11 @@ namespace ExcelLibrary.Office.Excel
             return days;
         }
 
-        public XF GetCellXF(Cell cell)
-        {
-            int XFindex = 15;
-            if (cell != null)
-            {
-                XFindex = cell.XFIndex;
-            }
-            return ExtendedFormats[XFindex];
-        }
-
         Dictionary<string, int> NumberFormatXFIndice = new Dictionary<string, int>();
         ushort MaxNumberFormatIndex;
-        internal int GetXFIndex(string formatString)
+        internal int GetXFIndex(CellFormat cellFormat)
         {
+            string formatString = cellFormat.FormatString;
             if (NumberFormatXFIndice.ContainsKey(formatString))
             {
                 return NumberFormatXFIndice[formatString];

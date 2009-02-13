@@ -20,11 +20,19 @@ namespace ExcelLibrary.Office.Excel
 
         public Cell CreateCell(int row, int col, object value, int XFindex)
         {
-            Cell cell = new Cell(value, XFindex);
+            XF xf = SharedResource.ExtendedFormats[XFindex];
+            CellFormat foramt = SharedResource.CellFormats[xf.FormatIndex];
+            Cell cell = new Cell(value, foramt);
             cell.SharedResource = this.SharedResource;
-            cell.FormatString = cell.Format.FormatString;
+            cell.Style = CreateStyleFromXF(xf);
             this[row, col] = cell;
             return cell;
+        }
+
+        private CellStyle CreateStyleFromXF(XF xf)
+        {
+            //throw new NotImplementedException();
+            return new CellStyle();
         }
 
         public Row GetRow(int rowIndex)

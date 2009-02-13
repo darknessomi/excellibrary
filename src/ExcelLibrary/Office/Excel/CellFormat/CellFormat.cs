@@ -23,6 +23,10 @@ namespace ExcelLibrary.Office.Excel
         public string FormatString
         {
             get { return formatString; }
+            set { formatString = value; }
         }
+
+        public static readonly CellFormat General = new CellFormat(CellFormatType.General, "General");
+        public static readonly CellFormat Date = new CellFormat(CellFormatType.Date, @"YYYY\-MM\-DD");
     }
 }

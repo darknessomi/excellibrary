@@ -143,9 +143,9 @@ namespace ExcelLibrary.WinForm
                 foreach (Pair<Pair<int, int>, Cell> cell in sheet.Cells)
                 {
                     dgvCells[cell.Left.Right, cell.Left.Left].Value = cell.Right.Value;
-                    if (cell.Right.BackColorIndex != 64)
+                    if (cell.Right.Style.BackColor != Color.White)
                     {
-                        dgvCells[cell.Left.Right, cell.Left.Left].Style.BackColor = cell.Right.BackColor;
+                        dgvCells[cell.Left.Right, cell.Left.Left].Style.BackColor = cell.Right.Style.BackColor;
                     }
                 }
 
