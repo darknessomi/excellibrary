@@ -7,8 +7,10 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using QiHe.CodeLib;
-using ExcelLibrary.Office.CompoundDocumentFormat;
-using ExcelLibrary.Office.Excel;
+using ExcelLibrary.CompoundDocumentFormat;
+using ExcelLibrary.BinaryDrawingFormat;
+using ExcelLibrary.BinaryFileFormat;
+using ExcelLibrary.SpreadSheet;
 
 namespace ExcelLibrary.WinForm
 {

@@ -1,5 +1,5 @@
 using System;
-using ExcelLibrary.Office.Excel;
+using ExcelLibrary.SpreadSheet;
 using NUnit.Framework;
 
 namespace ExcelLibrary.Test.Issue

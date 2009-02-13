@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ExcelLibrary.SpreadSheet;
 
-namespace ExcelLibrary.Office.Excel
+namespace ExcelLibrary.BinaryFileFormat
 {
     /// <summary>
     /// Excel built-in cell format 
