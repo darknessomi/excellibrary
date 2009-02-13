@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("ExcelLibrary.WinForm")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("http://code.google.com/p/excellibrary/")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("ExcelLibrary.WinForm")]
