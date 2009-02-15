@@ -67,7 +67,7 @@
     </DataType>
   </DataTypes>
   <EnumTypes />
-  <DataOjbects>
+  <DataObjects>
     <Record Name="Record" Category="BinaryFileFormat\Records">
       <IsAbstract>true</IsAbstract>
       <IsCutomized>false</IsCutomized>
@@ -1031,5 +1031,5 @@ COLWIDTH, COLINFO or STANDARDWIDTH.</Description>
             </Record>
         </Record>
     </Record>
-  </DataOjbects>
+  </DataObjects>
 </Package>
