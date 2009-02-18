@@ -156,7 +156,7 @@ namespace ExcelLibrary.BinaryFileFormat
                 continuedReader = SwitchToContinuedRecord();
                 text.Append(ReadContinuedString(continuedReader, stringlength - firstpart.Length, out continuedReader));
             }
-            ReadBytes(continuedReader, 4 * runs + size);
+            ReadBytes(continuedReader, 4 * runs + size, out continuedReader);
             return text.ToString();
         }
 
@@ -201,14 +201,15 @@ namespace ExcelLibrary.BinaryFileFormat
             return Encoding.Unicode.GetString(textData);
         }
 
-        protected byte[] ReadBytes(BinaryReader reader, int count)
+        protected byte[] ReadBytes(BinaryReader reader, int count, out BinaryReader continuedReader)
         {
+            continuedReader = reader;
             byte[] bytes = reader.ReadBytes(count);
             int bytesRead = bytes.Length;
             if (bytesRead < count)
             {
                 byte[] allbytes = new byte[count];
-                byte[] remainedbytes = ReadBytes(SwitchToContinuedRecord(), count - bytesRead);
+                byte[] remainedbytes = ReadBytes(SwitchToContinuedRecord(), count - bytesRead, out continuedReader);
                 bytes.CopyTo(allbytes, 0);
                 remainedbytes.CopyTo(allbytes, bytesRead);
                 return allbytes;

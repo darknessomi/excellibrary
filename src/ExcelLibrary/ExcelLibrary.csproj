@@ -219,7 +219,7 @@
   <ItemGroup>
     <Content Include="Office\Excel\readme.txt" />
     <Content Include="Office\Excel\Tool\MetaData\EscherRecordTypes.txt" />
-    <Content Include="Office\Excel\Tool\MetaData\Excel.xml" />
+    <Content Include="Office\Excel\Tool\MetaData\ExcelRecords.xml" />
     <Content Include="Office\Excel\Tool\MetaData\Record Identifier.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

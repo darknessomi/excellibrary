@@ -67,11 +67,11 @@ namespace QiHe.CodeLib
 
         public void Add(T item)
         {
-            if (internalLookup.ContainsKey(item))
-                throw new ArgumentException("Duplicate item already exist in the list");
-
             this.internalList.Add(item);
-            this.internalLookup.Add(item, internalList.Count - 1);
+            if (!internalLookup.ContainsKey(item))
+            {
+                this.internalLookup.Add(item, internalList.Count - 1);
+            }
         }
 
         public void Clear()
