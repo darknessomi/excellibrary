@@ -118,6 +118,11 @@ namespace ExcelLibrary.BinaryFileFormat
                             colorIndex++;
                         }
                         break;
+                    case RecordType.FONT:
+                        FONT f = record as FONT;
+                        sharedResource.Fonts.Add(f);
+                        break;
+
                 }
             }
             return boundSheets;

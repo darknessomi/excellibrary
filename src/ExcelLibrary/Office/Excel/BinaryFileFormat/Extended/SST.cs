@@ -8,6 +8,8 @@ namespace ExcelLibrary.BinaryFileFormat
 {
     public partial class SST : Record
     {
+        public RichTextFormat[] RichTextFormatting;
+
         public override void Decode()
         {
             MemoryStream stream = new MemoryStream(Data);
@@ -15,10 +17,11 @@ namespace ExcelLibrary.BinaryFileFormat
             TotalOccurance = reader.ReadInt32();
             NumStrings = reader.ReadInt32();
             StringList = new UniqueList<string>(NumStrings);
-            BinaryReader continuedReader = reader;
+            RichTextFormatting = new RichTextFormat[NumStrings];
+            StringDecoder stringDecoder = new StringDecoder(this, reader);
             for (int i = 0; i < NumStrings; i++)
             {
-                StringList.Add(this.ReadString(continuedReader, 16, out continuedReader));
+                StringList.Add(stringDecoder.ReadString(16, out RichTextFormatting[i]));
             }
         }
 

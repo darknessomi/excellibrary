@@ -130,6 +130,7 @@
     <Compile Include="Office\Excel\BinaryDrawingFormat\Extended\MsofbtSp.cs" />
     <Compile Include="Office\Excel\BinaryDrawingFormat\ShapeProperty.cs" />
     <Compile Include="Office\Excel\BinaryFileFormat\ColorPalette.cs" />
+    <Compile Include="Office\Excel\BinaryFileFormat\Decode\StringDecoder.cs" />
     <Compile Include="Office\Excel\BinaryFileFormat\Decode\WorkbookDecoder.cs" />
     <Compile Include="Office\Excel\BinaryFileFormat\Decode\WorksheetDecoder.cs" />
     <Compile Include="Office\Excel\BinaryFileFormat\Encode\WorkbookEncoder.cs" />
@@ -191,6 +192,7 @@
     <Compile Include="Office\Excel\BinaryFileFormat\Records\STRING.cs" />
     <Compile Include="Office\Excel\BinaryFileFormat\Records\WINDOW1.cs" />
     <Compile Include="Office\Excel\BinaryFileFormat\Records\XF.cs" />
+    <Compile Include="Office\Excel\BinaryFileFormat\RichTextFormat.cs" />
     <Compile Include="Office\Excel\BinaryFileFormat\SharedResource.cs" />
     <Compile Include="Office\Excel\BinaryFileFormat\SubRecord.cs" />
     <Compile Include="Office\Excel\BinaryFileFormat\SubRecords\ClipboardFormat.cs" />

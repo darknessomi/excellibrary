@@ -22,6 +22,8 @@ namespace ExcelLibrary.BinaryFileFormat
 
         public UniqueList<Image> Images = new UniqueList<Image>();
 
+        public List<FONT> Fonts = new List<FONT>();
+
         public SharedResource()
         {
         }

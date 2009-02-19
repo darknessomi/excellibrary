@@ -110,120 +110,6 @@ namespace ExcelLibrary.BinaryFileFormat
             }
         }
 
-        protected int ContinuedIndex = -1;
-        public string ReadString(BinaryReader reader, int lengthbits)
-        {
-            BinaryReader continuedReader;
-            return ReadString(reader, lengthbits, out continuedReader);
-        }
-
-        public string ReadString(BinaryReader reader, int lengthbits, out BinaryReader continuedReader)
-        {
-            if (reader.BaseStream.Position == reader.BaseStream.Length)
-            {
-                if (ContinuedIndex < ContinuedRecords.Count - 1)
-                {
-                    reader = SwitchToContinuedRecord();
-                }
-                else
-                {
-                    continuedReader = reader;
-                    return null;
-                }
-            }
-            int stringlength = lengthbits == 8 ? reader.ReadByte() : reader.ReadUInt16();
-            byte option = reader.ReadByte();
-            bool compressed = (option & 0x01) == 0;
-            bool phonetic = (option & 0x04) == 0x04;
-            bool richtext = (option & 0x08) == 0x08;
-            int runs = 0; //Number of Rich-Text formatting runs
-            int size = 0; //Size of Asian phonetic settings block in bytes
-            if (richtext)
-            {
-                runs = reader.ReadUInt16();
-            }
-            if (phonetic)
-            {
-                size = reader.ReadInt32();
-            }
-
-            string firstpart = ReadString(reader, stringlength, compressed);
-            StringBuilder text = new StringBuilder();
-            text.Append(firstpart);
-            continuedReader = reader;
-            if (firstpart.Length < stringlength)
-            {
-                continuedReader = SwitchToContinuedRecord();
-                text.Append(ReadContinuedString(continuedReader, stringlength - firstpart.Length, out continuedReader));
-            }
-            ReadBytes(continuedReader, 4 * runs + size, out continuedReader);
-            return text.ToString();
-        }
-
-        private string ReadContinuedString(BinaryReader reader, int stringlength, out BinaryReader continuedReader)
-        {
-            continuedReader = reader;
-            if (reader.BaseStream.Position == reader.BaseStream.Length) return null;
-            byte option = reader.ReadByte();
-            bool compressed = (option & 0x01) == 0;
-            string firstpart = ReadString(reader, stringlength, compressed);
-            if (firstpart.Length < stringlength)
-            {
-                continuedReader = SwitchToContinuedRecord();
-                StringBuilder text = new StringBuilder();
-                text.Append(firstpart);
-                text.Append(ReadContinuedString(continuedReader, stringlength - firstpart.Length, out continuedReader));
-                return text.ToString();
-            }
-            else
-            {
-                return firstpart;
-            }
-        }
-
-        private static string ReadString(BinaryReader reader, int stringlength, bool compressed)
-        {
-            byte[] textData;
-            if (compressed)
-            {
-                byte[] bytes = reader.ReadBytes(stringlength);
-                textData = new byte[bytes.Length * 2];
-                for (int i = 0; i < bytes.Length; i++)
-                {
-                    textData[i * 2] = bytes[i];
-                    textData[i * 2 + 1] = 0;
-                }
-            }
-            else
-            {
-                textData = reader.ReadBytes(stringlength * 2);
-            }
-            return Encoding.Unicode.GetString(textData);
-        }
-
-        protected byte[] ReadBytes(BinaryReader reader, int count, out BinaryReader continuedReader)
-        {
-            continuedReader = reader;
-            byte[] bytes = reader.ReadBytes(count);
-            int bytesRead = bytes.Length;
-            if (bytesRead < count)
-            {
-                byte[] allbytes = new byte[count];
-                byte[] remainedbytes = ReadBytes(SwitchToContinuedRecord(), count - bytesRead, out continuedReader);
-                bytes.CopyTo(allbytes, 0);
-                remainedbytes.CopyTo(allbytes, bytesRead);
-                return allbytes;
-            }
-            return bytes;
-        }
-
-        protected BinaryReader SwitchToContinuedRecord()
-        {
-            ContinuedIndex++;
-            MemoryStream stream = new MemoryStream(ContinuedRecords[ContinuedIndex].Data);
-            return new BinaryReader(stream);
-        }
-
         public static object DecodeRK(uint value)
         {
             bool muled = (value & 0x01) == 1;
@@ -277,6 +163,12 @@ namespace ExcelLibrary.BinaryFileFormat
                     }
                 }
             }
+        }
+
+        public string ReadString(BinaryReader reader, int lengthbits)
+        {
+            StringDecoder stringDecoder = new StringDecoder(this, reader);
+            return stringDecoder.ReadString(lengthbits);
         }
 
         public static void WriteString(BinaryWriter writer, string text, int lengthbits)

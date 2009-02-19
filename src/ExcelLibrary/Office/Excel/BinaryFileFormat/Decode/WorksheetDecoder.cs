@@ -103,7 +103,8 @@ namespace ExcelLibrary.BinaryFileFormat
                         break;
                     case RecordType.LABELSST:
                         LABELSST label = record as LABELSST;
-                        cells.CreateCell(label.RowIndex, label.ColIndex, sharedResource.GetStringFromSST(label.SSTIndex), label.XFIndex);
+                        Cell cell = cells.CreateCell(label.RowIndex, label.ColIndex, sharedResource.GetStringFromSST(label.SSTIndex), label.XFIndex);
+                        cell.Style.RichTextFormat = sharedResource.SharedStringTable.RichTextFormatting[label.SSTIndex];
                         break;
                     case RecordType.NUMBER:
                         NUMBER number = record as NUMBER;
@@ -131,6 +132,69 @@ namespace ExcelLibrary.BinaryFileFormat
                 }
             }
             return cells;
+        }
+
+        /*
+         * Page 171 of the OpenOffice documentation of the Excel File Format
+         * 
+         * The font with index 4 is omitted in all BIFF versions. This means the first four fonts have zero-based indexes, 
+         * and the fifth font and all following fonts are referenced with one-based indexes.
+         */
+        //public FONT getFontRecord(int index)
+        private static FONT getFontRecord(SharedResource sharedResource, UInt16 index)
+        {
+            if (index >= 0 && index <= 3)
+            {
+                return sharedResource.Fonts[index];
+            }
+            else if (index >= 5)
+            {
+                return sharedResource.Fonts[index - 1];
+            }
+            else // index == 4 -> error
+            {
+                return null;
+            }
+        }
+
+        /*
+         * Sunil Shenoi, 8-25-2008
+         * 
+         * Assuming cell has a valid string vlaue, find the font record for a given characterIndex
+         * into the stringValue of the cell
+         */
+        public static FONT getFontForCharacter(Cell cell, UInt16 charIndex)
+        {
+            FONT f = null;
+
+            int index = cell.Style.RichTextFormat.CharIndexes.BinarySearch(charIndex);
+            List<UInt16> fontIndexList = cell.Style.RichTextFormat.FontIndexes;
+            
+            if (index >= 0)
+            {
+                // found the object, return the font record
+                f = getFontRecord(cell.SharedResource, fontIndexList[index]);
+                //Console.WriteLine("for charIndex={0}, fontIndex={1})", charIndex, fontIndexList[index]);
+                //Console.WriteLine("Object: {0} found at [{1}]", o, index);
+            }
+            else
+            {
+                // would have been inserted before the returned value, so insert just before it
+                if (~index == 0)
+                {
+                    //f = getFontRecord(sheet,fontIndexList[0]);
+                    //Console.WriteLine("for charIndex={0}, fontIndex=CELL", charIndex);
+                }
+                else
+                {
+                    f = getFontRecord(cell.SharedResource, fontIndexList[(~index) - 1]);
+                    //Console.WriteLine("for charIndex={0}, fontIndex={1})", charIndex, fontIndexList[(~index) - 1]);
+                }
+                //Console.WriteLine("Object: {0} not found. "
+                //   + "Next larger object found at [{1}].", o, ~index);
+            }
+
+            return f;
         }
     }
 }

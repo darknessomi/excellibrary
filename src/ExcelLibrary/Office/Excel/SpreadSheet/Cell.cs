@@ -113,5 +113,10 @@ namespace ExcelLibrary.SpreadSheet
             get { return _style; }
             set { _style = value; }
         }
+
+        public FONT GetFontForCharacter(UInt16 charIndex)
+        {
+            return WorksheetDecoder.getFontForCharacter(this, charIndex);
+        }
     }
 }
