@@ -6,12 +6,12 @@ using QiHe.CodeLib;
 namespace ExcelLibrary.Test.CodeLib
 {
     [TestFixture]
-    public class UniqueListTest
+    public class FastSearchListTest
     {
         [Test]
         public void SimpleTest()
         {
-            IList<String> list = new UniqueList<String>();
+            IList<String> list = new FastSearchList<String>();
 
             list.Add("Item 1");
             list.Add("Item 2");
@@ -28,20 +28,22 @@ namespace ExcelLibrary.Test.CodeLib
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void AddDuplicateTest()
         {
-            IList<String> list = new UniqueList<String>();
+            IList<String> list = new FastSearchList<String>();
 
             list.Add("Item 1");
             list.Add("Item 1");
+
+            Assert.AreEqual(2, list.Count);
+            Assert.AreEqual(0, list.IndexOf("Item 1"));
         }
 
         [Test]
         [ExpectedException(typeof(ArgumentException))]
         public void InsertDuplicateTest()
         {
-            IList<String> list = new UniqueList<String>();
+            IList<String> list = new FastSearchList<String>();
 
             list.Add("Item 1");
             list.Insert(1, "Item 1");
@@ -51,7 +53,7 @@ namespace ExcelLibrary.Test.CodeLib
         [Test]
         public void RemoveAtTest()
         {
-            IList<String> list = new UniqueList<String>();
+            IList<String> list = new FastSearchList<String>();
 
             list.Add("Item 1");
             list.Add("Item 2");
@@ -79,7 +81,7 @@ namespace ExcelLibrary.Test.CodeLib
         [Test]
         public void RemoveTest()
         {
-            IList<String> list = new UniqueList<String>();
+            IList<String> list = new FastSearchList<String>();
 
             list.Add("Item 1");
             list.Add("Item 2");
@@ -107,7 +109,7 @@ namespace ExcelLibrary.Test.CodeLib
         [Test]
         public void InsertTest()
         {
-            IList<String> list = new UniqueList<String>();
+            IList<String> list = new FastSearchList<String>();
 
             list.Add("Item 1");
             list.Add("Item 2");

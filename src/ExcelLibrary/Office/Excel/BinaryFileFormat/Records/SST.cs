@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
@@ -16,7 +16,7 @@ namespace ExcelLibrary.BinaryFileFormat
 		public SST()
 		{
 			this.Type = RecordType.SST;
-			this.StringList = new UniqueList<String>();
+			this.StringList = new FastSearchList<String>();
 		}
 
 		/// <summary>
@@ -32,7 +32,7 @@ namespace ExcelLibrary.BinaryFileFormat
 		/// <summary>
 		/// List of nm Unicode strings, 16-bit string length
 		/// </summary>
-		public UniqueList<String> StringList;
+		public FastSearchList<String> StringList;
 
 		public void decode()
 		{

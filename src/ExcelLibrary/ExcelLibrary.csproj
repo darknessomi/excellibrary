@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0716F257-72DD-41EF-8E79-54BA388E3AB1}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -57,7 +57,7 @@
     <Compile Include="CodeLib\Pair.cs" />
     <Compile Include="CodeLib\StreamHelper.cs" />
     <Compile Include="CodeLib\TextEncoding.cs" />
-    <Compile Include="CodeLib\UniqueList.cs" />
+    <Compile Include="CodeLib\FastSearchList.cs" />
     <Compile Include="DataSetHelper.cs" />
     <Compile Include="Office\CompoundDocumentFormat\CompoundDocument.cs" />
     <Compile Include="Office\CompoundDocumentFormat\CompoundDocument_Read.cs" />

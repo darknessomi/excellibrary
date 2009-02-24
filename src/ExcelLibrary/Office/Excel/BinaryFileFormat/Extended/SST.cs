@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
@@ -16,7 +16,7 @@ namespace ExcelLibrary.BinaryFileFormat
             BinaryReader reader = new BinaryReader(stream);
             TotalOccurance = reader.ReadInt32();
             NumStrings = reader.ReadInt32();
-            StringList = new UniqueList<string>(NumStrings);
+            StringList = new FastSearchList<string>(NumStrings);
             RichTextFormatting = new RichTextFormat[NumStrings];
             StringDecoder stringDecoder = new StringDecoder(this, reader);
             for (int i = 0; i < NumStrings; i++)

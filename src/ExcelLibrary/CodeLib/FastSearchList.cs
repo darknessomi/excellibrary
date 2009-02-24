@@ -4,18 +4,18 @@ using System.Collections.Generic;
 
 namespace QiHe.CodeLib
 {
-    public class UniqueList<T> : IList<T>
+    public class FastSearchList<T> : IList<T>
     {
         private IList<T> internalList;
         private IDictionary<T, int> internalLookup;
 
-        public UniqueList()
+        public FastSearchList()
         {
             this.internalList = new List<T>();
             this.internalLookup = new Dictionary<T, int>();
         }
 
-        public UniqueList(int capacity)
+        public FastSearchList(int capacity)
         {
             this.internalList = new List<T>(capacity);
             this.internalLookup = new Dictionary<T, int>(capacity);
