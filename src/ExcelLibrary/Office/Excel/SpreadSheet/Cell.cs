@@ -74,7 +74,11 @@ namespace ExcelLibrary.SpreadSheet
                 if (_value is double)
                 {
                     double days = (double)_value;
-                    if (days > 366) days--;
+                    //Excel counts an extra day for 1900-Feb-29. In reality, 1900 is not a leap year.
+                    if (SharedResource.BaseDate == DateTime.Parse("1899-12-31") && days > 59)
+                    {
+                        days--;
+                    }
                     return SharedResource.BaseDate.AddDays(days);
                 }
                 else if (_value is string)

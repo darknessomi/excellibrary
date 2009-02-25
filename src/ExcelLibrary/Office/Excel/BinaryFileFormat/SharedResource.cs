@@ -85,8 +85,7 @@ namespace ExcelLibrary.BinaryFileFormat
 
         public double EncodeDateTime(DateTime value)
         {
-            double days = (value - BaseDate).Days;
-            if (days > 365) days++;
+            double days = (value - BaseDate).TotalDays;
             return days;
         }
 
