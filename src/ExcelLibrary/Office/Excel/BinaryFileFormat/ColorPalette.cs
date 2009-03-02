@@ -19,8 +19,21 @@ namespace ExcelLibrary.BinaryFileFormat
             Palette.Add(5, Color.Yellow);
             Palette.Add(6, Color.Magenta);
             Palette.Add(7, Color.Cyan);
-            // 0x08-0x3F: user-defined colour from the PALETTE record
-            Palette.Add(0x1F, Color.FromArgb(204, 204, 255));
+            // 0x08-0x3F: default color table
+            Palette.Add(0x08, Color.FromArgb(0, 0, 0));
+            Palette.Add(0x09, Color.FromArgb(0xFF, 0xFF, 0xFF));
+            Palette.Add(0x0A, Color.FromArgb(0xFF, 0, 0));
+
+            Palette.Add(0x1F, Color.FromArgb(0xCC, 0xCC, 0xFF));
+
+            Palette.Add(0x38, Color.FromArgb(0x00, 0x33, 0x66));
+            Palette.Add(0x39, Color.FromArgb(0x33, 0x99, 0x66));
+            Palette.Add(0x3A, Color.FromArgb(0x00, 0x33, 0x00));
+            Palette.Add(0x3B, Color.FromArgb(0x33, 0x33, 0x00));
+            Palette.Add(0x3C, Color.FromArgb(0x99, 0x33, 0x00));
+            Palette.Add(0x3D, Color.FromArgb(0x99, 0x33, 0x66));
+            Palette.Add(0x3E, Color.FromArgb(0x33, 0x33, 0x99));
+            Palette.Add(0x3F, Color.FromArgb(0x33, 0x33, 0x33));
 
             Palette.Add(0x40, SystemColors.Window);
             Palette.Add(0x41, SystemColors.WindowText);

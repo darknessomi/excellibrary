@@ -32,8 +32,9 @@ namespace ExcelLibrary.SpreadSheet
 
         private CellStyle CreateStyleFromXF(XF xf)
         {
-            //throw new NotImplementedException();
-            return new CellStyle();
+            CellStyle style = new CellStyle();
+            style.BackColor = SharedResource.ColorPalette[xf.PatternColorIndex];
+            return style;
         }
 
         public Row GetRow(int rowIndex)
