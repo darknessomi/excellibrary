@@ -170,7 +170,6 @@ namespace ExcelLibrary.BinaryFileFormat
              * 
              * Process the rich text formatting information as in Section 2.5.3.
              */
-            //if ((4 * runs + size) > 100)
             byte[] richTextBytes = ReadBytes(4 * runs + size);
             rtf = DecodeRichTextFormatting(richTextBytes, runs);
 

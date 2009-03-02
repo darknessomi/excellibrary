@@ -110,7 +110,7 @@ namespace ExcelLibrary.BinaryFileFormat
         private static CellValue EncodeCell(Cell cell, SharedResource sharedResource)
         {
             object value = cell.Value;
-            if (value is int)
+            if (value is int || value is short)
             {
                 RK rk = new RK();
                 rk.Value = (uint)((int)value << 2 | 2);
@@ -118,9 +118,18 @@ namespace ExcelLibrary.BinaryFileFormat
             }
             else if (value is decimal)
             {
-                RK rk = new RK();
-                rk.Value = (uint)((decimal)value * 100) << 2 | 3; // integer and mul
-                return rk;
+                if (Math.Abs((decimal)value) <= (decimal)5368709.11)
+                {
+                    RK rk = new RK();
+                    rk.Value = (uint)((int)((decimal)value * 100) << 2 | 3); // integer and mul
+                    return rk;
+                }
+                else
+                {
+                    NUMBER number = new NUMBER();
+                    number.Value = (double)(decimal)value;
+                    return number;
+                }
             }
             else if (value is double)
             {
