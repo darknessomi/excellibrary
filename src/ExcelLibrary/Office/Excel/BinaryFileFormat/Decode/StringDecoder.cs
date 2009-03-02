@@ -171,10 +171,6 @@ namespace ExcelLibrary.BinaryFileFormat
              * Process the rich text formatting information as in Section 2.5.3.
              */
             //if ((4 * runs + size) > 100)
-            if (stringlength > 2000 || firstpart.Length > 2000 || size > 2000)
-            {
-                throw new Exception("invalid size of rich text formatting information");
-            }
             byte[] richTextBytes = ReadBytes(4 * runs + size);
             rtf = DecodeRichTextFormatting(richTextBytes, runs);
 
