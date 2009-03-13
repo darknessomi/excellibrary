@@ -13,7 +13,7 @@ namespace ExcelLibrary.BinaryFileFormat
     {
         public override void Decode()
         {
-            MemoryStream stream = new MemoryStream(Data);
+            MemoryStream stream = new MemoryStream(AllData);
             BinaryReader reader = new BinaryReader(stream);
             this.NumStrings = reader.ReadUInt16();
             this.Offsets = new List<StringOffset>();

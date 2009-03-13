@@ -77,16 +77,19 @@ namespace ExcelLibrary.CompoundDocumentFormat
 
         public int AllocateSATSector()
         {
-            int[] sids = new Int32[SecIDCapacity];
+            int[] sids = new Int32[SecIDCapacity + 1];
             for (int i = 0; i < sids.Length; i++)
             {
                 sids[i] = SID.Free;
             }
             int secID = Document.AllocateNewSector(sids);
-            if (NumberOfSecIDs < 109)
+            MasterSectorAllocationTable.Add(secID);
+            NumberOfSecIDs++;
+            int SATSectorIndex = NumberOfSecIDs - 1;
+            if (NumberOfSecIDs <= 109)
             {
-                Document.Header.MasterSectorAllocationTable[NumberOfSecIDs] = secID;
-                Document.Write(76 + NumberOfSecIDs * 4, secID);
+                Document.Header.MasterSectorAllocationTable[SATSectorIndex] = secID;
+                Document.Write(76 + SATSectorIndex * 4, secID);
             }
             else
             {
@@ -95,7 +98,7 @@ namespace ExcelLibrary.CompoundDocumentFormat
                     CurrentMSATSector = AllocateMSATSector();
                     Document.Header.FirstSectorIDofMasterSectorAllocationTable = CurrentMSATSector;
                 }
-                int index = (NumberOfSecIDs - 109) % SecIDCapacity;
+                int index = (SATSectorIndex - 109) % SecIDCapacity;
                 Document.WriteInSector(CurrentMSATSector, index * 4, secID);
                 if (index == SecIDCapacity - 1)
                 {
@@ -104,8 +107,6 @@ namespace ExcelLibrary.CompoundDocumentFormat
                     CurrentMSATSector = newMSATSector;
                 }
             }
-            MasterSectorAllocationTable.Add(secID);
-            NumberOfSecIDs++;
             Document.SectorAllocation.LinkSectorID(secID, SID.SAT);
             Document.Header.NumberOfSATSectors++;
             return secID;
@@ -120,8 +121,7 @@ namespace ExcelLibrary.CompoundDocumentFormat
             }
             secIDs[SecIDCapacity] = SID.EOC;
 
-            int newMSATSector = Document.AllocateNewSector();
-            Document.WriteInSector(newMSATSector, 0, secIDs);
+            int newMSATSector = Document.AllocateNewSector(secIDs);
 
             Document.SectorAllocation.LinkSectorID(newMSATSector, SID.MSAT);
             Document.Header.NumberOfMasterSectors++;

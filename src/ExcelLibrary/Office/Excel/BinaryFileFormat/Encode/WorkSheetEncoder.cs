@@ -113,7 +113,7 @@ namespace ExcelLibrary.BinaryFileFormat
             if (value is int || value is short)
             {
                 RK rk = new RK();
-                rk.Value = (uint)((int)value << 2 | 2);
+                rk.Value = (uint)(Convert.ToInt32(value) << 2 | 2);
                 return rk;
             }
             else if (value is decimal)
