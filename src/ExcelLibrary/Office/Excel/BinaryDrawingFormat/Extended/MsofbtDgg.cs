@@ -26,7 +26,7 @@ namespace ExcelLibrary.BinaryDrawingFormat
                 //IDClusters.Add(reader.ReadInt64());
                 int drawingGroupId = reader.ReadInt32();
                 int numShapeIdsUsed = reader.ReadInt32();
-                GroupIdClusters.Add(drawingGroupId, numShapeIdsUsed);
+                GroupIdClusters[drawingGroupId] = numShapeIdsUsed;
             }
         }
 

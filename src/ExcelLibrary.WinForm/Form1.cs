@@ -30,7 +30,7 @@ namespace ExcelLibrary.WinForm
             string file = "C:\\newdoc.xls";
             Workbook workbook = new Workbook();
             Worksheet worksheet = new Worksheet("First Sheet");
-            worksheet.Cells[0, 1] = new Cell(1);
+            worksheet.Cells[0, 1] = new Cell((short)1);
             worksheet.Cells[2, 0] = new Cell(2.8);
             worksheet.Cells[3, 3] = new Cell((decimal)3.45);
             worksheet.Cells[2, 2] = new Cell("Text string");
@@ -55,7 +55,8 @@ namespace ExcelLibrary.WinForm
         {
             try
             {
-                string file = FileSelector.BrowseFile(FileType.All);
+                string xlsfilter = "Excel files(*.xls)|*.xls|All files (*.*)|*.*";
+                string file = FileSelector.BrowseFile(xlsfilter);
                 if (file == null) return;
                 doc = CompoundDocument.Open(file);
                 IsOpened = true;
