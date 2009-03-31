@@ -59,6 +59,11 @@ namespace ExcelLibrary.CompoundDocumentFormat
         public static CompoundDocument Open(string file)
         {
             FileStream stream = File.Open(file, FileMode.Open, FileAccess.ReadWrite, FileShare.Read);
+            return Open(stream);
+        }
+
+        public static CompoundDocument Open(Stream stream)
+        {
             BinaryReader reader = new BinaryReader(stream);
             FileHeader header = ReadHeader(reader);
 

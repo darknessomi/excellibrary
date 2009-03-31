@@ -8,9 +8,17 @@ namespace ExcelLibrary.CompoundDocumentFormat
 {
     public partial class CompoundDocument
     {
-        public static CompoundDocument Read(string file)
+        public static CompoundDocument Load(string file)
         {
             CompoundDocument doc = CompoundDocument.Open(file);
+            doc.ReadAllStreamData();
+            doc.Close();
+            return doc;
+        }
+
+        public static CompoundDocument Read(Stream stream)
+        {
+            CompoundDocument doc = CompoundDocument.Open(stream);
             doc.ReadAllStreamData();
             doc.Close();
             return doc;

@@ -21,9 +21,14 @@ namespace ExcelLibrary.SpreadSheet
         /// Open workbook from a file path.
         /// </summary>
         /// <param name="file"></param>
-        public static Workbook Open(string file)
+        public static Workbook Load(string file)
         {
-            CompoundDocument doc = CompoundDocument.Read(file);
+            return Load(File.OpenRead(file));
+        }
+
+        public static Workbook Load(Stream fileStream)
+        {
+            CompoundDocument doc = CompoundDocument.Read(fileStream);
             if (doc == null) throw new Exception("Invalid Excel file");
             byte[] bookdata = doc.GetStreamData("Workbook");
             return WorkbookDecoder.Decode(new MemoryStream(bookdata));
