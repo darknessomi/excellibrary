@@ -19,7 +19,7 @@ namespace ExcelLibrary
         public static DataSet CreateDataSet(String filePath)
         {
             DataSet ds = new DataSet();
-            Workbook workbook = Workbook.Open(filePath);
+            Workbook workbook = Workbook.Load(filePath);
             foreach (Worksheet ws in workbook.Worksheets)
             {
                 DataTable dt = PopulateDataTable(ws);
@@ -38,7 +38,7 @@ namespace ExcelLibrary
         /// <returns>DataTable with populate data</returns>
         public static DataTable CreateDataTable(String filePath, String sheetName)
         {
-            Workbook workbook = Workbook.Open(filePath);
+            Workbook workbook = Workbook.Load(filePath);
             foreach (Worksheet ws in workbook.Worksheets)
             {
                 if (ws.Name.Equals(sheetName))

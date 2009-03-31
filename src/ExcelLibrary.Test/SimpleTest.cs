@@ -23,7 +23,7 @@ namespace ExcelLibrary.Test
             }
 
             {
-                Workbook workbook = Workbook.Open(tempFilePath);
+                Workbook workbook = Workbook.Load(tempFilePath);
                 Assert.AreEqual(1, workbook.Worksheets.Count);
 
                 Worksheet worksheet = workbook.Worksheets[0];
@@ -51,7 +51,7 @@ namespace ExcelLibrary.Test
             }
 
             {
-                Workbook workbook = Workbook.Open(tempFilePath);
+                Workbook workbook = Workbook.Load(tempFilePath);
 
                 Assert.AreEqual(worksheetToCreate, workbook.Worksheets.Count);
                 for (int i = 0; i < worksheetToCreate; i++)
@@ -83,7 +83,7 @@ namespace ExcelLibrary.Test
             }
 
             {
-                Workbook workbook = Workbook.Open(tempFilePath);
+                Workbook workbook = Workbook.Load(tempFilePath);
                 Assert.AreEqual(longText, workbook.Worksheets[0].Cells[0, 0].Value);
             }
         }
@@ -119,7 +119,7 @@ namespace ExcelLibrary.Test
             {
                 int start = Environment.TickCount;
                 
-                Workbook workbook = Workbook.Open(tempFilePath);
+                Workbook workbook = Workbook.Load(tempFilePath);
                 for (int sheet = 0; sheet < worksheetToWrite; sheet++)
                     for (int row = 0; row < rowToWrite; row++)
                         for (int column = 0; column < columnToWrite; column++)
@@ -149,7 +149,7 @@ namespace ExcelLibrary.Test
             }
 
             {
-                Workbook workbook = Workbook.Open(tempFilePath);
+                Workbook workbook = Workbook.Load(tempFilePath);
                 Assert.AreEqual(10, workbook.Worksheets[0].Cells[0, 0].Value);
                 Assert.AreEqual(20, workbook.Worksheets[0].Cells[0, 1].Value);
                 Assert.AreEqual("=A1+B1", workbook.Worksheets[0].Cells[0, 2].Value);
@@ -175,7 +175,7 @@ namespace ExcelLibrary.Test
             }
 
             {
-                Workbook workbook = Workbook.Open(tempFilePath);
+                Workbook workbook = Workbook.Load(tempFilePath);
                 Assert.AreEqual(3, workbook.Worksheets.Count);
             }
         }
