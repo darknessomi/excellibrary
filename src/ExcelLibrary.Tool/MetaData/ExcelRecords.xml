@@ -38,7 +38,7 @@
           <XmlSerialize>XmlArray</XmlSerialize>
         </TypeField>
         <TypeField>
-          <Name>Children</Name>
+          <Name>ChildRecords</Name>
           <FieldType>List&lt;Record&gt;</FieldType>
           <XmlSerialize>XmlElement</XmlSerialize>
         </TypeField>
@@ -203,7 +203,7 @@
             <RecordField Name="FirstColIndex" Type="UInt16">
               <Description>Index to first column (fc)</Description>
             </RecordField>
-            <RecordField Name="XFIndice" Type="UInt16">
+            <RecordField Name="XFIndice" Type="List&lt;UInt16&gt;" ExtraInfo="(this.Size - 6) / 2">
               <Description>List of nc=lc-fc+1 16-bit indexes to XF records</Description>
             </RecordField>
             <RecordField Name="LastColIndex" Type="Int16">
@@ -221,10 +221,10 @@
             <RecordField Name="FirstColIndex" Type="UInt16">
               <Description>Index to first column (fc)</Description>
             </RecordField>
-            <RecordField Name="XFRKList" Type="List&lt;UInt32&gt;">
+            <RecordField Name="XFRKList" Type="List&lt;UInt32&gt;" ExtraInfo="(Size - 6) / 6">
               <Description>List of nc=lc-fc+1 XF/RK structures.</Description>
             </RecordField>
-            <RecordField Name="LastColIndex" Type="Int16">
+            <RecordField Name="LastColIndex" Type="Int16" ExtraInfo="">
               <Description>Index to last column (lc)</Description>
             </RecordField>
           </Fields>
@@ -277,7 +277,7 @@
             <RecordField Name="NumStrings" Type="Int32" ExtraInfo="">
               <Description>Number of following strings (nm)</Description>
             </RecordField>
-            <RecordField Name="StringList" Type="UniqueList&lt;String&gt;" ExtraInfo="16">
+            <RecordField Name="StringList" Type="FastSearchList&lt;String&gt;" ExtraInfo="this.NumStrings">
               <Description>List of nm Unicode strings, 16-bit string length</Description>
             </RecordField>
           </Fields>
@@ -458,7 +458,7 @@ record for each row in each row block.</Description>
             <RecordField Name="FirstRowOffset" Type="UInt32" ExtraInfo="">
               <Description>Relative offset to first ROW record in the Row Block</Description>
             </RecordField>
-            <RecordField Name="FirstCellOffsets" Type="List&lt;UInt16&gt;" ExtraInfo="">
+            <RecordField Name="FirstCellOffsets" Type="List&lt;UInt16&gt;" ExtraInfo="(this.Size - 4) / 2">
               <Description>relative offsets to calculate stream position of the first cell record for the respective row</Description>
             </RecordField>
           </Fields>
@@ -472,7 +472,7 @@ Used to optimise string search operations.</Description>
             <RecordField Name="NumStrings" Type="UInt16" ExtraInfo="">
               <Description>Number of strings in a portion, this number is  &gt;=8</Description>
             </RecordField>
-            <RecordField Name="Offsets" Type="List&lt;StringOffset&gt;" ExtraInfo="">
+            <RecordField Name="Offsets" Type="List&lt;StringOffset&gt;" ExtraInfo="this.NumStrings">
               <Description>List of OFFSET structures for all portions. </Description>
             </RecordField>
           </Fields>
@@ -600,13 +600,13 @@ FONT record in the file)</Description>
         </Record>
         <Record Name="PALETTE" Category="BinaryFileFormat\Records" Parent="Record">
           <IsAbstract>false</IsAbstract>
-          <IsCutomized>true</IsCutomized>
+          <IsCutomized>false</IsCutomized>
           <Description>This record contains the definition of all user-defined  colours  available for cell and object formatting. </Description>
           <Fields>
             <RecordField Name="NumColors" Type="Int16" ExtraInfo="">
               <Description>Number of following colours.</Description>
             </RecordField>
-            <RecordField Name="Colors" Type="List&lt;Int32&gt;" ExtraInfo="">
+            <RecordField Name="Colors" Type="List&lt;Int32&gt;" ExtraInfo="this.NumColors">
               <Description>List of RGB colours.</Description>
             </RecordField>
           </Fields>
@@ -693,7 +693,7 @@ COLWIDTH, COLINFO or STANDARDWIDTH.</Description>
             <RecordField Name="NumIDClusters" Type="Int32" />
             <RecordField Name="NumSavedShapes" Type="Int32" />
             <RecordField Name="NumSavedDrawings" Type="Int32" />
-            <RecordField Name="IDClusters" Type="List&lt;Int64&gt;" />
+            <RecordField Name="IDClusters" Type="List&lt;Int64&gt;" ExtraInfo="this.NumIDClusters" />
           </Fields>
         </Record>
         <Record Name="MsofbtBSE" Category="BinaryDrawingFormat\EscherRecords" Parent="EscherRecord">

@@ -1,0 +1,566 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Record Name="Record" Category="BinaryFileFormat\Records">
+  <IsAbstract>true</IsAbstract>
+  <IsCutomized>false</IsCutomized>
+  <Fields />
+    <Record Name="BOF" Category="BinaryFileFormat\Records" Parent="Record">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields>
+        <RecordField Name="BIFFversion" Type="UInt16" />
+        <RecordField Name="StreamType" Type="UInt16" />
+        <RecordField Name="BuildID" Type="UInt16" />
+        <RecordField Name="BuildYear" Type="UInt16" />
+        <RecordField Name="FileHistoryFlags" Type="UInt32" />
+        <RecordField Name="RequiredExcelVersion" Type="UInt32">
+          <Description>Lowest Excel version that can read all records in this file</Description>
+        </RecordField>
+      </Fields>
+    </Record>
+    <Record Name="ARRAY" Category="BinaryFileFormat\Records" Parent="Record">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields />
+    </Record>
+    <Record Name="BACKUP" Category="BinaryFileFormat\Records" Parent="Record">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields>
+        <RecordField Name="CreateBackupOnSaving" Type="UInt16">
+          <Description>whether Excel makes a backup of the file while saving</Description>
+        </RecordField>
+      </Fields>
+    </Record>
+    <Record Name="BLANK" Category="BinaryFileFormat\Records" Parent="Record">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields>
+        <RecordField Name="RowIndex" Type="UInt16" />
+        <RecordField Name="ColIndex" Type="UInt16" />
+        <RecordField Name="XFIndex" Type="UInt16" />
+      </Fields>
+    </Record>
+    <Record Name="BOOKBOOL" Category="BinaryFileFormat\Records" Parent="Record">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields>
+        <RecordField Name="NotSaveExternalLinkedValues" Type="UInt16">
+          <Description>0 = Save external linked values; 1 = Do not save external linked values</Description>
+        </RecordField>
+      </Fields>
+    </Record>
+    <Record Name="BOTTOMMARGIN" Category="BinaryFileFormat\Records" Parent="Record">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields>
+        <RecordField Name="Value" Type="Double">
+          <Description>Bottom page margin in inches (IEEE 754 floating-point value, 64-bit double precision)</Description>
+        </RecordField>
+      </Fields>
+    </Record>
+    <Record Name="BOUNDSHEET" Category="BinaryFileFormat\Records" Parent="Record">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields>
+        <RecordField Name="StreamPosition" Type="UInt32">
+          <Description>Absolute stream position of the BOF record of the sheet represented by this record.</Description>
+        </RecordField>
+        <RecordField Name="Visibility" Type="Byte">
+          <Description>00H = Visible, 01H = Hidden, 02H = Strong hidden</Description>
+        </RecordField>
+        <RecordField Name="SheetType" Type="Byte">
+          <Description>00H = Worksheet, 02H = Chart, 06H = Visual Basic module</Description>
+        </RecordField>
+        <RecordField Name="SheetName" Type="String" ExtraInfo="8">
+          <Description>BIFF8: Unicode string, 8-bit string length</Description>
+        </RecordField>
+      </Fields>
+    </Record>
+    <Record Name="CALCCOUNT" Category="BinaryFileFormat\Records" Parent="Record">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields>
+        <RecordField Name="Value" Type="UInt16">
+          <Description>Maximum number of iterations allowed in circular references</Description>
+        </RecordField>
+      </Fields>
+    </Record>
+    <Record Name="CALCMODE" Category="BinaryFileFormat\Records" Parent="Record">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields>
+        <RecordField Name="Value" Type="UInt16">
+          <Description>whether to calculate formulas manually,automatically or automatically except for multiple table operations.</Description>
+        </RecordField>
+      </Fields>
+    </Record>
+    <Record Name="CODEPAGE" Category="BinaryFileFormat\Records" Parent="Record">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields>
+        <RecordField Name="CodePageIdentifier" Type="UInt16">
+          <Description>text encoding used to write byte strings</Description>
+        </RecordField>
+      </Fields>
+    </Record>
+    <Record Name="DIMENSIONS" Category="BinaryFileFormat\Records" Parent="Record">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields>
+        <RecordField Name="FirstRow" Type="Int32">
+          <Description>Index to first used row</Description>
+        </RecordField>
+        <RecordField Name="LastRow" Type="Int32">
+          <Description>Index to last used row, increased by 1</Description>
+        </RecordField>
+        <RecordField Name="FirstColumn" Type="Int16">
+          <Description>Index to first used column</Description>
+        </RecordField>
+        <RecordField Name="LastColumn" Type="Int16">
+          <Description>Index to last used column, increased by 1</Description>
+        </RecordField>
+        <RecordField Name="UnUsed" Type="Int16">
+          <Description>Not used</Description>
+        </RecordField>
+      </Fields>
+    </Record>
+    <Record Name="MULBLANK" Category="BinaryFileFormat\Records" Parent="Record">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields>
+        <RecordField Name="RowIndex" Type="UInt16">
+          <Description>Index to row</Description>
+        </RecordField>
+        <RecordField Name="FirstColIndex" Type="UInt16">
+          <Description>Index to first column (fc)</Description>
+        </RecordField>
+        <RecordField Name="XFIndice" Type="List&lt;UInt16&gt;" ExtraInfo="(this.Size - 6) / 2">
+          <Description>List of nc=lc-fc+1 16-bit indexes to XF records</Description>
+        </RecordField>
+        <RecordField Name="LastColIndex" Type="Int16">
+          <Description>Index to last column (lc)</Description>
+        </RecordField>
+      </Fields>
+    </Record>
+    <Record Name="MULRK" Category="BinaryFileFormat\Records" Parent="Record">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>true</IsCutomized>
+      <Fields>
+        <RecordField Name="RowIndex" Type="UInt16">
+          <Description>Index to row</Description>
+        </RecordField>
+        <RecordField Name="FirstColIndex" Type="UInt16">
+          <Description>Index to first column (fc)</Description>
+        </RecordField>
+        <RecordField Name="XFRKList" Type="List&lt;UInt32&gt;" ExtraInfo="(Size - 6) / 6">
+          <Description>List of nc=lc-fc+1 XF/RK structures.</Description>
+        </RecordField>
+        <RecordField Name="LastColIndex" Type="Int16" ExtraInfo="">
+          <Description>Index to last column (lc)</Description>
+        </RecordField>
+      </Fields>
+    </Record>
+    <Record Name="ROW" Category="BinaryFileFormat\Records" Parent="Record">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Description>Index to column of the last cell which is described by a cell record, increased by 1</Description>
+      <Fields>
+        <RecordField Name="RowIndex" Type="UInt16" ExtraInfo="">
+          <Description>Index of this row</Description>
+        </RecordField>
+        <RecordField Name="FirstColIndex" Type="UInt16" ExtraInfo="">
+          <Description>Index to column of the first cell which is described by a cell record</Description>
+        </RecordField>
+        <RecordField Name="LastColIndex" Type="UInt16" ExtraInfo="">
+          <Description>Index to column of the last cell which is described by a cell record, increased by 1</Description>
+        </RecordField>
+        <RecordField Name="RowHeight" Type="UInt16" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="UnUsed" Type="UInt16" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="UnUsed2" Type="UInt16" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="Flags" Type="UInt32" ExtraInfo="">
+          <Description>Option flags and default row formatting</Description>
+        </RecordField>
+      </Fields>
+    </Record>
+    <Record Name="RSTRING" Category="BinaryFileFormat\Records" Parent="Record">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields>
+        <RecordField Name="FormattingRuns" Type="UInt32" ExtraInfo="">
+          <Description>List of rt formatting runs</Description>
+        </RecordField>
+      </Fields>
+    </Record>
+    <Record Name="SST" Category="BinaryFileFormat\Records" Parent="Record">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>true</IsCutomized>
+      <Description>List of nm Unicode strings, 16-bit string length</Description>
+      <Fields>
+        <RecordField Name="TotalOccurance" Type="Int32" ExtraInfo="">
+          <Description>Total number of strings in the workbook</Description>
+        </RecordField>
+        <RecordField Name="NumStrings" Type="Int32" ExtraInfo="">
+          <Description>Number of following strings (nm)</Description>
+        </RecordField>
+        <RecordField Name="StringList" Type="FastSearchList&lt;String&gt;" ExtraInfo="this.NumStrings">
+          <Description>List of nm Unicode strings, 16-bit string length</Description>
+        </RecordField>
+      </Fields>
+    </Record>
+    <Record Name="CONTINUE" Category="BinaryFileFormat\Records" Parent="Record">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields />
+    </Record>
+    <Record Name="FORMULA" Category="BinaryFileFormat\Records" Parent="Record">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Description />
+      <Fields>
+        <RecordField Name="RowIndex" Type="UInt16" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="ColIndex" Type="UInt16" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="XFIndex" Type="UInt16" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="Result" Type="UInt64" ExtraInfo="">
+          <Description>Result of the formula.</Description>
+        </RecordField>
+        <RecordField Name="OptionFlags" Type="UInt16" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="Unused" Type="UInt32" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="FormulaData" Type="Byte[]" ExtraInfo="">
+          <Description>Formula data (RPN token array)</Description>
+        </RecordField>
+      </Fields>
+    </Record>
+    <Record Name="XF" Category="BinaryFileFormat\Records" Parent="Record">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields>
+        <RecordField Name="FontIndex" Type="UInt16" />
+        <RecordField Name="FormatIndex" Type="UInt16" />
+        <RecordField Name="CellProtection" Type="UInt16" />
+        <RecordField Name="Alignment" Type="Byte" />
+        <RecordField Name="Rotation" Type="Byte" />
+        <RecordField Name="Indent" Type="Byte" />
+        <RecordField Name="Attributes" Type="Byte" />
+        <RecordField Name="LineStyle" Type="UInt32" />
+        <RecordField Name="LineColor" Type="UInt32" />
+        <RecordField Name="Background" Type="UInt16" />
+      </Fields>
+    </Record>
+    <Record Name="BITMAP" Category="BinaryFileFormat\Records" Parent="Record">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields />
+    </Record>
+    <Record Name="OBJ" Category="BinaryFileFormat\Records" Parent="Record">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields />
+    </Record>
+    <Record Name="DATEMODE" Category="BinaryFileFormat\Records" Parent="Record">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields>
+        <RecordField Name="Mode" Type="Int16">
+          <Description>0 = Base date is 1899-Dec-31; 1 = Base date is 1904-Jan-01</Description>
+        </RecordField>
+      </Fields>
+    </Record>
+    <Record Name="MSOCONTAINER" Category="BinaryFileFormat\Records" Parent="Record">
+      <IsAbstract>true</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Description />
+      <Fields />
+        <Record Name="MSODRAWINGGROUP" Category="BinaryFileFormat\Records" Parent="MSOCONTAINER">
+          <IsAbstract>false</IsAbstract>
+          <IsCutomized>false</IsCutomized>
+          <Description />
+          <Fields />
+        </Record>
+        <Record Name="MSODRAWING" Category="BinaryFileFormat\Records" Parent="MSOCONTAINER">
+          <IsAbstract>false</IsAbstract>
+          <IsCutomized>false</IsCutomized>
+          <Description />
+          <Fields />
+        </Record>
+        <Record Name="MSODRAWINGSELECTION" Category="BinaryFileFormat\Records" Parent="MSOCONTAINER">
+          <IsAbstract>false</IsAbstract>
+          <IsCutomized>false</IsCutomized>
+          <Description />
+          <Fields />
+        </Record>
+    </Record>
+    <Record Name="STRING" Category="BinaryFileFormat\Records" Parent="Record">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Description>This record stores the result of a string formula. It occurs directly after a string formula.</Description>
+      <Fields>
+        <RecordField Name="Value" Type="String" ExtraInfo="16">
+          <Description>Non-empty Unicode string, 16-bit string length</Description>
+        </RecordField>
+      </Fields>
+    </Record>
+    <Record Name="EOF" Category="BinaryFileFormat\Records" Parent="Record">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Description>Indicates the end of workbook globals, a worksheet, a chart, etc.</Description>
+      <Fields />
+    </Record>
+    <Record Name="CellValue" Category="BinaryFileFormat\Records" Parent="Record">
+      <IsAbstract>true</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Description />
+      <Fields>
+        <RecordField Name="RowIndex" Type="UInt16" ExtraInfo="">
+          <Description>Index to row, 0-based row number</Description>
+        </RecordField>
+        <RecordField Name="ColIndex" Type="UInt16" ExtraInfo="">
+          <Description>Index to column, 0-based column number</Description>
+        </RecordField>
+        <RecordField Name="XFIndex" Type="UInt16" ExtraInfo="">
+          <Description>Index to XF record</Description>
+        </RecordField>
+      </Fields>
+        <Record Name="BOOLERR" Category="BinaryFileFormat\Records" Parent="CellValue">
+          <IsAbstract>false</IsAbstract>
+          <IsCutomized>false</IsCutomized>
+          <Description />
+          <Fields>
+            <RecordField Name="Value" Type="Byte" ExtraInfo="">
+              <Description>Boolean or error value (type depends on the following byte)</Description>
+            </RecordField>
+            <RecordField Name="ValueType" Type="Byte" ExtraInfo="">
+              <Description>0 = Boolean value; 1 = Error code</Description>
+            </RecordField>
+          </Fields>
+        </Record>
+        <Record Name="LABELSST" Category="BinaryFileFormat\Records" Parent="CellValue">
+          <IsAbstract>false</IsAbstract>
+          <IsCutomized>false</IsCutomized>
+          <Description />
+          <Fields>
+            <RecordField Name="SSTIndex" Type="Int32" ExtraInfo="">
+              <Description>Index into SST record</Description>
+            </RecordField>
+          </Fields>
+        </Record>
+        <Record Name="NUMBER" Category="BinaryFileFormat\Records" Parent="CellValue">
+          <IsAbstract>false</IsAbstract>
+          <IsCutomized>false</IsCutomized>
+          <Description />
+          <Fields>
+            <RecordField Name="Value" Type="Double" ExtraInfo="">
+              <Description>IEEE 754 floating-point value (64-bit double precision)</Description>
+            </RecordField>
+          </Fields>
+        </Record>
+        <Record Name="RK" Category="BinaryFileFormat\Records" Parent="CellValue">
+          <IsAbstract>false</IsAbstract>
+          <IsCutomized>false</IsCutomized>
+          <Description />
+          <Fields>
+            <RecordField Name="Value" Type="UInt32" ExtraInfo="">
+              <Description>RK value</Description>
+            </RecordField>
+          </Fields>
+        </Record>
+    </Record>
+    <Record Name="DBCELL" Category="BinaryFileFormat\Records" Parent="Record">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Description>contains relative offsets to calculate the stream position of the first cell
+record for each row in each row block.</Description>
+      <Fields>
+        <RecordField Name="FirstRowOffset" Type="UInt32" ExtraInfo="">
+          <Description>Relative offset to first ROW record in the Row Block</Description>
+        </RecordField>
+        <RecordField Name="FirstCellOffsets" Type="List&lt;UInt16&gt;" ExtraInfo="(this.Size - 4) / 2">
+          <Description>relative offsets to calculate stream position of the first cell record for the respective row</Description>
+        </RecordField>
+      </Fields>
+    </Record>
+    <Record Name="EXTSST" Category="BinaryFileFormat\Records" Parent="Record">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>true</IsCutomized>
+      <Description>This record occurs in conjunction with the SST record. 
+Used to optimise string search operations.</Description>
+      <Fields>
+        <RecordField Name="NumStrings" Type="UInt16" ExtraInfo="">
+          <Description>Number of strings in a portion, this number is  &gt;=8</Description>
+        </RecordField>
+        <RecordField Name="Offsets" Type="List&lt;StringOffset&gt;" ExtraInfo="this.NumStrings">
+          <Description>List of OFFSET structures for all portions. </Description>
+        </RecordField>
+      </Fields>
+    </Record>
+    <Record Name="WINDOW1" Category="BinaryFileFormat\Records" Parent="Record">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Description>General   settings   for   the  document  window  and  global  workbook   settings</Description>
+      <Fields>
+        <RecordField Name="HorizontalPosition" Type="UInt16" ExtraInfo="">
+          <Description>Horizontal position of the document window in twips</Description>
+        </RecordField>
+        <RecordField Name="VerticalPosition" Type="UInt16" ExtraInfo="">
+          <Description>Vertical position of the document window in twips</Description>
+        </RecordField>
+        <RecordField Name="WindowWidth" Type="UInt16" ExtraInfo="">
+          <Description>Width of the document window in twips</Description>
+        </RecordField>
+        <RecordField Name="WindowHeight" Type="UInt16" ExtraInfo="">
+          <Description>Height of the document window in twips</Description>
+        </RecordField>
+        <RecordField Name="OptionFlags" Type="UInt16" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="ActiveWorksheet" Type="UInt16" ExtraInfo="">
+          <Description>Index to active (displayed) worksheet</Description>
+        </RecordField>
+        <RecordField Name="FirstVisibleTab" Type="UInt16" ExtraInfo="">
+          <Description>Index of first visible tab in the worksheet tab bar</Description>
+        </RecordField>
+        <RecordField Name="SelecteWorksheets" Type="UInt16" ExtraInfo="">
+          <Description>Number of selected worksheets (highlighted in the worksheet tab bar)</Description>
+        </RecordField>
+        <RecordField Name="TabBarWidth" Type="UInt16" ExtraInfo="">
+          <Description>Width of worksheet tab bar (in 1/1000 of window width).
+The remaining space is used by the horizontal scrollbar.</Description>
+        </RecordField>
+      </Fields>
+    </Record>
+    <Record Name="FORMAT" Category="BinaryFileFormat\Records" Parent="Record">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Description>This record contains information about a number format. </Description>
+      <Fields>
+        <RecordField Name="FormatIndex" Type="UInt16" ExtraInfo="">
+          <Description>Format index used in other records</Description>
+        </RecordField>
+        <RecordField Name="FormatString" Type="String" ExtraInfo="16">
+          <Description>Number format string</Description>
+        </RecordField>
+      </Fields>
+    </Record>
+    <Record Name="FONT" Category="BinaryFileFormat\Records" Parent="Record">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Description />
+      <Fields>
+        <RecordField Name="Height" Type="Int16" ExtraInfo="">
+          <Description>Height of the font (in twips = 1/20 of a point)</Description>
+        </RecordField>
+        <RecordField Name="OptionFlags" Type="UInt16" ExtraInfo="">
+          <Description>Option flags</Description>
+        </RecordField>
+        <RecordField Name="ColorIndex" Type="UInt16" ExtraInfo="">
+          <Description>Colour index</Description>
+        </RecordField>
+        <RecordField Name="Weight" Type="UInt16" ExtraInfo="">
+          <Description>Font weight (100-1000). Standard values are 0190H (400) for normal text and 02BCH 
+(700) for bold text.</Description>
+        </RecordField>
+        <RecordField Name="Escapement" Type="UInt16" ExtraInfo="">
+          <Description>Escapement type: 0000H = None
+0001H = Superscript
+0002H = Subscript</Description>
+        </RecordField>
+        <RecordField Name="Underline" Type="Byte" ExtraInfo="">
+          <Description>Underline type: 00H = None
+01H = Single 21H = Single accounting
+02H = Double 22H = Double accounting</Description>
+        </RecordField>
+        <RecordField Name="Family" Type="Byte" ExtraInfo="">
+          <Description>Font family: 00H = None (unknown or don't care)
+01H = Roman (variable width, serifed)
+02H = Swiss (variable width, sans-serifed)
+03H = Modern (fixed width, serifed or sans-serifed)
+04H = Script (cursive)
+05H = Decorative (specialised, for example Old English, Fraktur)</Description>
+        </RecordField>
+        <RecordField Name="CharacterSet" Type="Byte" ExtraInfo="">
+          <Description>Character set (used by all cell records containing byte strings)</Description>
+        </RecordField>
+        <RecordField Name="NotUsed" Type="Byte" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="Name" Type="String" ExtraInfo="8">
+          <Description>Font name</Description>
+        </RecordField>
+      </Fields>
+    </Record>
+    <Record Name="COLINFO" Category="BinaryFileFormat\Records" Parent="Record">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Description>This record specifies the width and default cell formatting for a given range of columns.</Description>
+      <Fields>
+        <RecordField Name="FirstColIndex" Type="UInt16" ExtraInfo="">
+          <Description>Index to first column in the range</Description>
+        </RecordField>
+        <RecordField Name="LastColIndex" Type="UInt16" ExtraInfo="">
+          <Description>Index to last column in the range</Description>
+        </RecordField>
+        <RecordField Name="Width" Type="UInt16" ExtraInfo="">
+          <Description>Width of the columns in 1/256 of the width of the zero character, using default font (first 
+FONT record in the file)</Description>
+        </RecordField>
+        <RecordField Name="XFIndex" Type="UInt16" ExtraInfo="">
+          <Description>Index to XF record for default column formatting</Description>
+        </RecordField>
+        <RecordField Name="OptionFlags" Type="UInt16" ExtraInfo="">
+          <Description>Option flags</Description>
+        </RecordField>
+        <RecordField Name="NotUsed" Type="UInt16" ExtraInfo="">
+          <Description>Not used</Description>
+        </RecordField>
+      </Fields>
+    </Record>
+    <Record Name="PALETTE" Category="BinaryFileFormat\Records" Parent="Record">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Description>This record contains the definition of all user-defined  colours  available for cell and object formatting. </Description>
+      <Fields>
+        <RecordField Name="NumColors" Type="Int16" ExtraInfo="">
+          <Description>Number of following colours.</Description>
+        </RecordField>
+        <RecordField Name="Colors" Type="List&lt;Int32&gt;" ExtraInfo="this.NumColors">
+          <Description>List of RGB colours.</Description>
+        </RecordField>
+      </Fields>
+    </Record>
+    <Record Name="STANDARDWIDTH" Category="BinaryFileFormat\Records" Parent="Record">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Description />
+      <Fields>
+        <RecordField Name="DefaultColumnWidth" Type="UInt16" ExtraInfo="">
+          <Description>Default width of the columns in 1/256 of the width of the zero character, using default font (first FONT record in the file)</Description>
+        </RecordField>
+      </Fields>
+    </Record>
+    <Record Name="DEFCOLWIDTH" Category="BinaryFileFormat\Records" Parent="Record">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Description>This record specifies  the default  column width for columns  that  do not  have a specific width set  using  the records 
+COLWIDTH, COLINFO or STANDARDWIDTH.</Description>
+      <Fields>
+        <RecordField Name="Value" Type="UInt16" ExtraInfo="">
+          <Description>Column width in characters, using the width of the zero character from default font (first FONT record in the file).</Description>
+        </RecordField>
+      </Fields>
+    </Record>
+</Record>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Record Name="SubRecord" Category="BinaryFileFormat\SubRecords">
+  <IsAbstract>true</IsAbstract>
+  <IsCutomized>false</IsCutomized>
+  <Description />
+  <Fields />
+    <Record Name="CommonObjectData" Category="BinaryFileFormat\SubRecords" Parent="SubRecord">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields>
+        <RecordField Name="ObjectType" Type="UInt16" />
+        <RecordField Name="ObjectID" Type="UInt16" />
+        <RecordField Name="OptionFlags" Type="UInt16" />
+        <RecordField Name="Reserved1" Type="UInt32" />
+        <RecordField Name="Reserved2" Type="UInt32" />
+        <RecordField Name="Reserved3" Type="UInt32" />
+      </Fields>
+    </Record>
+    <Record Name="End" Category="BinaryFileFormat\SubRecords" Parent="SubRecord">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields />
+    </Record>
+    <Record Name="GroupMarker" Category="BinaryFileFormat\SubRecords" Parent="SubRecord">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields />
+    </Record>
+    <Record Name="ClipboardFormat" Category="BinaryFileFormat\SubRecords" Parent="SubRecord">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Description />
+      <Fields>
+        <RecordField Name="Reserved" Type="UInt16" ExtraInfo="">
+          <Description />
+        </RecordField>
+      </Fields>
+    </Record>
+    <Record Name="PictureOption" Category="BinaryFileFormat\SubRecords" Parent="SubRecord">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Description>Picture option flags</Description>
+      <Fields>
+        <RecordField Name="Reserved" Type="UInt16" ExtraInfo="">
+          <Description>Picture option flags</Description>
+        </RecordField>
+      </Fields>
+    </Record>
+</Record>

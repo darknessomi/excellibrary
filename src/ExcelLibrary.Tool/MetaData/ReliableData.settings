@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <LastFile>D:\CSharpProjects\Office\Excel\Tool\MetaData\ExcelRecords.xml</LastFile>
+  <Namespace>ExcelLibrary.Tool</Namespace>
+  <CodeFolder>D:\Projects\excellibrary\src\ExcelLibrary.Tool\BiffRecord</CodeFolder>
+  <DataFolder>D:\Projects\excellibrary\src\ExcelLibrary.Tool\BiffRecord</DataFolder>
+</Settings>

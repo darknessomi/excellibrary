@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Record Name="EscherRecord" Category="BinaryDrawingFormat\EscherRecords">
+  <IsAbstract>true</IsAbstract>
+  <IsCutomized>false</IsCutomized>
+  <Fields />
+    <Record Name="MsofbtDgg" Category="BinaryDrawingFormat\EscherRecords" Parent="EscherRecord">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>true</IsCutomized>
+      <Fields>
+        <RecordField Name="MaxShapeID" Type="Int32" />
+        <RecordField Name="NumIDClusters" Type="Int32" />
+        <RecordField Name="NumSavedShapes" Type="Int32" />
+        <RecordField Name="NumSavedDrawings" Type="Int32" />
+        <RecordField Name="IDClusters" Type="List&lt;Int64&gt;" ExtraInfo="this.NumIDClusters" />
+      </Fields>
+    </Record>
+    <Record Name="MsofbtBSE" Category="BinaryDrawingFormat\EscherRecords" Parent="EscherRecord">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>true</IsCutomized>
+      <Description />
+      <Fields>
+        <RecordField Name="BlipTypeWin32" Type="Byte" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="BlipTypeMacOS" Type="Byte" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="UID" Type="Guid" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="Tag" Type="UInt16" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="BlipSize" Type="UInt32" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="Ref" Type="Int32" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="Offset " Type="Int32" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="Usage" Type="Byte" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="NameLength" Type="Byte" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="Unused2" Type="Byte" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="Unused3" Type="Byte" ExtraInfo="">
+          <Description />
+        </RecordField>
+      </Fields>
+    </Record>
+    <Record Name="MsofbtDg" Category="BinaryDrawingFormat\EscherRecords" Parent="EscherRecord">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields>
+        <RecordField Name="NumShapes" Type="Int32" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="LastShapeID" Type="Int32" ExtraInfo="">
+          <Description />
+        </RecordField>
+      </Fields>
+    </Record>
+    <Record Name="MsofbtSpgr" Category="BinaryDrawingFormat\EscherRecords" Parent="EscherRecord">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields>
+        <RecordField Name="Left" Type="Int32" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="Top" Type="Int32" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="Right" Type="Int32" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="Bottom" Type="Int32" ExtraInfo="">
+          <Description />
+        </RecordField>
+      </Fields>
+    </Record>
+    <Record Name="MsofbtSp" Category="BinaryDrawingFormat\EscherRecords" Parent="EscherRecord">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields>
+        <RecordField Name="ShapeId" Type="Int32" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="Flags" Type="Int32" ExtraInfo="">
+          <Description />
+        </RecordField>
+      </Fields>
+    </Record>
+    <Record Name="MsofbtOPT" Category="BinaryDrawingFormat\EscherRecords" Parent="EscherRecord">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields />
+    </Record>
+    <Record Name="MsofbtTextbox" Category="BinaryDrawingFormat\EscherRecords" Parent="EscherRecord">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields />
+    </Record>
+    <Record Name="MsofbtClientTextbox" Category="BinaryDrawingFormat\EscherRecords" Parent="EscherRecord">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields />
+    </Record>
+    <Record Name="MsofbtAnchor" Category="BinaryDrawingFormat\EscherRecords" Parent="EscherRecord">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields />
+    </Record>
+    <Record Name="MsofbtChildAnchor" Category="BinaryDrawingFormat\EscherRecords" Parent="EscherRecord">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields />
+    </Record>
+    <Record Name="MsofbtClientAnchor" Category="BinaryDrawingFormat\EscherRecords" Parent="EscherRecord">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Description />
+      <Fields>
+        <RecordField Name="Flag" Type="UInt16" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="Col1" Type="UInt16" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="DX1" Type="UInt16" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="Row1" Type="UInt16" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="DY1" Type="UInt16" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="Col2" Type="UInt16" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="DX2" Type="UInt16" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="Row2" Type="UInt16" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="DY2" Type="UInt16" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="ExtraData" Type="Byte[]" ExtraInfo="">
+          <Description />
+        </RecordField>
+      </Fields>
+    </Record>
+    <Record Name="MsofbtClientData" Category="BinaryDrawingFormat\EscherRecords" Parent="EscherRecord">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields />
+    </Record>
+    <Record Name="MsofbtConnectorRule" Category="BinaryDrawingFormat\EscherRecords" Parent="EscherRecord">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields />
+    </Record>
+    <Record Name="MsofbtAlignRule" Category="BinaryDrawingFormat\EscherRecords" Parent="EscherRecord">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields />
+    </Record>
+    <Record Name="MsofbtArcRule" Category="BinaryDrawingFormat\EscherRecords" Parent="EscherRecord">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields />
+    </Record>
+    <Record Name="MsofbtClientRule" Category="BinaryDrawingFormat\EscherRecords" Parent="EscherRecord">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields />
+    </Record>
+    <Record Name="MsofbtCLSID" Category="BinaryDrawingFormat\EscherRecords" Parent="EscherRecord">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields />
+    </Record>
+    <Record Name="MsofbtCalloutRule" Category="BinaryDrawingFormat\EscherRecords" Parent="EscherRecord">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields />
+    </Record>
+    <Record Name="MsofbtRegroupItems" Category="BinaryDrawingFormat\EscherRecords" Parent="EscherRecord">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields />
+    </Record>
+    <Record Name="MsofbtSelection" Category="BinaryDrawingFormat\EscherRecords" Parent="EscherRecord">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields />
+    </Record>
+    <Record Name="MsofbtColorMRU" Category="BinaryDrawingFormat\EscherRecords" Parent="EscherRecord">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields />
+    </Record>
+    <Record Name="MsofbtDeletedPspl" Category="BinaryDrawingFormat\EscherRecords" Parent="EscherRecord">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields />
+    </Record>
+    <Record Name="MsofbtSplitMenuColors" Category="BinaryDrawingFormat\EscherRecords" Parent="EscherRecord">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Description />
+      <Fields>
+        <RecordField Name="Color1" Type="Int32" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="Color2" Type="Int32" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="Color3" Type="Int32" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="Color4" Type="Int32" ExtraInfo="">
+          <Description />
+        </RecordField>
+      </Fields>
+    </Record>
+    <Record Name="MsofbtOleObject" Category="BinaryDrawingFormat\EscherRecords" Parent="EscherRecord">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields />
+    </Record>
+    <Record Name="MsofbtColorScheme" Category="BinaryDrawingFormat\EscherRecords" Parent="EscherRecord">
+      <IsAbstract>false</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Fields />
+    </Record>
+    <Record Name="MsofbtContainer" Category="BinaryDrawingFormat\EscherRecords" Parent="EscherRecord">
+      <IsAbstract>true</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Description />
+      <Fields />
+        <Record Name="MsofbtDggContainer" Category="BinaryDrawingFormat\EscherRecords" Parent="MsofbtContainer">
+          <IsAbstract>false</IsAbstract>
+          <IsCutomized>false</IsCutomized>
+          <Description />
+          <Fields />
+        </Record>
+        <Record Name="MsofbtDgContainer" Category="BinaryDrawingFormat\EscherRecords" Parent="MsofbtContainer">
+          <IsAbstract>false</IsAbstract>
+          <IsCutomized>false</IsCutomized>
+          <Description />
+          <Fields />
+        </Record>
+        <Record Name="MsofbtBstoreContainer" Category="BinaryDrawingFormat\EscherRecords" Parent="MsofbtContainer">
+          <IsAbstract>false</IsAbstract>
+          <IsCutomized>false</IsCutomized>
+          <Description />
+          <Fields />
+        </Record>
+        <Record Name="MsofbtSpgrContainer" Category="BinaryDrawingFormat\EscherRecords" Parent="MsofbtContainer">
+          <IsAbstract>false</IsAbstract>
+          <IsCutomized>false</IsCutomized>
+          <Description />
+          <Fields />
+        </Record>
+        <Record Name="MsofbtSpContainer" Category="BinaryDrawingFormat\EscherRecords" Parent="MsofbtContainer">
+          <IsAbstract>false</IsAbstract>
+          <IsCutomized>false</IsCutomized>
+          <Description />
+          <Fields />
+        </Record>
+        <Record Name="MsofbtSolverContainer" Category="BinaryDrawingFormat\EscherRecords" Parent="MsofbtContainer">
+          <IsAbstract>false</IsAbstract>
+          <IsCutomized>false</IsCutomized>
+          <Description />
+          <Fields />
+        </Record>
+    </Record>
+    <Record Name="MsofbtBlip" Category="BinaryDrawingFormat\EscherRecords" Parent="EscherRecord">
+      <IsAbstract>true</IsAbstract>
+      <IsCutomized>false</IsCutomized>
+      <Description />
+      <Fields>
+        <RecordField Name="UID" Type="Guid" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="Marker" Type="Byte" ExtraInfo="">
+          <Description />
+        </RecordField>
+        <RecordField Name="ImageData" Type="Byte[]" ExtraInfo="">
+          <Description />
+        </RecordField>
+      </Fields>
+        <Record Name="MsofbtBlipStart" Category="BinaryDrawingFormat\EscherRecords" Parent="MsofbtBlip">
+          <IsAbstract>false</IsAbstract>
+          <IsCutomized>false</IsCutomized>
+          <Description />
+          <Fields />
+        </Record>
+        <Record Name="MsofbtBlipMetafileEMF" Category="BinaryDrawingFormat\EscherRecords" Parent="MsofbtBlip">
+          <IsAbstract>false</IsAbstract>
+          <IsCutomized>false</IsCutomized>
+          <Description />
+          <Fields />
+        </Record>
+        <Record Name="MsofbtBlipMetafileWMF" Category="BinaryDrawingFormat\EscherRecords" Parent="MsofbtBlip">
+          <IsAbstract>false</IsAbstract>
+          <IsCutomized>false</IsCutomized>
+          <Description />
+          <Fields />
+        </Record>
+        <Record Name="MsofbtBlipMetafilePICT" Category="BinaryDrawingFormat\EscherRecords" Parent="MsofbtBlip">
+          <IsAbstract>false</IsAbstract>
+          <IsCutomized>false</IsCutomized>
+          <Description />
+          <Fields />
+        </Record>
+        <Record Name="MsofbtBlipBitmapJPEG" Category="BinaryDrawingFormat\EscherRecords" Parent="MsofbtBlip">
+          <IsAbstract>false</IsAbstract>
+          <IsCutomized>false</IsCutomized>
+          <Description />
+          <Fields />
+        </Record>
+        <Record Name="MsofbtBlipBitmapPNG" Category="BinaryDrawingFormat\EscherRecords" Parent="MsofbtBlip">
+          <IsAbstract>false</IsAbstract>
+          <IsCutomized>false</IsCutomized>
+          <Description />
+          <Fields />
+        </Record>
+        <Record Name="MsofbtBlipBitmapDIB" Category="BinaryDrawingFormat\EscherRecords" Parent="MsofbtBlip">
+          <IsAbstract>false</IsAbstract>
+          <IsCutomized>false</IsCutomized>
+          <Description />
+          <Fields />
+        </Record>
+        <Record Name="MsofbtBlipEnd" Category="BinaryDrawingFormat\EscherRecords" Parent="MsofbtBlip">
+          <IsAbstract>false</IsAbstract>
+          <IsCutomized>false</IsCutomized>
+          <Description />
+          <Fields />
+        </Record>
+    </Record>
+</Record>
