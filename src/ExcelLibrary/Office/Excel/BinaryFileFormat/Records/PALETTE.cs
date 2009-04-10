@@ -28,15 +28,20 @@ namespace ExcelLibrary.BinaryFileFormat
 		/// </summary>
 		public List<Int32> Colors;
 
-		public void decode()
+		public override void Decode()
 		{
 			MemoryStream stream = new MemoryStream(Data);
 			BinaryReader reader = new BinaryReader(stream);
 			this.NumColors = reader.ReadInt16();
-			reader.ReadInt32();
+			int count = this.NumColors;
+			this.Colors = new List<Int32>(count);
+			for (int i = 0; i < count; i++)
+			{
+				Colors.Add(reader.ReadInt32());
+			}
 		}
 
-		public void encode()
+		public override void Encode()
 		{
 			MemoryStream stream = new MemoryStream();
 			BinaryWriter writer = new BinaryWriter(stream);

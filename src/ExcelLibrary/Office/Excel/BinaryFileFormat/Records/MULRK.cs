@@ -41,7 +41,12 @@ namespace ExcelLibrary.BinaryFileFormat
 			BinaryReader reader = new BinaryReader(stream);
 			this.RowIndex = reader.ReadUInt16();
 			this.FirstColIndex = reader.ReadUInt16();
-			reader.ReadUInt32();
+			int count = (Size - 6) / 6;
+			this.XFRKList = new List<UInt32>(count);
+			for (int i = 0; i < count; i++)
+			{
+				XFRKList.Add(reader.ReadUInt32());
+			}
 			this.LastColIndex = reader.ReadInt16();
 		}
 

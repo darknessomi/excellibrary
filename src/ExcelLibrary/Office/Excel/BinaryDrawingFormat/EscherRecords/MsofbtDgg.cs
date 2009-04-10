@@ -33,7 +33,12 @@ namespace ExcelLibrary.BinaryDrawingFormat
 			this.NumIDClusters = reader.ReadInt32();
 			this.NumSavedShapes = reader.ReadInt32();
 			this.NumSavedDrawings = reader.ReadInt32();
-			reader.ReadInt64();
+			int count = this.NumIDClusters;
+			this.IDClusters = new List<Int64>(count);
+			for (int i = 0; i < count; i++)
+			{
+				IDClusters.Add(reader.ReadInt64());
+			}
 		}
 
 		public void encode()

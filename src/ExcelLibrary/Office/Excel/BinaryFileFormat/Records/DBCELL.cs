@@ -34,7 +34,12 @@ namespace ExcelLibrary.BinaryFileFormat
 			MemoryStream stream = new MemoryStream(Data);
 			BinaryReader reader = new BinaryReader(stream);
 			this.FirstRowOffset = reader.ReadUInt32();
-			reader.ReadUInt16();
+			int count = (this.Size - 4) / 2;
+			this.FirstCellOffsets = new List<UInt16>(count);
+			for (int i = 0; i < count; i++)
+			{
+				FirstCellOffsets.Add(reader.ReadUInt16());
+			}
 		}
 
 		public override void Encode()

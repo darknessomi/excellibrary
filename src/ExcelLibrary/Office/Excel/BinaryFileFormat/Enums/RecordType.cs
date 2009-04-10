@@ -225,6 +225,8 @@ namespace ExcelLibrary.BinaryFileFormat
         public const UInt16 SXFDBTYPE = 0x01BB;
         public const UInt16 PROT4REVPASS = 0x01BC;
         public const UInt16 DV = 0x01BE;
+        public const UInt16 XL9FILE = 0x01C0;
+        public const UInt16 RECALCID = 0x01C1;
         public const UInt16 DIMENSIONS = 0x0200;
         public const UInt16 BLANK = 0x0201;
         public const UInt16 NUMBER = 0x0203;

@@ -33,7 +33,10 @@ namespace ExcelLibrary.CompoundDocumentFormat
         {
             this.FileStorage = stream;
             this.Reader = new BinaryReader(this.FileStorage);
-            this.Writer = new BinaryWriter(this.FileStorage, Encoding.Unicode);
+            if (stream.CanWrite)
+            {
+                this.Writer = new BinaryWriter(this.FileStorage, Encoding.Unicode);
+            }
 
             this.Header = header;
             this.SectorSize = (int)Math.Pow(2, Header.SectorSizeInPot);

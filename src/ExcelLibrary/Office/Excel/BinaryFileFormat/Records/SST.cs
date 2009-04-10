@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
@@ -40,7 +40,12 @@ namespace ExcelLibrary.BinaryFileFormat
 			BinaryReader reader = new BinaryReader(stream);
 			this.TotalOccurance = reader.ReadInt32();
 			this.NumStrings = reader.ReadInt32();
-			reader.ReadString();
+			int count = this.NumStrings;
+			this.StringList = new FastSearchList<String>(count);
+			for (int i = 0; i < count; i++)
+			{
+				StringList.Add(this.ReadString(reader, 16));
+			}
 		}
 
 		public void encode()

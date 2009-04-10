@@ -12,6 +12,7 @@ namespace ExcelLibrary.BinaryFileFormat
 		public MULBLANK()
 		{
 			this.Type = RecordType.MULBLANK;
+			this.XFIndice = new List<UInt16>();
 		}
 
 		/// <summary>
@@ -27,7 +28,7 @@ namespace ExcelLibrary.BinaryFileFormat
 		/// <summary>
 		/// List of nc=lc-fc+1 16-bit indexes to XF records
 		/// </summary>
-		public UInt16 XFIndice;
+		public List<UInt16> XFIndice;
 
 		/// <summary>
 		/// Index to last column (lc)
@@ -40,7 +41,12 @@ namespace ExcelLibrary.BinaryFileFormat
 			BinaryReader reader = new BinaryReader(stream);
 			this.RowIndex = reader.ReadUInt16();
 			this.FirstColIndex = reader.ReadUInt16();
-			this.XFIndice = reader.ReadUInt16();
+			int count = (this.Size - 6) / 2;
+			this.XFIndice = new List<UInt16>(count);
+			for (int i = 0; i < count; i++)
+			{
+				XFIndice.Add(reader.ReadUInt16());
+			}
 			this.LastColIndex = reader.ReadInt16();
 		}
 
@@ -50,7 +56,10 @@ namespace ExcelLibrary.BinaryFileFormat
 			BinaryWriter writer = new BinaryWriter(stream);
 			writer.Write(RowIndex);
 			writer.Write(FirstColIndex);
-			writer.Write(XFIndice);
+			foreach(UInt16 uint16Var in XFIndice)
+			{
+				writer.Write(uint16Var);
+			}
 			writer.Write(LastColIndex);
 			this.Data = stream.ToArray();
 			this.Size = (UInt16)Data.Length;
