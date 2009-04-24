@@ -34,6 +34,11 @@ namespace ExcelLibrary.SpreadSheet
             _format = format;
         }
 
+        public override string ToString()
+        {
+            return this.StringValue;
+        }
+
         public bool IsEmpty
         {
             get { return this == EmptyCell; }

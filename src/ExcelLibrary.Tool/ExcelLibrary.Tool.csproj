@@ -128,6 +128,9 @@
     <Content Include="BiffRecord\EscherRecord.xml" />
     <Content Include="BiffRecord\Record.xml" />
     <Content Include="BiffRecord\SubRecord.xml" />
+    <Content Include="MetaData\EscherRecordTypes.txt" />
+    <Content Include="MetaData\ExcelRecords.xml" />
+    <Content Include="MetaData\Record Identifier.txt" />
     <Content Include="Settings.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

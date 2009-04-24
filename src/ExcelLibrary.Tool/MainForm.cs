@@ -36,7 +36,7 @@ namespace ExcelLibrary.Tool
             CodeGenerator generator = new CodeGenerator(allRecords, "ExcelLibrary");
             generator.GenCode(folderBrowserCode.FolderPath);
 
-            MessageBox.Show("Finished.");
+            MessageBox.Show(this, "Finished.");
         }
 
         private static void AddRecords(Dictionary<string, Record> allRecords, Record baseRecord)

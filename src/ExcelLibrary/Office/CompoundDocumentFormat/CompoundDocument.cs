@@ -52,17 +52,22 @@ namespace ExcelLibrary.CompoundDocumentFormat
         public static CompoundDocument Create(string file)
         {
             FileStream stream = File.Open(file, FileMode.Create, FileAccess.ReadWrite, FileShare.Read);
-            CompoundDocument document = new CompoundDocument(stream, new CompoundFileHeader());
-            document.WriteHeader();
-            document.MasterSectorAllocation.AllocateSATSector();
-            document.InitializeDirectoryEntries();
-            return document;
+            return Create(stream);
         }
 
         public static CompoundDocument Open(string file)
         {
             FileStream stream = File.Open(file, FileMode.Open, FileAccess.ReadWrite, FileShare.Read);
             return Open(stream);
+        }
+
+        public static CompoundDocument Create(Stream stream)
+        {
+            CompoundDocument document = new CompoundDocument(stream, new CompoundFileHeader());
+            document.WriteHeader();
+            document.MasterSectorAllocation.AllocateSATSector();
+            document.InitializeDirectoryEntries();
+            return document;
         }
 
         public static CompoundDocument Open(Stream stream)

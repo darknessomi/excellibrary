@@ -16,7 +16,7 @@ namespace ExcelLibrary.CompoundDocumentFormat
             return doc;
         }
 
-        public static CompoundDocument Read(Stream stream)
+        public static CompoundDocument Load(Stream stream)
         {
             CompoundDocument doc = CompoundDocument.Open(stream);
             doc.ReadAllStreamData();

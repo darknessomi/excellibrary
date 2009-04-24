@@ -234,9 +234,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Office\Excel\readme.txt" />
-    <Content Include="Office\Excel\Tool\MetaData\EscherRecordTypes.txt" />
-    <Content Include="Office\Excel\Tool\MetaData\ExcelRecords.xml" />
-    <Content Include="Office\Excel\Tool\MetaData\Record Identifier.txt" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">

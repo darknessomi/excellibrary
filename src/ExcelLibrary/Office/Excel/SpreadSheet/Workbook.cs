@@ -18,7 +18,7 @@ namespace ExcelLibrary.SpreadSheet
         public List<Record> Records;
 
         /// <summary>
-        /// Open workbook from a file path.
+        /// Load workbook from a file path.
         /// </summary>
         /// <param name="file"></param>
         public static Workbook Load(string file)
@@ -26,20 +26,43 @@ namespace ExcelLibrary.SpreadSheet
             return Load(File.OpenRead(file));
         }
 
-        public static Workbook Load(Stream fileStream)
+        /// <summary>
+        /// Load workbook from Stream.
+        /// </summary>
+        /// <param name="fileStream"></param>
+        /// <returns></returns>
+        public static Workbook Load(Stream stream)
         {
-            CompoundDocument doc = CompoundDocument.Read(fileStream);
+            CompoundDocument doc = CompoundDocument.Load(stream);
             if (doc == null) throw new Exception("Invalid Excel file");
             byte[] bookdata = doc.GetStreamData("Workbook");
             return WorkbookDecoder.Decode(new MemoryStream(bookdata));
         }
 
+        /// <summary>
+        /// Save workbook to a file.
+        /// </summary>
+        /// <param name="file"></param>
         public void Save(string file)
         {
             CompoundDocument doc = CompoundDocument.Create(file);
             MemoryStream stream = new MemoryStream();
             WorkbookEncoder.Encode(this, stream);
             doc.WriteStreamData(new string[] { "Workbook" }, stream.ToArray());
+            doc.Save();
+            doc.Close();
+        }
+
+        /// <summary>
+        /// Save workbook to stream.
+        /// </summary>
+        /// <param name="stream"></param>
+        public void Save(Stream stream)
+        {
+            CompoundDocument doc = CompoundDocument.Create(stream);
+            MemoryStream memStream = new MemoryStream();
+            WorkbookEncoder.Encode(this, memStream);
+            doc.WriteStreamData(new string[] { "Workbook" }, memStream.ToArray());
             doc.Save();
             doc.Close();
         }
