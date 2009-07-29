@@ -46,11 +46,19 @@ namespace ExcelLibrary.SpreadSheet
         public void Save(string file)
         {
             CompoundDocument doc = CompoundDocument.Create(file);
-            MemoryStream stream = new MemoryStream();
-            WorkbookEncoder.Encode(this, stream);
-            doc.WriteStreamData(new string[] { "Workbook" }, stream.ToArray());
-            doc.Save();
-            doc.Close();
+            try
+            {
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    WorkbookEncoder.Encode(this, stream);
+                    doc.WriteStreamData(new string[] { "Workbook" }, stream.ToArray());
+                }
+                doc.Save();
+            }
+            finally
+            {
+                doc.Close();
+            }
         }
 
         /// <summary>

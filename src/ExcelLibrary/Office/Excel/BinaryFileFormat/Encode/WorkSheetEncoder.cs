@@ -110,7 +110,7 @@ namespace ExcelLibrary.BinaryFileFormat
         private static CellValue EncodeCell(Cell cell, SharedResource sharedResource)
         {
             object value = cell.Value;
-            if (value is int || value is short)
+            if (value is int || value is short || value is uint)
             {
                 RK rk = new RK();
                 rk.Value = (uint)(Convert.ToInt32(value) << 2 | 2);
