@@ -4,7 +4,7 @@
   <IsCutomized>false</IsCutomized>
   <Description />
   <Fields />
-    <Record Name="CommonObjectData" Category="BinaryFileFormat\SubRecords" Parent="SubRecord">
+    <Record Name="CommonObjectData" Parent="SubRecord" Category="BinaryFileFormat\SubRecords">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Fields>
@@ -16,17 +16,17 @@
         <RecordField Name="Reserved3" Type="UInt32" />
       </Fields>
     </Record>
-    <Record Name="End" Category="BinaryFileFormat\SubRecords" Parent="SubRecord">
+    <Record Name="End" Parent="SubRecord" Category="BinaryFileFormat\SubRecords">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Fields />
     </Record>
-    <Record Name="GroupMarker" Category="BinaryFileFormat\SubRecords" Parent="SubRecord">
+    <Record Name="GroupMarker" Parent="SubRecord" Category="BinaryFileFormat\SubRecords">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Fields />
     </Record>
-    <Record Name="ClipboardFormat" Category="BinaryFileFormat\SubRecords" Parent="SubRecord">
+    <Record Name="ClipboardFormat" Parent="SubRecord" Category="BinaryFileFormat\SubRecords">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Description />
@@ -36,7 +36,7 @@
         </RecordField>
       </Fields>
     </Record>
-    <Record Name="PictureOption" Category="BinaryFileFormat\SubRecords" Parent="SubRecord">
+    <Record Name="PictureOption" Parent="SubRecord" Category="BinaryFileFormat\SubRecords">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Description>Picture option flags</Description>

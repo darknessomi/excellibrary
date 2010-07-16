@@ -5,20 +5,17 @@ using System.IO;
 
 namespace ExcelLibrary.BinaryFileFormat
 {
-	/// <summary>
-	/// This record stores the result of a string formula. It occurs directly after a string formula.
-	/// </summary>
-	public partial class STRING : Record
+	public partial class LABEL : CellValue
 	{
-		public STRING(Record record) : base(record) { }
+		public LABEL(Record record) : base(record) { }
 
-		public STRING()
+		public LABEL()
 		{
-			this.Type = RecordType.STRING;
+			this.Type = RecordType.LABEL;
 		}
 
 		/// <summary>
-		/// Non-empty Unicode string, 16-bit string length
+		/// Index into SST record
 		/// </summary>
 		public String Value;
 
@@ -26,6 +23,9 @@ namespace ExcelLibrary.BinaryFileFormat
 		{
 			MemoryStream stream = new MemoryStream(Data);
 			BinaryReader reader = new BinaryReader(stream);
+			this.RowIndex = reader.ReadUInt16();
+			this.ColIndex = reader.ReadUInt16();
+			this.XFIndex = reader.ReadUInt16();
 			this.Value = this.ReadString(reader, 16);
 		}
 
@@ -33,6 +33,9 @@ namespace ExcelLibrary.BinaryFileFormat
 		{
 			MemoryStream stream = new MemoryStream();
 			BinaryWriter writer = new BinaryWriter(stream);
+			writer.Write(RowIndex);
+			writer.Write(ColIndex);
+			writer.Write(XFIndex);
 			Record.WriteString(writer, Value, 16);
 			this.Data = stream.ToArray();
 			this.Size = (UInt16)Data.Length;

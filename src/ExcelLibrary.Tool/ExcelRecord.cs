@@ -235,7 +235,7 @@ namespace ExcelLibrary.Tool
                 switch (typeName)
                 {
                     case "String":
-                        format = "Record.WriteString(writer, {0}," + member.ExtraInfo + ");";
+                        format = "Record.WriteString(writer, {0}, " + member.ExtraInfo + ");";
                         break;
                     case "Guid":
                         format = "writer.Write({0}.ToByteArray());";

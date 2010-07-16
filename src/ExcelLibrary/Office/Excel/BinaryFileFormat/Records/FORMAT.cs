@@ -40,7 +40,7 @@ namespace ExcelLibrary.BinaryFileFormat
 			MemoryStream stream = new MemoryStream();
 			BinaryWriter writer = new BinaryWriter(stream);
 			writer.Write(FormatIndex);
-			Record.WriteString(writer, FormatString,16);
+			Record.WriteString(writer, FormatString, 16);
 			this.Data = stream.ToArray();
 			this.Size = (UInt16)Data.Length;
 			base.Encode();

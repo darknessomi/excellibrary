@@ -101,10 +101,14 @@ namespace ExcelLibrary.BinaryFileFormat
                         BOOLERR boolerr = record as BOOLERR;
                         cells.CreateCell(boolerr.RowIndex, boolerr.ColIndex, boolerr.GetValue(), boolerr.XFIndex);
                         break;
+                    case RecordType.LABEL:
+                        LABEL label = record as LABEL;
+                        cells.CreateCell(label.RowIndex, label.ColIndex, label.Value, label.XFIndex);
+                        break;
                     case RecordType.LABELSST:
-                        LABELSST label = record as LABELSST;
-                        Cell cell = cells.CreateCell(label.RowIndex, label.ColIndex, sharedResource.GetStringFromSST(label.SSTIndex), label.XFIndex);
-                        cell.Style.RichTextFormat = sharedResource.SharedStringTable.RichTextFormatting[label.SSTIndex];
+                        LABELSST labelsst = record as LABELSST;
+                        Cell cell = cells.CreateCell(labelsst.RowIndex, labelsst.ColIndex, sharedResource.GetStringFromSST(labelsst.SSTIndex), labelsst.XFIndex);
+                        cell.Style.RichTextFormat = sharedResource.SharedStringTable.RichTextFormatting[labelsst.SSTIndex];
                         break;
                     case RecordType.NUMBER:
                         NUMBER number = record as NUMBER;

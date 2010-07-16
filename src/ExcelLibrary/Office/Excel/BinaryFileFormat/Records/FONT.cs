@@ -100,7 +100,7 @@ namespace ExcelLibrary.BinaryFileFormat
 			writer.Write(Family);
 			writer.Write(CharacterSet);
 			writer.Write(NotUsed);
-			Record.WriteString(writer, Name,8);
+			Record.WriteString(writer, Name, 8);
 			this.Data = stream.ToArray();
 			this.Size = (UInt16)Data.Length;
 			base.Encode();

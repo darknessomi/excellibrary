@@ -51,7 +51,7 @@ namespace ExcelLibrary.BinaryFileFormat
 			writer.Write(StreamPosition);
 			writer.Write(Visibility);
 			writer.Write(SheetType);
-			Record.WriteString(writer, SheetName,8);
+			Record.WriteString(writer, SheetName, 8);
 			this.Data = stream.ToArray();
 			this.Size = (UInt16)Data.Length;
 			base.Encode();

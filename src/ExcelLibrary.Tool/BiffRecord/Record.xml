@@ -3,7 +3,7 @@
   <IsAbstract>true</IsAbstract>
   <IsCutomized>false</IsCutomized>
   <Fields />
-    <Record Name="BOF" Category="BinaryFileFormat\Records" Parent="Record">
+    <Record Name="BOF" Parent="Record" Category="BinaryFileFormat\Records">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Fields>
@@ -17,12 +17,12 @@
         </RecordField>
       </Fields>
     </Record>
-    <Record Name="ARRAY" Category="BinaryFileFormat\Records" Parent="Record">
+    <Record Name="ARRAY" Parent="Record" Category="BinaryFileFormat\Records">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Fields />
     </Record>
-    <Record Name="BACKUP" Category="BinaryFileFormat\Records" Parent="Record">
+    <Record Name="BACKUP" Parent="Record" Category="BinaryFileFormat\Records">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Fields>
@@ -31,7 +31,7 @@
         </RecordField>
       </Fields>
     </Record>
-    <Record Name="BLANK" Category="BinaryFileFormat\Records" Parent="Record">
+    <Record Name="BLANK" Parent="Record" Category="BinaryFileFormat\Records">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Fields>
@@ -40,7 +40,7 @@
         <RecordField Name="XFIndex" Type="UInt16" />
       </Fields>
     </Record>
-    <Record Name="BOOKBOOL" Category="BinaryFileFormat\Records" Parent="Record">
+    <Record Name="BOOKBOOL" Parent="Record" Category="BinaryFileFormat\Records">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Fields>
@@ -49,7 +49,7 @@
         </RecordField>
       </Fields>
     </Record>
-    <Record Name="BOTTOMMARGIN" Category="BinaryFileFormat\Records" Parent="Record">
+    <Record Name="BOTTOMMARGIN" Parent="Record" Category="BinaryFileFormat\Records">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Fields>
@@ -58,7 +58,7 @@
         </RecordField>
       </Fields>
     </Record>
-    <Record Name="BOUNDSHEET" Category="BinaryFileFormat\Records" Parent="Record">
+    <Record Name="BOUNDSHEET" Parent="Record" Category="BinaryFileFormat\Records">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Fields>
@@ -76,7 +76,7 @@
         </RecordField>
       </Fields>
     </Record>
-    <Record Name="CALCCOUNT" Category="BinaryFileFormat\Records" Parent="Record">
+    <Record Name="CALCCOUNT" Parent="Record" Category="BinaryFileFormat\Records">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Fields>
@@ -85,7 +85,7 @@
         </RecordField>
       </Fields>
     </Record>
-    <Record Name="CALCMODE" Category="BinaryFileFormat\Records" Parent="Record">
+    <Record Name="CALCMODE" Parent="Record" Category="BinaryFileFormat\Records">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Fields>
@@ -94,7 +94,7 @@
         </RecordField>
       </Fields>
     </Record>
-    <Record Name="CODEPAGE" Category="BinaryFileFormat\Records" Parent="Record">
+    <Record Name="CODEPAGE" Parent="Record" Category="BinaryFileFormat\Records">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Fields>
@@ -103,7 +103,7 @@
         </RecordField>
       </Fields>
     </Record>
-    <Record Name="DIMENSIONS" Category="BinaryFileFormat\Records" Parent="Record">
+    <Record Name="DIMENSIONS" Parent="Record" Category="BinaryFileFormat\Records">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Fields>
@@ -124,7 +124,7 @@
         </RecordField>
       </Fields>
     </Record>
-    <Record Name="MULBLANK" Category="BinaryFileFormat\Records" Parent="Record">
+    <Record Name="MULBLANK" Parent="Record" Category="BinaryFileFormat\Records">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Fields>
@@ -142,7 +142,7 @@
         </RecordField>
       </Fields>
     </Record>
-    <Record Name="MULRK" Category="BinaryFileFormat\Records" Parent="Record">
+    <Record Name="MULRK" Parent="Record" Category="BinaryFileFormat\Records">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>true</IsCutomized>
       <Fields>
@@ -160,7 +160,7 @@
         </RecordField>
       </Fields>
     </Record>
-    <Record Name="ROW" Category="BinaryFileFormat\Records" Parent="Record">
+    <Record Name="ROW" Parent="Record" Category="BinaryFileFormat\Records">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Description>Index to column of the last cell which is described by a cell record, increased by 1</Description>
@@ -188,7 +188,7 @@
         </RecordField>
       </Fields>
     </Record>
-    <Record Name="RSTRING" Category="BinaryFileFormat\Records" Parent="Record">
+    <Record Name="RSTRING" Parent="Record" Category="BinaryFileFormat\Records">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Fields>
@@ -197,7 +197,7 @@
         </RecordField>
       </Fields>
     </Record>
-    <Record Name="SST" Category="BinaryFileFormat\Records" Parent="Record">
+    <Record Name="SST" Parent="Record" Category="BinaryFileFormat\Records">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>true</IsCutomized>
       <Description>List of nm Unicode strings, 16-bit string length</Description>
@@ -213,12 +213,12 @@
         </RecordField>
       </Fields>
     </Record>
-    <Record Name="CONTINUE" Category="BinaryFileFormat\Records" Parent="Record">
+    <Record Name="CONTINUE" Parent="Record" Category="BinaryFileFormat\Records">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Fields />
     </Record>
-    <Record Name="FORMULA" Category="BinaryFileFormat\Records" Parent="Record">
+    <Record Name="FORMULA" Parent="Record" Category="BinaryFileFormat\Records">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Description />
@@ -246,7 +246,7 @@
         </RecordField>
       </Fields>
     </Record>
-    <Record Name="XF" Category="BinaryFileFormat\Records" Parent="Record">
+    <Record Name="XF" Parent="Record" Category="BinaryFileFormat\Records">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Fields>
@@ -262,17 +262,17 @@
         <RecordField Name="Background" Type="UInt16" />
       </Fields>
     </Record>
-    <Record Name="BITMAP" Category="BinaryFileFormat\Records" Parent="Record">
+    <Record Name="BITMAP" Parent="Record" Category="BinaryFileFormat\Records">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Fields />
     </Record>
-    <Record Name="OBJ" Category="BinaryFileFormat\Records" Parent="Record">
+    <Record Name="OBJ" Parent="Record" Category="BinaryFileFormat\Records">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Fields />
     </Record>
-    <Record Name="DATEMODE" Category="BinaryFileFormat\Records" Parent="Record">
+    <Record Name="DATEMODE" Parent="Record" Category="BinaryFileFormat\Records">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Fields>
@@ -281,31 +281,31 @@
         </RecordField>
       </Fields>
     </Record>
-    <Record Name="MSOCONTAINER" Category="BinaryFileFormat\Records" Parent="Record">
+    <Record Name="MSOCONTAINER" Parent="Record" Category="BinaryFileFormat\Records">
       <IsAbstract>true</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Description />
       <Fields />
-        <Record Name="MSODRAWINGGROUP" Category="BinaryFileFormat\Records" Parent="MSOCONTAINER">
+        <Record Name="MSODRAWINGGROUP" Parent="MSOCONTAINER" Category="BinaryFileFormat\Records">
           <IsAbstract>false</IsAbstract>
           <IsCutomized>false</IsCutomized>
           <Description />
           <Fields />
         </Record>
-        <Record Name="MSODRAWING" Category="BinaryFileFormat\Records" Parent="MSOCONTAINER">
+        <Record Name="MSODRAWING" Parent="MSOCONTAINER" Category="BinaryFileFormat\Records">
           <IsAbstract>false</IsAbstract>
           <IsCutomized>false</IsCutomized>
           <Description />
           <Fields />
         </Record>
-        <Record Name="MSODRAWINGSELECTION" Category="BinaryFileFormat\Records" Parent="MSOCONTAINER">
+        <Record Name="MSODRAWINGSELECTION" Parent="MSOCONTAINER" Category="BinaryFileFormat\Records">
           <IsAbstract>false</IsAbstract>
           <IsCutomized>false</IsCutomized>
           <Description />
           <Fields />
         </Record>
     </Record>
-    <Record Name="STRING" Category="BinaryFileFormat\Records" Parent="Record">
+    <Record Name="STRING" Parent="Record" Category="BinaryFileFormat\Records">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Description>This record stores the result of a string formula. It occurs directly after a string formula.</Description>
@@ -315,13 +315,13 @@
         </RecordField>
       </Fields>
     </Record>
-    <Record Name="EOF" Category="BinaryFileFormat\Records" Parent="Record">
+    <Record Name="EOF" Parent="Record" Category="BinaryFileFormat\Records">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Description>Indicates the end of workbook globals, a worksheet, a chart, etc.</Description>
       <Fields />
     </Record>
-    <Record Name="CellValue" Category="BinaryFileFormat\Records" Parent="Record">
+    <Record Name="CellValue" Parent="Record" Category="BinaryFileFormat\Records">
       <IsAbstract>true</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Description />
@@ -336,7 +336,7 @@
           <Description>Index to XF record</Description>
         </RecordField>
       </Fields>
-        <Record Name="BOOLERR" Category="BinaryFileFormat\Records" Parent="CellValue">
+        <Record Name="BOOLERR" Parent="CellValue" Category="BinaryFileFormat\Records">
           <IsAbstract>false</IsAbstract>
           <IsCutomized>false</IsCutomized>
           <Description />
@@ -349,7 +349,7 @@
             </RecordField>
           </Fields>
         </Record>
-        <Record Name="LABELSST" Category="BinaryFileFormat\Records" Parent="CellValue">
+        <Record Name="LABELSST" Parent="CellValue" Category="BinaryFileFormat\Records">
           <IsAbstract>false</IsAbstract>
           <IsCutomized>false</IsCutomized>
           <Description />
@@ -359,7 +359,7 @@
             </RecordField>
           </Fields>
         </Record>
-        <Record Name="NUMBER" Category="BinaryFileFormat\Records" Parent="CellValue">
+        <Record Name="NUMBER" Parent="CellValue" Category="BinaryFileFormat\Records">
           <IsAbstract>false</IsAbstract>
           <IsCutomized>false</IsCutomized>
           <Description />
@@ -369,7 +369,7 @@
             </RecordField>
           </Fields>
         </Record>
-        <Record Name="RK" Category="BinaryFileFormat\Records" Parent="CellValue">
+        <Record Name="RK" Parent="CellValue" Category="BinaryFileFormat\Records">
           <IsAbstract>false</IsAbstract>
           <IsCutomized>false</IsCutomized>
           <Description />
@@ -379,8 +379,17 @@
             </RecordField>
           </Fields>
         </Record>
+        <Record Name="LABEL" Parent="CellValue" Category="BinaryFileFormat\Records">
+          <IsAbstract>false</IsAbstract>
+          <IsCutomized>false</IsCutomized>
+          <Fields>
+            <RecordField Name="Value" Type="String" ExtraInfo="16">
+              <Description>Index into SST record</Description>
+            </RecordField>
+          </Fields>
+        </Record>
     </Record>
-    <Record Name="DBCELL" Category="BinaryFileFormat\Records" Parent="Record">
+    <Record Name="DBCELL" Parent="Record" Category="BinaryFileFormat\Records">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Description>contains relative offsets to calculate the stream position of the first cell
@@ -394,7 +403,7 @@ record for each row in each row block.</Description>
         </RecordField>
       </Fields>
     </Record>
-    <Record Name="EXTSST" Category="BinaryFileFormat\Records" Parent="Record">
+    <Record Name="EXTSST" Parent="Record" Category="BinaryFileFormat\Records">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>true</IsCutomized>
       <Description>This record occurs in conjunction with the SST record. 
@@ -408,7 +417,7 @@ Used to optimise string search operations.</Description>
         </RecordField>
       </Fields>
     </Record>
-    <Record Name="WINDOW1" Category="BinaryFileFormat\Records" Parent="Record">
+    <Record Name="WINDOW1" Parent="Record" Category="BinaryFileFormat\Records">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Description>General   settings   for   the  document  window  and  global  workbook   settings</Description>
@@ -443,7 +452,7 @@ The remaining space is used by the horizontal scrollbar.</Description>
         </RecordField>
       </Fields>
     </Record>
-    <Record Name="FORMAT" Category="BinaryFileFormat\Records" Parent="Record">
+    <Record Name="FORMAT" Parent="Record" Category="BinaryFileFormat\Records">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Description>This record contains information about a number format. </Description>
@@ -456,7 +465,7 @@ The remaining space is used by the horizontal scrollbar.</Description>
         </RecordField>
       </Fields>
     </Record>
-    <Record Name="FONT" Category="BinaryFileFormat\Records" Parent="Record">
+    <Record Name="FONT" Parent="Record" Category="BinaryFileFormat\Records">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Description />
@@ -503,7 +512,7 @@ The remaining space is used by the horizontal scrollbar.</Description>
         </RecordField>
       </Fields>
     </Record>
-    <Record Name="COLINFO" Category="BinaryFileFormat\Records" Parent="Record">
+    <Record Name="COLINFO" Parent="Record" Category="BinaryFileFormat\Records">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Description>This record specifies the width and default cell formatting for a given range of columns.</Description>
@@ -529,7 +538,7 @@ FONT record in the file)</Description>
         </RecordField>
       </Fields>
     </Record>
-    <Record Name="PALETTE" Category="BinaryFileFormat\Records" Parent="Record">
+    <Record Name="PALETTE" Parent="Record" Category="BinaryFileFormat\Records">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Description>This record contains the definition of all user-defined  colours  available for cell and object formatting. </Description>
@@ -542,7 +551,7 @@ FONT record in the file)</Description>
         </RecordField>
       </Fields>
     </Record>
-    <Record Name="STANDARDWIDTH" Category="BinaryFileFormat\Records" Parent="Record">
+    <Record Name="STANDARDWIDTH" Parent="Record" Category="BinaryFileFormat\Records">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Description />
@@ -552,7 +561,7 @@ FONT record in the file)</Description>
         </RecordField>
       </Fields>
     </Record>
-    <Record Name="DEFCOLWIDTH" Category="BinaryFileFormat\Records" Parent="Record">
+    <Record Name="DEFCOLWIDTH" Parent="Record" Category="BinaryFileFormat\Records">
       <IsAbstract>false</IsAbstract>
       <IsCutomized>false</IsCutomized>
       <Description>This record specifies  the default  column width for columns  that  do not  have a specific width set  using  the records 

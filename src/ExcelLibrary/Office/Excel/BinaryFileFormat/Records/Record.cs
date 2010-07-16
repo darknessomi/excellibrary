@@ -74,6 +74,8 @@ namespace ExcelLibrary.BinaryFileFormat
 					return new NUMBER(record);
 				case RecordType.RK:
 					return new RK(record);
+				case RecordType.LABEL:
+					return new LABEL(record);
 				case RecordType.DBCELL:
 					return new DBCELL(record);
 				case RecordType.EXTSST:

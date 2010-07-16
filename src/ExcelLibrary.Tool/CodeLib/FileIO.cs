@@ -33,8 +33,7 @@ namespace QiHe.CodeLib
             }
             else
             {
-                //throw new FileNotFoundException(xmlfile);
-                return default(DataType);
+                throw new FileNotFoundException(xmlfile);
             }
             return data;
         }
