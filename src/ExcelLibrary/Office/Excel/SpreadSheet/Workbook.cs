@@ -33,10 +33,12 @@ namespace ExcelLibrary.SpreadSheet
         /// <returns></returns>
         public static Workbook Load(Stream stream)
         {
-            CompoundDocument doc = CompoundDocument.Load(stream);
-            if (doc == null) throw new Exception("Invalid Excel file");
-            byte[] bookdata = doc.GetStreamData("Workbook");
-            return WorkbookDecoder.Decode(new MemoryStream(bookdata));
+            using (CompoundDocument doc = CompoundDocument.Load(stream))
+            {
+                if (doc == null) throw new Exception("Invalid Excel file");
+                byte[] bookdata = doc.GetStreamData("Workbook");
+                return WorkbookDecoder.Decode(new MemoryStream(bookdata));
+            }
         }
 
         /// <summary>
@@ -45,19 +47,14 @@ namespace ExcelLibrary.SpreadSheet
         /// <param name="file"></param>
         public void Save(string file)
         {
-            CompoundDocument doc = CompoundDocument.Create(file);
-            try
+            using (CompoundDocument doc = CompoundDocument.Create(file))
             {
-                using (MemoryStream stream = new MemoryStream())
+                using (MemoryStream memStream = new MemoryStream())
                 {
-                    WorkbookEncoder.Encode(this, stream);
-                    doc.WriteStreamData(new string[] { "Workbook" }, stream.ToArray());
+                    WorkbookEncoder.Encode(this, memStream);
+                    doc.WriteStreamData(new string[] { "Workbook" }, memStream.ToArray());
+                    doc.Save();
                 }
-                doc.Save();
-            }
-            finally
-            {
-                doc.Close();
             }
         }
 
@@ -67,12 +64,15 @@ namespace ExcelLibrary.SpreadSheet
         /// <param name="stream"></param>
         public void Save(Stream stream)
         {
-            CompoundDocument doc = CompoundDocument.Create(stream);
-            MemoryStream memStream = new MemoryStream();
-            WorkbookEncoder.Encode(this, memStream);
-            doc.WriteStreamData(new string[] { "Workbook" }, memStream.ToArray());
-            doc.Save();
-            doc.Close();
+            using (CompoundDocument doc = CompoundDocument.Create(stream))
+            {
+                using (MemoryStream memStream = new MemoryStream())
+                {
+                    WorkbookEncoder.Encode(this, memStream);
+                    doc.WriteStreamData(new string[] { "Workbook" }, memStream.ToArray());
+                    doc.Save();
+                }
+            }
         }
 
         public List<byte[]> ExtractImages()

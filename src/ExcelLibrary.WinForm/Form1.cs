@@ -224,6 +224,7 @@ namespace ExcelLibrary.WinForm
                 doc.Save();
             }
         }
+
         Workbook workbook;
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -231,34 +232,33 @@ namespace ExcelLibrary.WinForm
             string file = FileSelector.BrowseFileForSave(FileType.All);
             if (file == null) return;
 
-
-            CompoundDocument newDoc = CompoundDocument.Create(file);
-
-            foreach (string streamName in doc.RootStorage.Members.Keys)
+            using (CompoundDocument newDoc = CompoundDocument.Create(file))
             {
-                newDoc.WriteStreamData(new string[] { streamName }, doc.GetStreamData(streamName));
-            }
-
-            byte[] bookdata = doc.GetStreamData("Workbook");
-            if (bookdata != null)
-            {
-                if (workbook == null)
+                foreach (string streamName in doc.RootStorage.Members.Keys)
                 {
-                    workbook = WorkbookDecoder.Decode(new MemoryStream(bookdata));
+                    newDoc.WriteStreamData(new string[] { streamName }, doc.GetStreamData(streamName));
                 }
-                MemoryStream stream = new MemoryStream();
-                //WorkbookEncoder.Encode(workbook, stream);
 
-                BinaryWriter writer = new BinaryWriter(stream);
-                foreach (Record record in workbook.Records)
+                byte[] bookdata = doc.GetStreamData("Workbook");
+                if (bookdata != null)
                 {
-                    record.Write(writer);
+                    if (workbook == null)
+                    {
+                        workbook = WorkbookDecoder.Decode(new MemoryStream(bookdata));
+                    }
+                    MemoryStream stream = new MemoryStream();
+                    //WorkbookEncoder.Encode(workbook, stream);
+
+                    BinaryWriter writer = new BinaryWriter(stream);
+                    foreach (Record record in workbook.Records)
+                    {
+                        record.Write(writer);
+                    }
+                    writer.Close();
+                    newDoc.WriteStreamData(new string[] { "Workbook" }, stream.ToArray());
                 }
-                writer.Close();
-                newDoc.WriteStreamData(new string[] { "Workbook" }, stream.ToArray());
+                newDoc.Save();
             }
-            newDoc.Save();
-            newDoc.Close();
         }
 
         void TranverseEscherRecords(EscherRecord record, Action<EscherRecord> action)
