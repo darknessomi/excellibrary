@@ -6,7 +6,7 @@ using QiHe.CodeLib;
 
 namespace ExcelLibrary.CompoundDocumentFormat
 {
-    public partial class CompoundDocument
+    public partial class CompoundDocument : IDisposable
     {
         internal FileHeader Header;
         internal int SectorSize;
@@ -93,7 +93,35 @@ namespace ExcelLibrary.CompoundDocumentFormat
 
         public void Close()
         {
-            FileStorage.Close();
+            Dispose();
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        ~CompoundDocument()
+        {
+            Dispose(false);
+        }
+
+        bool disposed = false;
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposed) { return; }
+
+            if (disposing)
+            {
+                if (FileStorage != null)
+                {
+                    FileStorage.Close();
+                    FileStorage = null;
+                }
+            }
+
+            disposed = true;
         }
 
         bool CheckHeader()
