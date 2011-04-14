@@ -92,7 +92,7 @@ namespace ExcelLibrary
 
                     // Populate row data
                     for (int j = 0; j < dt.Rows.Count; j++)
-                        worksheet.Cells[j + 1, i] = new Cell(dt.Rows[j][i].ToString());
+                        worksheet.Cells[j + 1, i] = new Cell(dt.Rows[j][i]);
                 }
                 workbook.Worksheets.Add(worksheet);
             }
