@@ -33,12 +33,10 @@ namespace ExcelLibrary.SpreadSheet
         /// <returns></returns>
         public static Workbook Load(Stream stream)
         {
-            using (CompoundDocument doc = CompoundDocument.Load(stream))
-            {
-                if (doc == null) throw new Exception("Invalid Excel file");
-                byte[] bookdata = doc.GetStreamData("Workbook");
-                return WorkbookDecoder.Decode(new MemoryStream(bookdata));
-            }
+            CompoundDocument doc = CompoundDocument.Load(stream);
+            if (doc == null) throw new Exception("Invalid Excel file");
+            byte[] bookdata = doc.GetStreamData("Workbook");
+            return WorkbookDecoder.Decode(new MemoryStream(bookdata));
         }
 
         /// <summary>
@@ -64,14 +62,12 @@ namespace ExcelLibrary.SpreadSheet
         /// <param name="stream"></param>
         public void Save(Stream stream)
         {
-            using (CompoundDocument doc = CompoundDocument.Create(stream))
+            CompoundDocument doc = CompoundDocument.Create(stream);
+            using (MemoryStream memStream = new MemoryStream())
             {
-                using (MemoryStream memStream = new MemoryStream())
-                {
-                    WorkbookEncoder.Encode(this, memStream);
-                    doc.WriteStreamData(new string[] { "Workbook" }, memStream.ToArray());
-                    doc.Save();
-                }
+                WorkbookEncoder.Encode(this, memStream);
+                doc.WriteStreamData(new string[] { "Workbook" }, memStream.ToArray());
+                doc.Save();
             }
         }
 
