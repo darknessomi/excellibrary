@@ -267,5 +267,14 @@ namespace ExcelLibrary.CompoundDocumentFormat
                 writer.Write(data[i]);
             }
         }
+
+        public static CompoundDocument CreateFromStream(Stream stream)
+        {
+            CompoundDocument document = new CompoundDocument(stream, new CompoundFileHeader());
+            document.WriteHeader();
+            document.MasterSectorAllocation.AllocateSATSector();
+            document.InitializeDirectoryEntries();
+            return document;
+        }
     }
 }

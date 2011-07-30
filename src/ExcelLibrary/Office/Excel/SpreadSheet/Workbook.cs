@@ -127,5 +127,14 @@ namespace ExcelLibrary.SpreadSheet
             }
             Records.RemoveAt(index);
         }
+
+        public void SaveToStream(Stream stream)
+        {
+            CompoundDocument doc = CompoundDocument.CreateFromStream(stream);
+            MemoryStream mstream = new MemoryStream();
+            WorkbookEncoder.Encode(this, mstream);
+            doc.WriteStreamData(new string[] { "Workbook" }, mstream.ToArray());
+            doc.Save();
+        }
     }
 }
