@@ -64,6 +64,7 @@
     <Compile Include="CodeLib\FastSearchListTest.cs" />
     <Compile Include="DataSetHelperTest.cs" />
     <Compile Include="Issue\Issue10_Test.cs" />
+    <Compile Include="Issue\Issue141_Test.cs" />
     <Compile Include="SimpleTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

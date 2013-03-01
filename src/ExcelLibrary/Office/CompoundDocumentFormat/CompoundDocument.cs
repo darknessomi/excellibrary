@@ -58,7 +58,16 @@ namespace ExcelLibrary.CompoundDocumentFormat
         public static CompoundDocument Open(string file)
         {
             FileStream stream = File.Open(file, FileMode.Open, FileAccess.ReadWrite, FileShare.Read);
-            return Open(stream);
+
+            try
+            {
+                return Open(stream);
+            }
+            catch (Exception ex)
+            {
+                stream.Close();
+                throw ex;
+            }
         }
 
         public static CompoundDocument Create(Stream stream)
